@@ -15,6 +15,12 @@
     <string name="feedback_error_msg_too_short">Message must contain at least %1$d characters.</string>
 
     <!--
+        Changelog
+        -->
+
+    <string name="dialog_changelog_title">Changelog</string>
+
+    <!--
         About dialog
         -->
 
