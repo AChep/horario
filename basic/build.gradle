@@ -15,16 +15,11 @@ android {
     }
 
     buildTypes {
-        debug {
-            minifyEnabled false
-        }
         release {
-            zipAlignEnabled true
-            minifyEnabled true
-            proguardFile 'proguard-support-v7-appcompat.pro'
-            proguardFile 'proguard-support-design.pro'
-            proguardFile 'proguard-checkout.pro'
-            proguardFile 'proguard-app.pro'
+            consumerProguardFile 'proguard-support-v7-appcompat.pro'
+            consumerProguardFile 'proguard-support-design.pro'
+            consumerProguardFile 'proguard-checkout.pro'
+            consumerProguardFile 'proguard-app.pro'
         }
     }
 }
@@ -37,6 +32,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
+        // use version of jsr305 provided by Checkout
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
     })
     compile 'org.solovyev.android:checkout:0.9.4'
     compile 'com.jakewharton.timber:timber:4.5.1'

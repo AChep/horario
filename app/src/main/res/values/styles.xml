@@ -1,11 +1,18 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="SplashTheme" parent="AppThemeLight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen_drawable</item>
+    </style>
+
+    <style name="AuthTheme" parent="AppThemeLight.NoActionBar">
+        <item name="colorPrimary">@color/auth_background</item>
+        <item name="colorPrimaryDark">@color/auth_background_dark</item>
+        <item name="android:windowBackground">@color/auth_background</item>
+        <item name="android:colorBackground">@color/auth_background</item>
+    </style>
+
+    <style name="AuthSlaveTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="windowNoTitle">true</item>
     </style>
 
 </resources>

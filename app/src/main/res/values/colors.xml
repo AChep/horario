@@ -3,4 +3,31 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- Light -->
+    <color name="light_primary">#EEE</color>
+    <color name="light_primary_dark">#666</color>
+    <color name="light_primary_light">#F5F5F5</color>
+    <color name="light_accent">#448AFF</color>
+    <color name="light_activated">#5BB9FF</color>
+    <color name="light_drawer_background">#333</color>
+    <color name="light_drawer_background_tablet">@color/dark_primary</color>
+    <color name="light_drawer_selection">#444</color>
+    <!-- Dark -->
+    <color name="dark_primary">#333</color>
+    <color name="dark_primary_dark">#000</color>
+    <color name="dark_primary_light">#F5F5F5</color>
+    <color name="dark_accent">#82B1FF</color>
+    <color name="dark_activated">#4282ED</color>
+    <color name="dark_drawer_background">#333</color>
+    <color name="dark_drawer_background_tablet">@color/dark_primary</color>
+    <color name="dark_drawer_selection">#444</color>
+    <!-- Black -->
+    <color name="black_primary">#000</color>
+    <color name="black_primary_dark">#000</color>
+    <color name="black_activated">@color/dark_activated</color>
+
+    <color name="auth_background">#448AFF</color>
+    <color name="auth_background_dark">#3060bb</color>
+
 </resources>

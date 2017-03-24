@@ -1,3 +1,19 @@
 <resources>
+
     <string name="app_name">Horario</string>
+
+    <!--
+        Hints
+        -->
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_password_confirm">Confirm password</string>
+
+    <!--
+        Constants
+        -->
+
+    <string name="facebook_app_id">1373138249410557</string>
+
 </resources>

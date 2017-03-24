@@ -1,0 +1,96 @@
+<resources>
+
+
+    <!--
+        Light
+        -->
+    <!-- Base application theme. -->
+    <style name="AppThemeLight_Base" parent="Theme.AppCompat.Light">
+        <!-- Api dependent changes go here -->
+    </style>
+
+    <style name="AppThemeLight" parent="AppThemeLight_Base">
+        <!-- Customize theme here -->
+        <item name="colorPrimary">@color/light_primary</item>
+        <item name="colorPrimaryDark">@color/light_primary_dark</item>
+        <item name="colorAccent">@color/light_accent</item>
+        <item name="colorControlActivated">@color/light_activated</item>
+        <!-- Icons -->
+        <item name="icon_shield">@drawable/ic_shield_black_24dp</item>
+        <item name="icon_lock_reset">@drawable/ic_lock_reset_black_24dp</item>
+        <item name="icon_account_plus">@drawable/ic_account_plus_black_24dp</item>
+    </style>
+
+    <style name="AppThemeLight.NoActionBar_Base" parent="AppThemeLight">
+        <!-- Api dependent changes go here -->
+    </style>
+
+    <style name="AppThemeLight.NoActionBar" parent="AppThemeLight.NoActionBar_Base">
+        <!-- Customize theme here -->
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--
+        Dark
+        -->
+
+    <!-- Base application theme. -->
+    <style name="AppTheme_Base" parent="Theme.AppCompat">
+        <!-- Api dependent changes go here -->
+    </style>
+
+    <style name="AppTheme" parent="AppTheme_Base">
+        <!-- Customize theme here -->
+        <item name="colorPrimary">@color/dark_primary</item>
+        <item name="colorPrimaryDark">@color/dark_primary_dark</item>
+        <item name="colorAccent">@color/dark_accent</item>
+        <item name="colorControlActivated">@color/dark_activated</item>
+        <!-- Customize theme here -->
+        <item name="icon_shield">@drawable/ic_shield_white_24dp</item>
+        <item name="icon_lock_reset">@drawable/ic_lock_reset_white_24dp</item>
+        <item name="icon_account_plus">@drawable/ic_account_plus_white_24dp</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar_Base" parent="AppTheme">
+        <!-- Api dependent changes go here -->
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme.NoActionBar_Base">
+        <!-- Customize theme here -->
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--
+        Black
+        -->
+
+    <style name="AppThemeBlack" parent="AppTheme">
+        <!-- Customize theme here -->
+        <item name="colorPrimary">@color/black_primary</item>
+        <item name="colorPrimaryDark">@color/black_primary_dark</item>
+        <item name="colorAccent">@color/dark_accent</item>
+        <item name="colorControlActivated">@color/black_activated</item>
+        <item name="android:windowBackground">@color/black_primary</item>
+        <item name="android:colorBackground">@color/black_primary</item>
+    </style>
+
+    <style name="AppThemeBlack.NoActionBar_Base" parent="AppThemeBlack">
+        <!-- Api dependent changes go here -->
+    </style>
+
+    <style name="AppThemeBlack.NoActionBar" parent="AppThemeBlack.NoActionBar_Base">
+        <!-- Customize theme here -->
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

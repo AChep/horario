@@ -1,0 +1,31 @@
+<resources>
+
+    <string name="auth_error_invalid_email">Invalid email</string>
+    <string name="auth_error_passwd_length">Must contain at least %1$d symbols</string>
+    <string name="auth_error_passwd_not_match">Passwords do not match</string>
+
+    <string name="auth_connection_failed">Connection failed</string>
+
+    <string name="auth_login_email">Sign in</string>
+    <string name="auth_forgot_passwd">Forgot password</string>
+    <string name="auth_privacy_policy">Privacy policy</string>
+    <string name="auth_sign_in">Sign in</string>
+    <string name="auth_signing_in">Signing in…</string>
+    <string name="auth_sign_up">Sign up</string>
+    <string name="auth_signing_up">Signing up…</string>
+
+    <string name="auth_reset_password">Reset password</string>
+    <string name="auth_register">Register</string>
+
+    <!--
+        Providers
+        -->
+
+    <string name="auth_category_provider">Linked accounts</string>
+    <string name="auth_provider_google">Google</string>
+    <string name="auth_provider_password">Email</string>
+    <string name="auth_provider_github">GitHub</string>
+    <string name="auth_provider_facebook">Facebook</string>
+    <string name="auth_add_provider">Add…</string>
+
+</resources>

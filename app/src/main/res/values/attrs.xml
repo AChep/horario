@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Theme">
+        <attr name="icon_shield" format="reference" />
+        <attr name="icon_lock_reset" format="reference" />
+        <attr name="icon_account_plus" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="DashboardTile">
+        <attr name="dashboard_id" format="string" />
+        <attr name="dashboard_icon" format="reference" />
+        <attr name="dashboard_title" format="reference|string" />
+        <attr name="dashboard_summary" format="reference|string" />
+        <attr name="dashboard_fragment" format="string" />
+    </declare-styleable>
+
+</resources>
