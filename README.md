@@ -1,6 +1,6 @@
 Horario
 ==========
-[![Build Status](https://travis-ci.org/XJSHQ/horario.svg?branch=master)](https://travis-ci.org/XJSHQ/horario)
+[![Build Status](https://travis-ci.org/XJSHQ/horario.svg?branch=master)](https://travis-ci.org/XJSHQ/horario) [![Crowdin](https://d322cqt584bo4o.cloudfront.net/horario/localized.svg)](https://crowdin.com/project/horario)
 
 <img alt="Logo" align="right" height="220"
    src="https://github.com/XJSHQ/horario/raw/master/extras/ic_launcher_web.png" />
