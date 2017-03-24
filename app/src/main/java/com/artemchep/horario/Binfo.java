@@ -35,6 +35,17 @@ public final class Binfo {
     public static final boolean DEBUG = BuildConfig.MY_DEBUG;
 
     /**
+     * The timestamp of build in {@code EEE MMMM dd HH:mm:ss zzz yyyy} format.
+     */
+    @NonNull
+    public static final String TIME_STAMP =
+            BuildConfig.MY_TIME;
+
+    @NonNull
+    public static final String TIME_STAMP_YEAR =
+            BuildConfig.MY_TIME_YEAR;
+
+    /**
      * Public key of my dev account in Google Play.
      */
     @NonNull

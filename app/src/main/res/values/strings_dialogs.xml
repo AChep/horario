@@ -4,4 +4,30 @@
 
     <string name="dialog_privacy_policy">Privacy policy</string>
 
+    <!--
+        About dialog
+        -->
+
+    <string name="dialog_about_title" translatable="false"><![CDATA[
+        <b>%1$s</b>&nbsp;<font color="#%3$s">v%2$s</font>
+    ]]></string>
+    <string name="dialog_about_credits" translatable="false"><![CDATA[
+        <a href="http://developer.android.com/tools/support-library/index.html">Android Support Library</a>,
+        <a href="http://commons.apache.org/">Apache Commons</a>,
+        <a href="https://github.com/AChep/AcDisplay">AcDisplay</a> by AChep,
+        <a href="https://github.com/JakeWharton/timber">Timber</a> by JakeWharton,
+        <a href="https://github.com/serso/android-checkout">Checkout</a> by serso,
+        <a href="https://github.com/square/leakcanary">leakcanary</a> by square,
+        <a href="https://github.com/afollestad/material-dialogs">Material Dialogs</a> by afollestad,
+        <a href="https://github.com/afollestad/material-cab">Material Contextual Action Bar</a> by afollestad,
+        <a href="https://github.com/mikepenz/MaterialDrawer">MaterialDrawer</a> by mikepenz,
+        <a href="https://jsoup.org/">jsoup</a> by Jonathan Hedley
+    ]]></string>
+    <string name="dialog_about_message"><![CDATA[
+        Horario is a free app.
+        Copyright %2$s <a href="https://github.com/XJSHQ">XJSHQ team</a>. All Rights Reserved.<br/>
+        <br/>
+        Many thanks to these open source tools: %1$s.
+    ]]></string>
+
 </resources>

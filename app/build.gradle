@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+import java.text.SimpleDateFormat
+
 repositories {
     maven { url "https://jitpack.io" }
 }
@@ -19,6 +21,10 @@ android {
     def releaseProps = new Properties()
     file("release.properties").withInputStream { releaseProps.load(it) }
     String key = releaseProps['key_google_play_public'];
+
+    Date date = Calendar.getInstance().getTime();
+    String time = new SimpleDateFormat("EEE MMMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH).format(date);
+    String timeYear = new SimpleDateFormat("yyyy", Locale.ENGLISH).format(date);
 
     //-- SIGNING CONFIG -------------------------------------------------------
 
@@ -56,6 +62,8 @@ android {
 
         // Add config fields to each of build types.
         buildTypes.each {
+            it.buildConfigField "String", "MY_TIME", "\"" + time + "\""
+            it.buildConfigField "String", "MY_TIME_YEAR", "\"" + timeYear + "\""
             it.buildConfigField "String", "MY_GOOGLE_PLAY_PUBLIC_KEY", "\"" + key + "\""
         }
     }
