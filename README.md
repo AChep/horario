@@ -5,7 +5,12 @@ Horario
 <img alt="Logo" align="right" height="220"
    src="https://github.com/XJSHQ/horario/raw/master/extras/ic_launcher_web.png" />
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+*Are you a student?*
+
+Horario is an open source app for managing your school or university life. 
+Save your timetable and all tasks from homework to exams. Invite your group mates to collaborate.
+
+ - **[Help us to translate it](https://crowdin.com/project/horario)** _(even a short look would be helpful)_
 
 Report a bug or request a feature
 ----------------
