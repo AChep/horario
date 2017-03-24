@@ -34,7 +34,8 @@
         <a href="https://jsoup.org/">jsoup</a> by Jonathan Hedley
     ]]></string>
     <string name="dialog_about_message"><![CDATA[
-        Horario is a free app.
+        Horario is an open source app for managing your school or university life.
+        Save your timetable and all tasks from homework to exams. Invite your group mates to collaborate.
         Copyright %2$s <a href="https://github.com/XJSHQ">XJSHQ team</a>. All Rights Reserved.<br/>
         <br/>
         Many thanks to these open source tools: %1$s.
