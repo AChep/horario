@@ -1,8 +1,18 @@
 <resources>
 
     <string name="dialog_close">Close</string>
+    <string name="dialog_send">Send</string>
 
     <string name="dialog_privacy_policy">Privacy policy</string>
+
+    <!--
+        Feedback dialog
+        -->
+
+    <string name="dialog_feedback_title">Feedback</string>
+    <string name="dialog_feedback_message_hint">Message</string>
+    <string name="feedback_error_no_app">Installed email client is required to send feedback.</string>
+    <string name="feedback_error_msg_too_short">Message must contain at least %1$d characters.</string>
 
     <!--
         About dialog

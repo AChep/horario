@@ -20,6 +20,7 @@
         <item name="icon_lock_reset">@drawable/ic_lock_reset_black_24dp</item>
         <item name="icon_account_plus">@drawable/ic_account_plus_black_24dp</item>
         <item name="icon_information_outline">@drawable/ic_information_outline_black_24dp</item>
+        <item name="icon_email">@drawable/ic_email_black_24dp</item>
     </style>
 
     <style name="AppThemeLight.NoActionBar_Base" parent="AppThemeLight">
@@ -53,6 +54,7 @@
         <item name="icon_lock_reset">@drawable/ic_lock_reset_white_24dp</item>
         <item name="icon_account_plus">@drawable/ic_account_plus_white_24dp</item>
         <item name="icon_information_outline">@drawable/ic_information_outline_white_24dp</item>
+        <item name="icon_email">@drawable/ic_email_white_24dp</item>
     </style>
 
     <style name="AppTheme.NoActionBar_Base" parent="AppTheme">

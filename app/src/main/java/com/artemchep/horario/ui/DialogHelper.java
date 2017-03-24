@@ -13,6 +13,7 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.artemchep.basic.ui.activities.ActivityBase;
 import com.artemchep.horario.R;
 import com.artemchep.horario.ui.fragments.dialogs.AboutDialog;
+import com.artemchep.horario.ui.fragments.dialogs.FeedbackDialog;
 import com.artemchep.horario.ui.fragments.dialogs.PrivacyPolicyDialog;
 import com.artemchep.horario.ui.fragments.dialogs.base.DialogFragment;
 import com.artemchep.horario.ui.widgets.SignInLayout;
@@ -24,6 +25,7 @@ public class DialogHelper {
 
     private static final String TAG_FRAGMENT_PRIVACY = "dialog_privacy_policy";
     private static final String TAG_FRAGMENT_ABOUT = "dialog_about";
+    private static final String TAG_FRAGMENT_FEEDBACK = "dialog_feedback";
 
     public static void showPrivacyDialog(@NonNull AppCompatActivity activity) {
         showDialog(activity, new PrivacyPolicyDialog(), TAG_FRAGMENT_PRIVACY);
@@ -31,6 +33,10 @@ public class DialogHelper {
 
     public static void showAboutDialog(@NonNull AppCompatActivity activity) {
         showDialog(activity, new AboutDialog(), TAG_FRAGMENT_ABOUT);
+    }
+
+    public static void showFeedbackDialog(@NonNull AppCompatActivity activity) {
+        showDialog(activity, new FeedbackDialog(), TAG_FRAGMENT_FEEDBACK);
     }
     
     private static void showDialog(@NonNull AppCompatActivity activity,

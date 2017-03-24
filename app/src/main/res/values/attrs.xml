@@ -6,6 +6,7 @@
         <attr name="icon_lock_reset" format="reference" />
         <attr name="icon_account_plus" format="reference" />
         <attr name="icon_information_outline" format="reference" />
+        <attr name="icon_email" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="DashboardTile">
