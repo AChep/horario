@@ -24,6 +24,7 @@
     <string name="dialog_about_credits" translatable="false"><![CDATA[
         <a href="http://developer.android.com/tools/support-library/index.html">Android Support Library</a>,
         <a href="http://commons.apache.org/">Apache Commons</a>,
+        <a href="https://materialdesignicons.com/">Material Design Icons</a>,
         <a href="https://github.com/AChep/AcDisplay">AcDisplay</a> by AChep,
         <a href="https://github.com/JakeWharton/timber">Timber</a> by JakeWharton,
         <a href="https://github.com/serso/android-checkout">Checkout</a> by serso,
