@@ -46,7 +46,8 @@ public class ChangelogDialog extends DialogFragment {
         assert context != null;
 
         String src = RawReader.readText(getContext(), R.raw.changelog);
-        CharSequence message = HtmlUtils.fromLegacyHtml(src);
+        String hint = RawReader.readText(getContext(), R.raw.changelog_hint);
+        CharSequence message = HtmlUtils.fromLegacyHtml(hint + src);
 
         return new MaterialDialog.Builder(context)
                 .title(getString(R.string.dialog_changelog_title))
