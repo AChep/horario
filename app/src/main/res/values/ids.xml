@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="nav_about" type="id" />
+    <item name="nav_feedback" type="id" />
+    <item name="nav_privacy_policy" type="id" />
+
+</resources>

@@ -90,6 +90,9 @@ dependencies {
     compile 'com.afollestad:material-cab:0.1.12'
     compile "com.afollestad.material-dialogs:core:${materialDialogsLibVersion}"
     compile "com.afollestad.material-dialogs:commons:${materialDialogsLibVersion}"
+    compile('com.mikepenz:materialdrawer:5.8.1@aar') {
+        transitive = true
+    }
 
     // Leak Canary
     compile "com.android.support:appcompat-v7:${supportLibVersion}"

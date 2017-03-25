@@ -21,6 +21,17 @@
         <item name="icon_account_plus">@drawable/ic_account_plus_black_24dp</item>
         <item name="icon_information_outline">@drawable/ic_information_outline_black_24dp</item>
         <item name="icon_email">@drawable/ic_email_black_24dp</item>
+
+        <!-- MaterialDrawer specific values -->
+        <item name="material_drawer_background">@color/light_drawer_background</item>
+        <item name="material_drawer_primary_text">@color/material_drawer_dark_primary_text</item>
+        <item name="material_drawer_primary_icon">@color/material_drawer_dark_primary_icon</item>
+        <item name="material_drawer_secondary_text">@color/material_drawer_dark_secondary_text</item>
+        <item name="material_drawer_hint_text">@color/material_drawer_dark_hint_text</item>
+        <item name="material_drawer_divider">@color/material_drawer_dark_divider</item>
+        <item name="material_drawer_selected">@color/light_drawer_selection</item>
+        <item name="material_drawer_selected_text">@color/material_drawer_dark_primary_text</item>
+        <item name="material_drawer_header_selection_text">@color/material_drawer_dark_header_selection_text</item>
     </style>
 
     <style name="AppThemeLight.NoActionBar_Base" parent="AppThemeLight">
@@ -55,6 +66,17 @@
         <item name="icon_account_plus">@drawable/ic_account_plus_white_24dp</item>
         <item name="icon_information_outline">@drawable/ic_information_outline_white_24dp</item>
         <item name="icon_email">@drawable/ic_email_white_24dp</item>
+
+        <!-- MaterialDrawer specific values -->
+        <item name="material_drawer_background">@color/dark_drawer_background</item>
+        <item name="material_drawer_primary_text">@color/material_drawer_dark_primary_text</item>
+        <item name="material_drawer_primary_icon">@color/material_drawer_dark_primary_icon</item>
+        <item name="material_drawer_secondary_text">@color/material_drawer_dark_secondary_text</item>
+        <item name="material_drawer_hint_text">@color/material_drawer_dark_hint_text</item>
+        <item name="material_drawer_divider">@color/material_drawer_dark_divider</item>
+        <item name="material_drawer_selected">@color/dark_drawer_selection</item>
+        <item name="material_drawer_selected_text">@color/material_drawer_dark_primary_text</item>
+        <item name="material_drawer_header_selection_text">@color/material_drawer_dark_header_selection_text</item>
     </style>
 
     <style name="AppTheme.NoActionBar_Base" parent="AppTheme">

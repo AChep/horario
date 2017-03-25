@@ -21,19 +21,32 @@ package com.artemchep.horario.ui.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.artemchep.basic.ui.activities.ActivityBase;
 import com.artemchep.horario.R;
+import com.artemchep.horario.ui.DialogHelper;
+import com.artemchep.horario.ui.fragments.dialogs.ChangelogDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Artem Chepurnoy
  */
-public class MainActivity extends ActivityBase implements FirebaseAuth.AuthStateListener {
+public class MainActivity extends ActivityBase implements
+        FirebaseAuth.AuthStateListener,
+        Drawer.OnDrawerItemClickListener {
 
     private FirebaseAuth mAuth;
+    private Drawer mDrawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +56,48 @@ public class MainActivity extends ActivityBase implements FirebaseAuth.AuthState
 
         mAuth = FirebaseAuth.getInstance();
         mAuth.addAuthStateListener(this);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        List<IDrawerItem> drawerItems = new ArrayList<>();
+        drawerItems.add(new SecondaryDrawerItem()
+                .withIdentifier(R.id.nav_feedback)
+                .withIcon(R.drawable.ic_email_white_24dp)
+                .withName(R.string.nav_feedback)
+                .withSelectable(false));
+        drawerItems.add(new SecondaryDrawerItem()
+                .withIdentifier(R.id.nav_privacy_policy)
+                .withIcon(R.drawable.ic_shield_white_24dp)
+                .withName(R.string.nav_privacy_policy)
+                .withSelectable(false));
+        drawerItems.add(new SecondaryDrawerItem()
+                .withIdentifier(R.id.nav_about)
+                .withIcon(R.drawable.ic_information_outline_white_24dp)
+                .withName(R.string.nav_about)
+                .withSelectable(false));
+        DrawerBuilder builder = new DrawerBuilder()
+                .withActivity(this)
+                .withDrawerItems(drawerItems)
+                .withSavedInstance(savedInstanceState)
+                .withOnDrawerItemClickListener(this)
+                .withTranslucentStatusBar(true)
+                .withCloseOnClick(true)
+                .withToolbar(toolbar);
+
+        initPhoneUi(builder, savedInstanceState);
+
+        // Show updated changelog each time application version
+        // code is increased.
+        if (!ChangelogDialog.isRead(this)) {
+            DialogHelper.showChangelogDialog(this);
+        }
+    }
+
+    private void initPhoneUi(@NonNull DrawerBuilder builder, Bundle savedInstanceState) {
+        mDrawer = builder
+                .withActionBarDrawerToggleAnimated(true)
+                .build();
     }
 
     private void switchToAuthActivity() {
@@ -59,13 +114,30 @@ public class MainActivity extends ActivityBase implements FirebaseAuth.AuthState
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState = mDrawer.saveInstanceState(outState);
+
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         mAuth.removeAuthStateListener(this);
     }
 
-    public void logout(View view) {
-        mAuth.signOut();
+    @Override
+    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+        int id = (int) drawerItem.getIdentifier();
+        if (id == R.id.nav_feedback) {
+            DialogHelper.showFeedbackDialog(this);
+        } else if (id == R.id.nav_privacy_policy) {
+            DialogHelper.showPrivacyDialog(this);
+        } else if (id == R.id.nav_about) {
+            DialogHelper.showAboutDialog(this);
+        }
+
+        return false;
     }
 
 }
