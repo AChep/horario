@@ -3,6 +3,13 @@
     <string name="app_name">Horario</string>
 
     <!--
+        Nav
+        -->
+
+    <string name="nav_about">About</string>
+    <string name="nav_changelog">Changelog</string>
+
+    <!--
         Hints
         -->
 

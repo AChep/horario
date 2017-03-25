@@ -18,7 +18,6 @@
  */
 package com.artemchep.horario.ui.fragments.dialogs;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -34,8 +33,10 @@ import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.artemchep.basic.utils.HtmlUtils;
+import com.artemchep.basic.utils.RawReader;
 import com.artemchep.horario.Binfo;
 import com.artemchep.horario.R;
 import com.artemchep.horario.ui.fragments.dialogs.base.DialogFragment;
@@ -49,6 +50,14 @@ import es.dmoral.toasty.Toasty;
 public class AboutDialog extends DialogFragment {
 
     private Toast mTimeStampToast;
+
+    /**
+     * @author Artem Chepurnoy
+     */
+    private enum DialogView {
+        ABOUT,
+        CHANGELOG,
+    }
 
     @NonNull
     public static Spanned getFormattedVersionName(@NonNull Context context) {
@@ -88,7 +97,6 @@ public class AboutDialog extends DialogFragment {
 
         String year = Binfo.TIME_STAMP_YEAR;
         String credits = getString(R.string.dialog_about_credits);
-        @SuppressLint("StringFormatMatches")
         String src = getString(R.string.dialog_about_message, credits, year);
         CharSequence message = HtmlUtils.fromLegacyHtml(src);
 
@@ -103,6 +111,31 @@ public class AboutDialog extends DialogFragment {
                 .title(getFormattedVersionName(context))
                 .content(message)
                 .negativeText(R.string.dialog_close)
+                .neutralText(R.string.dialog_changelog_title)
+                .onAny(new MaterialDialog.SingleButtonCallback() {
+
+                    private DialogView mCurView = DialogView.ABOUT;
+
+                    @Override
+                    public void onClick(
+                            @NonNull MaterialDialog dialog,
+                            @NonNull DialogAction which) {
+                        switch (which) {
+                            case NEUTRAL: {
+                                if (mCurView == DialogView.ABOUT) {
+                                    mCurView = DialogView.CHANGELOG;
+                                    switchToChangelogView(dialog);
+                                } else {
+                                    mCurView = DialogView.ABOUT;
+                                    switchToAboutView(dialog);
+                                }
+                            }
+                            return;
+                        }
+                        dismiss();
+                    }
+                })
+                .autoDismiss(false)
                 .build();
         md.getTitleView().setOnClickListener(new View.OnClickListener() {
 
@@ -115,6 +148,24 @@ public class AboutDialog extends DialogFragment {
 
         });
         return md;
+    }
+
+    private void switchToAboutView(@NonNull MaterialDialog dialog) {
+        String year = Binfo.TIME_STAMP_YEAR;
+        String credits = getString(R.string.dialog_about_credits);
+        String src = getString(R.string.dialog_about_message, credits, year);
+        CharSequence message = HtmlUtils.fromLegacyHtml(src);
+        dialog.getTitleView().setText(getFormattedVersionName(getContext()));
+        dialog.getContentView().setText(message);
+        dialog.getActionButton(DialogAction.NEUTRAL).setText(R.string.nav_changelog);
+    }
+
+    private void switchToChangelogView(@NonNull MaterialDialog dialog) {
+        String src = RawReader.readText(getContext(), R.raw.changelog);
+        CharSequence message = HtmlUtils.fromLegacyHtml(src);
+        dialog.getTitleView().setText(R.string.dialog_changelog_title);
+        dialog.getContentView().setText(message);
+        dialog.getActionButton(DialogAction.NEUTRAL).setText(R.string.nav_about);
     }
 
     @Override
