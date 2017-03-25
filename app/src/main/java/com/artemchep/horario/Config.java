@@ -29,6 +29,8 @@ import java.util.Map;
  */
 public class Config extends PreferenceStore {
 
+    public static final String KEY_CHANGELOG_READ = "prev_changelog_read";
+
     private static Config sConfig;
 
     public static synchronized Config getInstance() {
@@ -50,6 +52,11 @@ public class Config extends PreferenceStore {
 
     @Override
     public void loadPreferencesMap(Map<String, Preference> map) {
+        map.put(KEY_CHANGELOG_READ, new Preference.Builder()
+                .setKey(KEY_CHANGELOG_READ)
+                .setClass(int.class)
+                .setValue(0) // lowest possible version code
+                .build());
     }
 
 }
