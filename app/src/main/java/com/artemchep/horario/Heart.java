@@ -24,7 +24,6 @@ import android.support.annotation.NonNull;
 
 import com.artemchep.basic.HeartBase;
 import com.artemchep.basic.timber.ReleaseTree;
-import com.facebook.FacebookSdk;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
@@ -79,9 +78,14 @@ public class Heart extends HeartBase {
 
         initLeakCanary();
         initFirebase();
+        initConfig();
 
         // Setup log
         Timber.plant(new ReleaseTree());
+    }
+
+    private void initConfig() {
+        Config.getInstance().load(this);
     }
 
     private void initLeakCanary() {
