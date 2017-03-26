@@ -87,6 +87,36 @@ public abstract class PreferenceStore {
         return new Editor(this, context);
     }
 
+    public void addListener(@NonNull OnPreferenceStoreChangeListener l, @NonNull String... keys) {
+        for (String key : keys) {
+            assert key != null;
+            Preference pref = mMap.get(key);
+            if (pref == null) {
+                throw new IllegalArgumentException("No corresponding preference found for the " +
+                        "key=" + key);
+            } else pref.listeners.add(l);
+        }
+    }
+
+    public void removeListener(@NonNull OnPreferenceStoreChangeListener l, @NonNull String... keys) {
+        for (String key : keys) {
+            assert key != null;
+            Preference pref = mMap.get(key);
+            if (pref == null) {
+                throw new IllegalArgumentException("No corresponding preference found for the " +
+                        "key=" + key);
+            } else pref.listeners.remove(l);
+        }
+    }
+
+    /**
+     * @author Artem Chepurnoy
+     */
+    public interface OnPreferenceStoreChangeListener {
+
+        void onPreferenceStoreChange(@NonNull Context context, @NonNull Preference pref, @NonNull Object old);
+    }
+
     /**
      * @author Artem Chepurnoy
      */
@@ -115,7 +145,13 @@ public abstract class PreferenceStore {
                     .edit();
             for (Pair<String, Object> diff : mList) {
                 Preference pref = mStore.mMap.get(diff.first);
+                Object old = pref.value;
+                if (diff.second.equals(old)) continue;
                 pref.value = diff.second;
+
+                for (OnPreferenceStoreChangeListener l : pref.listeners) {
+                    l.onPreferenceStoreChange(mContext, pref, old);
+                }
 
                 // Tell editor to put new value
                 if (boolean.class.isAssignableFrom(pref.clazz)) {
@@ -143,6 +179,8 @@ public abstract class PreferenceStore {
         public Class clazz;
         public String key;
         public Object value;
+
+        final List<OnPreferenceStoreChangeListener> listeners = new ArrayList<>();
 
         /**
          * @author Artem Chepurnoy
