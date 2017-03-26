@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.util.Pair;
 
 import java.util.ArrayList;
@@ -140,6 +141,10 @@ public abstract class PreferenceStore {
         }
 
         public void commit() {
+            commit(null);
+        }
+
+        public void commit(@Nullable OnPreferenceStoreChangeListener listenerToIgnore) {
             SharedPreferences.Editor editor = mContext
                     .getSharedPreferences(mStore.getPreferenceName(), Context.MODE_PRIVATE)
                     .edit();
@@ -150,7 +155,9 @@ public abstract class PreferenceStore {
                 pref.value = diff.second;
 
                 for (OnPreferenceStoreChangeListener l : pref.listeners) {
-                    l.onPreferenceStoreChange(mContext, pref, old);
+                    if (listenerToIgnore != l) {
+                        l.onPreferenceStoreChange(mContext, pref, old);
+                    }
                 }
 
                 // Tell editor to put new value

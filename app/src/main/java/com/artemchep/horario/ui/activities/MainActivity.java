@@ -62,6 +62,11 @@ public class MainActivity extends ActivityBase implements
 
         List<IDrawerItem> drawerItems = new ArrayList<>();
         drawerItems.add(new SecondaryDrawerItem()
+                .withIdentifier(R.id.nav_settings)
+                .withIcon(R.drawable.ic_settings_white_24dp)
+                .withName(R.string.nav_settings)
+                .withSelectable(false));
+        drawerItems.add(new SecondaryDrawerItem()
                 .withIdentifier(R.id.nav_feedback)
                 .withIcon(R.drawable.ic_email_white_24dp)
                 .withName(R.string.nav_feedback)
@@ -135,6 +140,9 @@ public class MainActivity extends ActivityBase implements
             DialogHelper.showPrivacyDialog(this);
         } else if (id == R.id.nav_about) {
             DialogHelper.showAboutDialog(this);
+        } else if (id == R.id.nav_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
         }
 
         return false;

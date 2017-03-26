@@ -11,6 +11,8 @@
         <item name="android:colorBackground">@color/auth_background</item>
     </style>
 
+    <style name="SettingsTheme" parent="AppThemeLight" />
+
     <style name="AuthSlaveTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="windowNoTitle">true</item>
     </style>

@@ -4,5 +4,6 @@
     <item name="nav_about" type="id" />
     <item name="nav_feedback" type="id" />
     <item name="nav_privacy_policy" type="id" />
+    <item name="nav_settings" type="id" />
 
 </resources>

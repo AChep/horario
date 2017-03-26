@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        Settings
+        -->
+
+    <!-- Preference fragment padding, sides -->
+    <dimen name="preference_fragment_padding_side">32dp</dimen>
+
+</resources>

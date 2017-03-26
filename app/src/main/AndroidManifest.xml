@@ -23,6 +23,11 @@
         </activity>
 
         <activity
+            android:name=".ui.activities.SettingsActivity"
+            android:label="@string/nav_settings"
+            android:theme="@style/SettingsTheme" />
+
+        <activity
             android:name=".ui.activities.AuthActivity"
             android:theme="@style/AuthTheme" />
 
