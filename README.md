@@ -13,6 +13,14 @@ Save your timetable and all tasks from homework to exams. Invite your group mate
  - **[Help us to translate it](https://crowdin.com/project/horario)** _(even a short look would be helpful)_
  - **[Contibution rules](https://github.com/XJSHQ/horario/blob/master/CONTRIBUTING.md)** _(in cause you are a software engineer)_
 
+<a href="https://blockr.io/address/info/1GYj49ZnMByKj2f6p7r4f92GQi5pR6BSMz">
+  <img alt="Bitcoin wallet: 1GYj49ZnMByKj2f6p7r4f92GQi5pR6BSMz" vspace="28" hspace="20"
+       src="https://github.com/XJSHQ/horario/raw/master/extras/btn_bitcoin.png" />
+</a> <a href="http://goo.gl/UrecGo">
+  <img alt="PayPal" vspace="28"
+       src="https://github.com/XJSHQ/horario/raw/master/extras/btn_paypal.png" />
+</a>
+
 Report a bug or request a feature
 ----------------
 Before creating a new issue please make sure that same or similar issue is not already created by checking [open issues][2] and [closed issues][3] *(please note that there might be multiple pages)*. If your issue is already there, don't create a new one, but leave a comment under already existing one.
