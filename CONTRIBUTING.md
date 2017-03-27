@@ -3,6 +3,11 @@ Contributing
 
 If you’re looking for ways to contribute, please [peruse open issues](https://github.com/XJSHQ/horario/issues?milestone=&q=is%3Aopen).
 
+Code Style
+----------
+
+Horario uses the [code style for Android contributors](https://source.android.com/source/code-style.html). The code styles are strict rules, not guidelines or recommendations. Contributions that do not adhere to these rules are generally not accepted.
+
 How to Submit a Pull Request
 ----------------------------
 
