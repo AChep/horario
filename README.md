@@ -11,6 +11,7 @@ Horario is an open source app for managing your school or university life.
 Save your timetable and all tasks from homework to exams. Invite your group mates to collaborate.
 
  - **[Help us to translate it](https://crowdin.com/project/horario)** _(even a short look would be helpful)_
+ - **[Contibution rules](https://github.com/XJSHQ/horario/blob/master/CONTRIBUTING.md)** _(in cause you are a software engineer)_
 
 Report a bug or request a feature
 ----------------
