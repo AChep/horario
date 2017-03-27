@@ -46,6 +46,37 @@ Releases will be numbered with the following format: `<major>.<minor>.<patch>` a
 
 For more information on SemVer, please visit http://semver.org/.
 
+Build
+----------------
+Clone the project and come in:
+
+``` bash
+$ git clone git://github.com/XJSHQ/horario.git
+$ cd horario/
+```
+
+Repository doesn't include `app/release.properties`, `app/release-key.keystore` and `app/google-services.json` so you have to create them manually before building project.
+
+##### app/release-key.keystore
+Check out this answer ["How can I create a keystore?"](http://stackoverflow.com/a/15330139/1408535)
+##### app/release.properties
+The structure of the file:
+```
+key_alias=****
+key_google_play_public=****
+password_store=****
+password_key=****
+```
+| Key | Description |
+| --- | --- |
+| `key_alias` | Key alias used to generate keystore  |
+| `key_google_play_public` | Google Play license key (may be random string.)   |
+| `password_store` |    |
+| `password_key` |    |
+##### app/google-services.json
+Generate one in [Google Developers console](https://console.developers.google.com)
+
+
 [1]: https://github.com/XJSHQ/horario/issues/new
 [2]: https://github.com/XJSHQ/horario/issues?state=open
 [3]: https://github.com/XJSHQ/horario/issues?state=closed
