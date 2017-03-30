@@ -1,6 +1,8 @@
 <resources>
 
     <string name="dialog_close">Close</string>
+    <string name="dialog_share">Share</string>
+    <string name="dialog_share_horario">Share Horario</string>
     <string name="dialog_send">Send</string>
 
     <string name="dialog_privacy_policy">Privacy policy</string>

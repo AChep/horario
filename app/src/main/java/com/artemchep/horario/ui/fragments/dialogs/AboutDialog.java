@@ -21,6 +21,7 @@ package com.artemchep.horario.ui.fragments.dialogs;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -48,6 +49,9 @@ import es.dmoral.toasty.Toasty;
  * @author Artem Chepurnoy
  */
 public class AboutDialog extends DialogFragment {
+
+    private static final String PLAY_STORE_URL = "https://play.google.com/store/apps/details" +
+            "?id=com.artemchep.horario";
 
     private Toast mTimeStampToast;
 
@@ -111,6 +115,7 @@ public class AboutDialog extends DialogFragment {
                 .title(getFormattedVersionName(context))
                 .content(message)
                 .negativeText(R.string.dialog_close)
+                .positiveText(R.string.dialog_share)
                 .neutralText(R.string.dialog_changelog_title)
                 .onAny(new MaterialDialog.SingleButtonCallback() {
 
@@ -131,6 +136,18 @@ public class AboutDialog extends DialogFragment {
                                 }
                             }
                             return;
+                            case POSITIVE: {
+                                try {
+                                    Intent i = new Intent(Intent.ACTION_SEND);
+                                    i.setType("text/plain");
+                                    i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+                                    i.putExtra(Intent.EXTRA_TEXT, "Horario is an open source app for " +
+                                            "managing your school or university life: " + PLAY_STORE_URL);
+                                    startActivity(Intent.createChooser(i, getString(R.string.dialog_share_horario)));
+                                } catch (Exception e) {
+                                }
+                                break;
+                            }
                         }
                         dismiss();
                     }
