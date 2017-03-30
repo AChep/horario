@@ -42,6 +42,7 @@ import com.artemchep.horario.Binfo;
 import com.artemchep.horario.R;
 import com.artemchep.horario.ui.fragments.dialogs.base.DialogFragment;
 import com.artemchep.horario.utils.ToastUtils;
+import com.google.firebase.crash.FirebaseCrash;
 
 import es.dmoral.toasty.Toasty;
 
@@ -77,6 +78,7 @@ public class AboutDialog extends DialogFragment {
                 versionName = versionName.replaceFirst("\\-", "<small>-") + "</small>";
             }
         } catch (PackageManager.NameNotFoundException e) {
+            FirebaseCrash.report(new Exception("Own package not found.", e));
             versionName = "N/A";
         }
 
@@ -145,6 +147,7 @@ public class AboutDialog extends DialogFragment {
                                             "managing your school or university life: " + PLAY_STORE_URL);
                                     startActivity(Intent.createChooser(i, getString(R.string.dialog_share_horario)));
                                 } catch (Exception e) {
+                                    FirebaseCrash.report(new Exception("Failed to share application.", e));
                                 }
                                 break;
                             }
