@@ -28,6 +28,7 @@ import com.artemchep.basic.ui.activities.ActivityBase;
 import com.artemchep.horario.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,6 +50,24 @@ public class AuthSlaveActivity extends ActivityBase {
     public static final int AUTH_SIGN_UP = 100;
 
     @NonNull
+    private static String authToString(int auth) {
+        switch (auth) {
+            case AUTH_SIGN_IN:
+                return "sign_in";
+            case AUTH_SIGN_IN_GOOGLE:
+                return "sign_in_google";
+            case AUTH_SIGN_UP:
+                return "sign_up";
+            default:
+                return "unknown";
+        }
+    }
+
+
+    private FirebaseAnalytics mAnalytics;
+    private int mAuthType;
+
+    @NonNull
     private final OnCompleteListener<AuthResult> mListener = new OnCompleteListener<AuthResult>() {
         @Override
         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -58,6 +77,11 @@ public class AuthSlaveActivity extends ActivityBase {
                 setResult(Activity.RESULT_CANCELED);
                 showErrorToast(task);
             }
+
+            Bundle bundle = new Bundle();
+            bundle.putString("type", authToString(mAuthType));
+            bundle.putBoolean("is_successful", task.isSuccessful());
+            mAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN, bundle);
 
             finish();
         }
@@ -69,19 +93,21 @@ public class AuthSlaveActivity extends ActivityBase {
         setContentView(R.layout.activity_auth_slave);
         setFinishOnTouchOutside(false);
 
+        mAnalytics = FirebaseAnalytics.getInstance(this);
+
         Intent intent = getIntent();
-        final int type = intent.getIntExtra(AUTH_TYPE, 0);
-        switch (type) {
+        mAuthType = intent.getIntExtra(AUTH_TYPE, 0);
+        switch (mAuthType) {
             case AUTH_SIGN_IN:
             case AUTH_SIGN_UP: {
                 String emailText = intent.getStringExtra(AUTH_EMAIL);
                 String passwordText = intent.getStringExtra(AUTH_PASSWORD);
-                signWithEmail(type, emailText, passwordText);
+                signWithEmail(mAuthType, emailText, passwordText);
                 break;
             }
             case AUTH_SIGN_IN_GOOGLE: {
                 String tokenText = intent.getStringExtra(AUTH_TOKEN);
-                signWithGoogle(type, tokenText);
+                signWithGoogle(mAuthType, tokenText);
                 break;
             }
         }
