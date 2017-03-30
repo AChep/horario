@@ -29,6 +29,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.Spanned;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -36,12 +37,14 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.artemchep.basic.ui.activities.ActivityBase;
 import com.artemchep.basic.utils.HtmlUtils;
 import com.artemchep.basic.utils.RawReader;
 import com.artemchep.horario.Binfo;
 import com.artemchep.horario.R;
 import com.artemchep.horario.ui.fragments.dialogs.base.DialogFragment;
 import com.artemchep.horario.utils.ToastUtils;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.crash.FirebaseCrash;
 
 import es.dmoral.toasty.Toasty;
@@ -55,6 +58,7 @@ public class AboutDialog extends DialogFragment {
             "?id=com.artemchep.horario";
 
     private Toast mTimeStampToast;
+    private FirebaseAnalytics mAnalytics;
 
     /**
      * @author Artem Chepurnoy
@@ -93,6 +97,14 @@ public class AboutDialog extends DialogFragment {
                         + Integer.toHexString(Color.green(color))
                         + Integer.toHexString(Color.blue(color)));
         return HtmlUtils.fromLegacyHtml(html);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        ActivityBase activity = (ActivityBase) getActivity();
+        mAnalytics = FirebaseAnalytics.getInstance(activity);
     }
 
     @NonNull
@@ -139,6 +151,10 @@ public class AboutDialog extends DialogFragment {
                             }
                             return;
                             case POSITIVE: {
+                                Bundle bundle = new Bundle();
+                                bundle.putString(FirebaseAnalytics.Param.CONTENT, "app");
+                                mAnalytics.logEvent(FirebaseAnalytics.Event.SHARE, bundle);
+
                                 try {
                                     Intent i = new Intent(Intent.ACTION_SEND);
                                     i.setType("text/plain");
