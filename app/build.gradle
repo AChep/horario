@@ -107,6 +107,7 @@ dependencies {
     // Firebase
     compile "com.google.firebase:firebase-core:${firebaseLibVersion}"
     compile "com.google.firebase:firebase-auth:${firebaseLibVersion}"
+    compile "com.google.firebase:firebase-crash:${firebaseLibVersion}"
     compile "com.google.firebase:firebase-config:${firebaseLibVersion}"
     compile "com.google.firebase:firebase-database:${firebaseLibVersion}"
     compile "com.google.android.gms:play-services-auth:${firebaseLibVersion}"
