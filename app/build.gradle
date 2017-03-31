@@ -84,7 +84,6 @@ dependencies {
         exclude group: 'com.google.code.findbugs', module: 'jsr305'
     })
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.facebook.android:facebook-android-sdk:4.19.0'
     testCompile 'junit:junit:4.12'
     compile 'com.github.GrenderG:Toasty:1.1.4'
     compile 'com.afollestad:material-cab:0.1.12'
@@ -93,6 +92,9 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.8.1@aar') {
         transitive = true
     }
+
+    // Facebook
+    compile 'com.facebook.android:facebook-android-sdk:4.19.0'
 
     // Leak Canary
     compile "com.android.support:appcompat-v7:${supportLibVersion}"
