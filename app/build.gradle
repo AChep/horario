@@ -19,7 +19,16 @@ android {
     }
 
     def releaseProps = new Properties()
-    file("release.properties").withInputStream { releaseProps.load(it) }
+    def releaseKeyFilename;
+    def releasePropsFilename;
+    if (file("release.properties").exists()) {
+        releaseKeyFilename = "release-key.keystore";
+        releasePropsFilename = "release.properties";
+    } else {
+        releaseKeyFilename = "dev-key.keystore";
+        releasePropsFilename = "dev.properties";
+    }
+    file(releasePropsFilename).withInputStream { releaseProps.load(it) }
     String key = releaseProps['key_google_play_public'];
 
     Date date = Calendar.getInstance().getTime();
@@ -30,7 +39,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("release-key.keystore")
+            storeFile file(releaseKeyFilename)
             keyAlias releaseProps['key_alias']
             keyPassword releaseProps['password_store']
             storePassword releaseProps['password_key']
