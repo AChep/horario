@@ -79,8 +79,8 @@ password_key=****
 | --- | --- |
 | `key_alias` | Key alias used to generate keystore  |
 | `key_google_play_public` | Google Play license key (may be random string.)   |
-| `password_store` |    |
-| `password_key` |    |
+| `password_store` | Your keystore password |
+| `password_key` | Your alias key password |
 ##### app/google-services.json
 Generate one in [Google Developers console](https://console.developers.google.com)
 
