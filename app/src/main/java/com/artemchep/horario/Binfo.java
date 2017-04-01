@@ -54,7 +54,7 @@ public final class Binfo {
 
     @NonNull
     public static final String GOOGLE_API_TOKEN =
-            "402207257172-8bap2v8n0ct8iis0kbpoj2cgim3pm4ao.apps.googleusercontent.com";
+            "855280611126-ap0li016np9djg6gdsmc3r6mcuc5h1g3.apps.googleusercontent.com";
 
     /**
      * The official e-mail for tons of complains, billions of
