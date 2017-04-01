@@ -170,7 +170,15 @@
                         android:layout_width="52dp"
                         android:layout_height="52dp"
                         android:background="?selectableItemBackgroundBorderless"
-                        android:src="@drawable/ic_facebook_grey600_24dp"
+                        android:src="@drawable/ic_facebook_grey600_24dp" />
+
+                    <ImageButton
+                        android:id="@+id/twitter_auth"
+                        style="?borderlessButtonStyle"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_twitter_grey600_24dp"
                         android:visibility="gone" />
 
                 </LinearLayout>

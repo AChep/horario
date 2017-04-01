@@ -44,6 +44,11 @@ import com.artemchep.horario.ui.activities.MainActivity;
 import com.artemchep.horario.ui.widgets.EmailInputLayout;
 import com.artemchep.horario.ui.widgets.SignInLayout;
 import com.artemchep.horario.ui.widgets.SignUpLayout;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -51,8 +56,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import es.dmoral.toasty.Toasty;
 
 /**
  * @author Artem Chepurnoy
@@ -70,6 +73,9 @@ public class AuthFragment extends Fragment implements
 
     private GoogleApiClient mGoogleApi;
     private boolean mGoogleSignInEnabled;
+
+    private CallbackManager mFacebookCallbackManager;
+    private LoginButton mFacebookLoginButton;
 
     @Override
     public void onAttach(Context context) {
@@ -135,7 +141,34 @@ public class AuthFragment extends Fragment implements
         content.findViewById(R.id.restore).setOnClickListener(this);
         content.findViewById(R.id.privacy_policy).setOnClickListener(this);
 
+        initFacebookLoginButton(view);
         setGoogleSignInEnabled(mGoogleSignInEnabled);
+    }
+
+    private void initFacebookLoginButton(View view) {
+        mFacebookCallbackManager = CallbackManager.Factory.create();
+        mFacebookLoginButton = (LoginButton) view.findViewById(R.id.facebook_auth_fake);
+        mFacebookLoginButton.setFragment(this);
+        mFacebookLoginButton.setReadPermissions("email", "public_profile");
+        mFacebookLoginButton.registerCallback(mFacebookCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                String token = loginResult.getAccessToken().getToken();
+                Intent intent = new Intent(getActivity(), AuthSlaveActivity.class);
+                intent.putExtra(AuthSlaveActivity.AUTH_TYPE, AuthSlaveActivity.AUTH_SIGN_IN_FACEBOOK);
+                intent.putExtra(AuthSlaveActivity.AUTH_TOKEN, token);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onCancel() {
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+            }
+        });
     }
 
     @Override
@@ -158,7 +191,10 @@ public class AuthFragment extends Fragment implements
                 // TODO: Add GitHub authentication
                 break;
             case R.id.facebook_auth:
-                // TODO: Add Facebook authentication
+                mFacebookLoginButton.performClick();
+                break;
+            case R.id.twitter_auth:
+                // TODO: Add Twitter authentication
                 break;
             case R.id.restore:
                 showRestorePasswordDialog();
@@ -192,6 +228,8 @@ public class AuthFragment extends Fragment implements
                 }
                 break;
             }
+            default:
+                mFacebookCallbackManager.onActivityResult(requestCode, resultCode, data);
         }
     }
 

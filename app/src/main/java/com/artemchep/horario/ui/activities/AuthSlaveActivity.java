@@ -31,8 +31,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.TwitterAuthProvider;
 
 import es.dmoral.toasty.Toasty;
 
@@ -44,9 +46,12 @@ public class AuthSlaveActivity extends ActivityBase {
     public static final String AUTH_TYPE = "auth_type";
     public static final String AUTH_EMAIL = "auth_email";
     public static final String AUTH_TOKEN = "auth_token";
+    public static final String AUTH_TOKEN_SECRET = "auth_token_secret";
     public static final String AUTH_PASSWORD = "auth_password";
     public static final int AUTH_SIGN_IN = 1;
     public static final int AUTH_SIGN_IN_GOOGLE = 2;
+    public static final int AUTH_SIGN_IN_FACEBOOK = 3;
+    public static final int AUTH_SIGN_IN_TWITTER = 4;
     public static final int AUTH_SIGN_UP = 100;
 
     @NonNull
@@ -56,6 +61,10 @@ public class AuthSlaveActivity extends ActivityBase {
                 return "sign_in";
             case AUTH_SIGN_IN_GOOGLE:
                 return "sign_in_google";
+            case AUTH_SIGN_IN_FACEBOOK:
+                return "sign_in_facebook";
+            case AUTH_SIGN_IN_TWITTER:
+                return "sign_in_twitter";
             case AUTH_SIGN_UP:
                 return "sign_up";
             default:
@@ -110,6 +119,17 @@ public class AuthSlaveActivity extends ActivityBase {
                 signWithGoogle(mAuthType, tokenText);
                 break;
             }
+            case AUTH_SIGN_IN_FACEBOOK: {
+                String tokenText = intent.getStringExtra(AUTH_TOKEN);
+                signWithFacebook(mAuthType, tokenText);
+                break;
+            }
+            case AUTH_SIGN_IN_TWITTER: {
+                String tokenText = intent.getStringExtra(AUTH_TOKEN);
+                String secretText = intent.getStringExtra(AUTH_TOKEN_SECRET);
+                signWithTwitter(mAuthType, tokenText, secretText);
+                break;
+            }
         }
     }
 
@@ -137,6 +157,28 @@ public class AuthSlaveActivity extends ActivityBase {
         statusTextView.setText(R.string.auth_signing_in);
 
         AuthCredential credential = GoogleAuthProvider.getCredential(token, null);
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        auth
+                .signInWithCredential(credential)
+                .addOnCompleteListener(mListener);
+    }
+
+    private void signWithFacebook(int type, String token) {
+        TextView statusTextView = (TextView) findViewById(R.id.status);
+        statusTextView.setText(R.string.auth_signing_in);
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token);
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        auth
+                .signInWithCredential(credential)
+                .addOnCompleteListener(mListener);
+    }
+
+    private void signWithTwitter(int type, String token, String secret) {
+        TextView statusTextView = (TextView) findViewById(R.id.status);
+        statusTextView.setText(R.string.auth_signing_in);
+
+        AuthCredential credential = TwitterAuthProvider.getCredential(token, secret);
         FirebaseAuth auth = FirebaseAuth.getInstance();
         auth
                 .signInWithCredential(credential)
