@@ -1,4 +1,31 @@
 <b>
+    Version 0.3
+</b><br/><br/>
+    1. Improved look and feel of details cards<br/>
+    2. Improved right-to-left languages support<br/>
+    3. Week view displays current day<br/>
+    4. <b>NEW:</b> Track your attendance<br/>
+    5. <b>NEW:</b> Shift current week number<br/>
+    6. <b>NEW:</b> Rich text editor for notes<br/>
+<b><br/>
+    Version 0.2.1
+</b><br/><br/>
+    1. Prompt about adding timetable on first navigation drawer open<br/>
+    2. <b>FIX:</b> Default screen setting is ignored<br/>
+    3. <b>FIX:</b> Launcher shortcuts does not work<br/>
+    4. <b>FIX:</b> Adding note without subjects crashes app<br/>
+    5. <b>FIX:</b> Swiping note does not remove it<br/>
+<b><br/>
+    Version 0.2
+</b><br/><br/>
+    1. Improved tablet user experience<br/>
+    2. Changed default theme to light<br/>
+    3. <b>NEW:</b> Edit/view lessons<br/>
+    4. <b>NEW:</b> Share/remove timetables<br/>
+<b><br/>
     Version 0.1
 </b><br/><br/>
-    1. Initial release.
+    1. Initial release<br/>
+<br/>
+Full changelog is available in repository
+in a form of history of commits.

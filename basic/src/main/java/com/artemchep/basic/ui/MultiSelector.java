@@ -19,7 +19,7 @@
 package com.artemchep.basic.ui;
 
 import android.support.annotation.NonNull;
-import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.View;
 
 import com.artemchep.basic.interfaces.IObservable;
@@ -77,6 +77,7 @@ public class MultiSelector<T> implements IObservable<MultiSelector.Callback<T>> 
     }
 
     public void clear() {
+        mIsEmpty = isEmpty();
         mList.clear();
         bindAll();
 
@@ -92,6 +93,7 @@ public class MultiSelector<T> implements IObservable<MultiSelector.Callback<T>> 
      * @see #remove(Object)
      */
     public void toggle(@NonNull T data) {
+        mIsEmpty = isEmpty();
         //noinspection StatementWithEmptyBody
         if (mList.remove(data)) {
         } else mList.add(data);
@@ -111,6 +113,7 @@ public class MultiSelector<T> implements IObservable<MultiSelector.Callback<T>> 
         //noinspection StatementWithEmptyBody
         if (contains(data)) {
         } else {
+            mIsEmpty = isEmpty();
             mList.add(data);
             bind(data);
 
@@ -126,6 +129,7 @@ public class MultiSelector<T> implements IObservable<MultiSelector.Callback<T>> 
      * @see #toggle(Object)
      */
     public void remove(@NonNull T data) {
+        mIsEmpty = isEmpty();
         if (mList.remove(data)) {
             bind(data);
 

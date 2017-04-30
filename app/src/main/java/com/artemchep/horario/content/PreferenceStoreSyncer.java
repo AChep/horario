@@ -67,11 +67,12 @@ public class PreferenceStoreSyncer implements Atomic.Callback {
                     for (Map.Entry<String, Pair<Preference, Setter>> entry : mMap.entrySet()) {
                         if (entry.getValue().first == preference) {
                             Setter setter = entry.getValue().second;
+                            Object value = setter.getValue(newValue);
                             mStore
                                     .edit(preference.getContext())
-                                    .put(entry.getKey(), setter.getValue(newValue))
+                                    .put(entry.getKey(), value)
                                     .commit(mStoreListener);
-                            setter.onUpdateSummary(entry.getValue().first, newValue);
+                            setter.onUpdateSummary(entry.getValue().first, value);
                             return true;
                         }
                     }
@@ -121,11 +122,17 @@ public class PreferenceStoreSyncer implements Atomic.Callback {
         String[] keys = keysArray();
         mStore.addListener(mStoreListener, keys);
         for (String key : keys) updatePreference(key);
+        for (Pair<Preference, Setter> pair : mMap.values()) {
+            pair.first.setOnPreferenceChangeListener(mPrefListener);
+        }
     }
 
     @Override
     public void onStop(Object... objects) {
         mStore.removeListener(mStoreListener, keysArray());
+        for (Pair<Preference, Setter> pair : mMap.values()) {
+            pair.first.setOnPreferenceChangeListener(null);
+        }
     }
 
     private void updatePreference(@NonNull String key) {

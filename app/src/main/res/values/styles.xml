@@ -1,7 +1,7 @@
 <resources>
 
     <style name="SplashTheme" parent="AppThemeLight.NoActionBar">
-        <item name="android:windowBackground">@drawable/splash_screen_drawable</item>
+        <item name="android:windowBackground">?bg_splash_screen</item>
     </style>
 
     <style name="AuthTheme" parent="AppThemeLight.NoActionBar">
@@ -13,8 +13,18 @@
 
     <style name="SettingsTheme" parent="AppThemeLight" />
 
+    <style name="ReceiverTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="AuthSlaveTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="DetailsItemText">
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
 </resources>

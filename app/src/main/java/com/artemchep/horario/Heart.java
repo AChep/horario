@@ -24,18 +24,25 @@ import android.support.annotation.NonNull;
 
 import com.artemchep.basic.HeartBase;
 import com.artemchep.basic.timber.ReleaseTree;
+import com.artemchep.horario.content.PreferenceStore;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
 import org.solovyev.android.checkout.Billing;
 
+import es.dmoral.toasty.Toasty;
 import timber.log.Timber;
 
 /**
  * @author Artem Chepurnoy
  */
 public class Heart extends HeartBase {
+
+    public static final String CATEGORY_EXAMS = "com.artemchep.horario.EXAMS";
+    public static final String CATEGORY_NOTES = "com.artemchep.horario.NOTES";
+    public static final String CATEGORY_LESSONS = "com.artemchep.horario.LESSONS";
+    public static final String CATEGORY_NOTIFICATIONS = "com.artemchep.horario.NOTIFICATIONS";
 
     private static final String TAG = "Heart";
 
@@ -57,6 +64,23 @@ public class Heart extends HeartBase {
     });
 
     private RefWatcher mRefWatcher;
+
+    /**
+     * @author Artem Chepurnoy
+     */
+    private static class HeartOnPreferenceStoreChangeListener implements PreferenceStore.OnPreferenceStoreChangeListener {
+        @Override
+        public void onPreferenceStoreChange(
+                @NonNull Context context, @NonNull PreferenceStore.Preference pref,
+                @NonNull Object old) {
+            switch (pref.key) {
+                case Config.KEY_UI_THEME:
+                    String msg = context.getString(R.string.restart_app_to_apply_theme);
+                    Toasty.info(context, msg).show();
+                    break;
+            }
+        }
+    }
 
     @Override
     public void onCreate() {
@@ -85,7 +109,9 @@ public class Heart extends HeartBase {
     }
 
     private void initConfig() {
-        Config.getInstance().load(this);
+        Config config = Config.getInstance();
+        config.load(this);
+        config.addListener(new HeartOnPreferenceStoreChangeListener(), Config.KEY_UI_THEME);
     }
 
     private void initLeakCanary() {

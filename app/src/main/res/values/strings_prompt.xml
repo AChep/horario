@@ -1,0 +1,10 @@
+<resources>
+
+    <!--
+        Providers
+        -->
+
+    <string name="prompt_account_header_title">Manage timetables</string>
+    <string name="prompt_account_header_summary">Tap to add, remove or share a timetable</string>
+
+</resources>

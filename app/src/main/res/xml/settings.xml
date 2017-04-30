@@ -1,3 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/settings_category_timetable">
+
+        <Preference
+            android:summary="2 week"
+            android:title="Current week" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_category_ui">
+
+        <com.afollestad.materialdialogs.prefs.MaterialListPreference
+            android:entries="@array/default_screen"
+            android:entryValues="@array/default_screen_entries"
+            android:key="ui_default_screen"
+            android:title="@string/settings_ui_default_screen_title" />
+
+        <com.afollestad.materialdialogs.prefs.MaterialListPreference
+            android:entries="@array/theme"
+            android:entryValues="@array/theme_entries"
+            android:key="ui_theme"
+            android:title="@string/settings_ui_theme_title" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

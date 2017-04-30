@@ -19,6 +19,7 @@
 package com.artemchep.horario.models;
 
 import android.os.Parcel;
+import android.support.annotation.NonNull;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -97,6 +98,11 @@ public class Exam extends Model {
                 .append(teacher, note.teacher)
                 .append(info, note.info)
                 .isEquals();
+    }
+
+    @NonNull
+    public Exam clone() {
+        return (Exam) super.clone();
     }
 
     @Override

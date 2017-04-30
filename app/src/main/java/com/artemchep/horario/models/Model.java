@@ -19,13 +19,14 @@
 package com.artemchep.horario.models;
 
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import com.google.firebase.database.Exclude;
 
 /**
  * @author Artem Chepurnoy
  */
-public abstract class Model implements Parcelable {
+public abstract class Model implements Parcelable, Cloneable {
 
     /**
      * Key, created by Firebase, which is the
@@ -33,5 +34,14 @@ public abstract class Model implements Parcelable {
      */
     @Exclude
     public String key;
+
+    @NonNull
+    public Model clone() {
+        try {
+            return (Model) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }

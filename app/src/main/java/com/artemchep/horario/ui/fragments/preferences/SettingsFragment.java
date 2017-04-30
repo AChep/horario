@@ -19,18 +19,56 @@
 package com.artemchep.horario.ui.fragments.preferences;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
+import com.artemchep.horario.Config;
 import com.artemchep.horario.R;
+import com.artemchep.horario.ui.activities.MainActivity;
+import com.artemchep.horario.ui.widgets.ContainersLayout;
+import com.artemchep.horario.ui.widgets.CustomAppBar;
 
 /**
  * @author Artem Chepurnoy
  */
 public class SettingsFragment extends PreferenceFragmentBase {
 
+    @NonNull
+    private final ListPreferenceSetter mListPreferenceSetter = new ListPreferenceSetter();
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        setupContainers();
+        setupToolbar();
+        setupFab();
+    }
+
+    protected void setupToolbar() {
+        CustomAppBar appBar = getMainActivity().mAppBar;
+        appBar.clearCustomization();
+        appBar.setTitle(getString(R.string.nav_settings));
+    }
+
+    protected void setupFab() {
+        getMainActivity().mFab.hide();
+    }
+
+    protected void setupContainers() {
+        ContainersLayout containers = getMainActivity().mContainers;
+        containers.clearCustomization();
+    }
+
+    protected MainActivity getMainActivity() {
+        return (MainActivity) getActivity();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings);
+        syncPreference(Config.KEY_UI_DEFAULT_SCREEN, mListPreferenceSetter);
+        syncPreference(Config.KEY_UI_THEME, mListPreferenceSetter);
     }
 
 }

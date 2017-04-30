@@ -2,6 +2,12 @@
 <resources>
 
     <!--
+        Notes
+        -->
+
+    <integer name="note_column_count">2</integer>
+
+    <!--
         Settings
         -->
 

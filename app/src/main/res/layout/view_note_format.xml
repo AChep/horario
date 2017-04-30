@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageButton
+        android:id="@+id/format.bold"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_bold"
+        android:src="?icon_format_bold_grey" />
+
+    <ImageButton
+        android:id="@+id/format.italic"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_italic"
+        android:src="?icon_format_italic_grey" />
+
+    <ImageButton
+        android:id="@+id/format.underline"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_underline"
+        android:src="?icon_format_underline_grey" />
+
+    <ImageButton
+        android:id="@+id/format.strike"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_strike"
+        android:src="?icon_format_strike_grey" />
+
+    <ImageButton
+        android:id="@+id/format.link.insert"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_link_insert"
+        android:src="?icon_link_grey"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/format.bullets"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_bullets"
+        android:src="?icon_format_list_bulleted_grey" />
+
+    <ImageButton
+        android:id="@+id/format.numbers"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_numbers"
+        android:src="?icon_format_list_numbers_grey" />
+
+    <ImageButton
+        android:id="@+id/format.header.1"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_header_1"
+        android:src="?icon_format_header_1_grey" />
+
+    <ImageButton
+        android:id="@+id/format.header.2"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_header_2"
+        android:src="?icon_format_header_2_grey" />
+
+    <ImageButton
+        android:id="@+id/format.header.3"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_header_3"
+        android:src="?icon_format_header_3_grey" />
+
+    <ImageButton
+        android:id="@+id/format.header.4"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_header_4"
+        android:src="?icon_format_header_4_grey" />
+
+    <ImageButton
+        android:id="@+id/format.header.5"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_header_5"
+        android:src="?icon_format_header_5_grey" />
+
+    <ImageButton
+        android:id="@+id/format.header.6"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/format_header_6"
+        android:src="?icon_format_header_6_grey" />
+
+</merge>

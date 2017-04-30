@@ -1,11 +1,60 @@
 <resources>
 
+    <string name="dialog_remove">Remove</string>
+    <string name="dialog_insert">Insert</string>
     <string name="dialog_close">Close</string>
-    <string name="dialog_share">Share</string>
-    <string name="dialog_share_horario">Share Horario</string>
     <string name="dialog_send">Send</string>
+    <string name="dialog_save">Save</string>
+    <string name="dialog_add">Add</string>
 
     <string name="dialog_privacy_policy">Privacy policy</string>
+
+    <string name="dialog_timetable">Timetable</string>
+    <string name="dialog_timetable_new_title">Add timetable</string>
+    <string name="dialog_timetable_edit_title">Edit timetable</string>
+    <string name="dialog_timetable_delete_confirm">Delete timetable?</string>
+    <string name="dialog_timetable_delete_fully">Including shared copies</string>
+    <string name="dialog_timetable_error_enter_name">Enter name</string>
+    <string name="dialog_timetable_error_corrupted_link">Link is corrupted</string>
+
+    <string name="dialog_teacher_new_title">Add teacher</string>
+    <string name="dialog_teacher_edit_title">Edit teacher</string>
+    <string name="dialog_teacher_error_enter_name">Enter name</string>
+
+    <string name="dialog_subject_palette">Color</string>
+    <string name="dialog_subject_new_title">Add subject</string>
+    <string name="dialog_subject_edit_title">Edit subject</string>
+    <string name="dialog_subject_error_enter_name">Enter name</string>
+    <string name="dialog_subject_error_select_color">Select color</string>
+
+    <string name="dialog_announcement_new_title">Add announcement</string>
+    <string name="dialog_assignment_new_title">Add assignment</string>
+    <string name="dialog_question_new_title">Add question</string>
+    <string name="dialog_announcement_edit_title">Edit announcement</string>
+    <string name="dialog_assignment_edit_title">Edit assignment</string>
+    <string name="dialog_question_edit_title">Edit question</string>
+
+    <string name="dialog_exam_new_title">Add exam</string>
+    <string name="dialog_exam_edit_title">Edit exam</string>
+    <string name="dialog_absence_new_title">Add absence</string>
+    <string name="dialog_absence_edit_title">Edit absence</string>
+    <string name="dialog_notification_new_title">Add notification</string>
+    <string name="dialog_notification_edit_title">Edit notification</string>
+    <string name="dialog_lesson_new_title">Add lesson</string>
+    <string name="dialog_lesson_edit_title">Edit lesson</string>
+    <string name="dialog_week_cycle_title">Week cycle</string>
+
+    <string name="dialog_lesson_time">Time:</string>
+    <string name="dialog_lesson_time_from">From</string>
+    <string name="dialog_lesson_time_to">To</string>
+    <string name="dialog_lesson_time_error_enter_time">Enter time</string>
+    <string name="dialog_lesson_time_error_invalid_time">Invalid time</string>
+
+    <string name="dialog_lesson_day">Day</string>
+    <string name="dialog_lesson_day_week">Week number:</string>
+    <string name="dialog_lesson_day_week_all">All</string>
+    <string name="dialog_lesson_day_day">Day:</string>
+    <string name="dialog_lesson_pick_time">Pick time</string>
 
     <!--
         Feedback dialog
@@ -15,6 +64,13 @@
     <string name="dialog_feedback_message_hint">Message</string>
     <string name="feedback_error_no_app">Installed email client is required to send feedback.</string>
     <string name="feedback_error_msg_too_short">Message must contain at least %1$d characters.</string>
+
+    <!--
+        Holiday mode
+        -->
+
+    <string name="dialog_holiday_mode_title">Holiday mode</string>
+    <string name="dialog_holiday_mode_message">Prevent displaying notifications about lessons and additional classes.</string>
 
     <!--
         Changelog
@@ -32,6 +88,7 @@
     <string name="dialog_about_credits" translatable="false"><![CDATA[
         <a href="http://developer.android.com/tools/support-library/index.html">Android Support Library</a>,
         <a href="http://commons.apache.org/">Apache Commons</a>,
+        <a href="https://firebase.google.com/">Firebase</a>,
         <a href="https://materialdesignicons.com/">Material Design Icons</a>,
         <a href="https://github.com/AChep/AcDisplay">AcDisplay</a> by AChep,
         <a href="https://github.com/JakeWharton/timber">Timber</a> by JakeWharton,
@@ -39,12 +96,25 @@
         <a href="https://github.com/square/leakcanary">leakcanary</a> by square,
         <a href="https://github.com/afollestad/material-dialogs">Material Dialogs</a> by afollestad,
         <a href="https://github.com/afollestad/material-cab">Material Contextual Action Bar</a> by afollestad,
-        <a href="https://github.com/mikepenz/MaterialDrawer">MaterialDrawer</a> by mikepenz,
+        <a href="https://github.com/lurbas/MaterialMasterDetail">Material Master/Detail</a> by Lucas Urbas,
+        <a href="https://github.com/sjwall/MaterialTapTargetPrompt">Material Tap Target Prompt</a> by amuel Wall,
+        <a href="https://github.com/GrenderG/Toasty">Toasty</a> by GrenderG,
+        <a href="https://github.com/yarolegovich/DiscreteScrollView">DiscreteScrollView</a> by yarolegovich,
+        <a href="https://github.com/grantland/android-autofittextview">AutoFitTextView</a> by grantland,
+        <a href="https://github.com/the-blue-alliance/spectrum">Spectrum</a> by nwalters512,
+        <a href="https://github.com/ShawnLin013/NumberPicker">NumberPicker</a> by ShawnLin013,
+        <a href="https://github.com/ApmeM/android-flowlayout">Android flow layout</a> by Artem Votincev,
+        <a href="https://github.com/blipinsk/RecyclerViewHeader">RecyclerViewHeader</a> by Bartosz Lipiński,
+        <a href="https://github.com/PhilJay/MPAndroidChart">MPAndroidChart</a> by Philipp Jahoda,
+        <a href="https://github.com/wasabeef/richeditor-android">RichEditor</a> by Wasabeef,
+        <a href="https://github.com/liuguangqiang/SwipeBack">SwipeBack</a> by Eric Liu,
         <a href="https://jsoup.org/">jsoup</a> by Jonathan Hedley
     ]]></string>
     <string name="dialog_about_message"><![CDATA[
-        Horario is an open source app for managing your school or university life.
-        Save your timetable and all tasks from homework to exams. Invite your group mates to collaborate.
+        <a href="https://github.com/XJSHQ/horario">Horario</a> app is a beautiful Material Design app, which helps you to manage your classes and
+        exams in the most convenient way. Fill your timetable once and it will be with you wherever
+        you go, because of sync across all your Android devices. Notifications won\’t let you forget
+        about your homework and exams.
         Copyright %2$s <a href="https://github.com/XJSHQ">XJSHQ team</a>. All Rights Reserved.<br/>
         <br/>
         Many thanks to these open source tools: %1$s.

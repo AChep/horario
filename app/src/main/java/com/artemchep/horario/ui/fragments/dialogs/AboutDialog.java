@@ -21,7 +21,6 @@ package com.artemchep.horario.ui.fragments.dialogs;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
@@ -29,7 +28,6 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.text.Spanned;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -37,14 +35,14 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.artemchep.basic.ui.activities.ActivityBase;
 import com.artemchep.basic.utils.HtmlUtils;
+import com.artemchep.basic.utils.PackageUtils;
 import com.artemchep.basic.utils.RawReader;
 import com.artemchep.horario.Binfo;
+import com.artemchep.horario.Config;
 import com.artemchep.horario.R;
 import com.artemchep.horario.ui.fragments.dialogs.base.DialogFragment;
 import com.artemchep.horario.utils.ToastUtils;
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.crash.FirebaseCrash;
 
 import es.dmoral.toasty.Toasty;
@@ -54,11 +52,12 @@ import es.dmoral.toasty.Toasty;
  */
 public class AboutDialog extends DialogFragment {
 
-    private static final String PLAY_STORE_URL = "https://play.google.com/store/apps/details" +
-            "?id=com.artemchep.horario";
+    public static final String EXTRA_VIEW = "extra::view";
+    public static final String VIEW_ABOUT = "extra::view::about";
+    public static final String VIEW_CHANGELOG = "extra::view::changelog";
 
     private Toast mTimeStampToast;
-    private FirebaseAnalytics mAnalytics;
+    private DialogView mCurView = DialogView.ABOUT;
 
     /**
      * @author Artem Chepurnoy
@@ -66,6 +65,23 @@ public class AboutDialog extends DialogFragment {
     private enum DialogView {
         ABOUT,
         CHANGELOG,
+    }
+
+    /**
+     * @return {@code true} if user has read current changelog,
+     * {@code false} otherwise.
+     */
+    public static boolean isChangelogRead(@NonNull Context context) {
+        PackageInfo pi;
+        try {
+            pi = context
+                    .getPackageManager()
+                    .getPackageInfo(PackageUtils.getName(context), 0);
+        } catch (PackageManager.NameNotFoundException ignored) {
+            return false;
+        }
+
+        return Config.getInstance().getInt(Config.KEY_CHANGELOG_READ) >= pi.versionCode;
     }
 
     @NonNull
@@ -99,24 +115,11 @@ public class AboutDialog extends DialogFragment {
         return HtmlUtils.fromLegacyHtml(html);
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        ActivityBase activity = (ActivityBase) getActivity();
-        mAnalytics = FirebaseAnalytics.getInstance(activity);
-    }
-
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         ContextThemeWrapper context = getActivity();
         assert context != null;
-
-        String year = Binfo.TIME_STAMP_YEAR;
-        String credits = getString(R.string.dialog_about_credits);
-        String src = getString(R.string.dialog_about_message, credits, year);
-        CharSequence message = HtmlUtils.fromLegacyHtml(src);
 
         // Load icon
         TypedArray a = getActivity().getTheme().obtainStyledAttributes(
@@ -126,14 +129,11 @@ public class AboutDialog extends DialogFragment {
 
         MaterialDialog md = new MaterialDialog.Builder(context)
                 .iconRes(iconDrawableRes)
-                .title(getFormattedVersionName(context))
-                .content(message)
+                .title("")
+                .content("")
                 .negativeText(R.string.dialog_close)
-                .positiveText(R.string.dialog_share)
                 .neutralText(R.string.dialog_changelog_title)
                 .onAny(new MaterialDialog.SingleButtonCallback() {
-
-                    private DialogView mCurView = DialogView.ABOUT;
 
                     @Override
                     public void onClick(
@@ -143,32 +143,22 @@ public class AboutDialog extends DialogFragment {
                             case NEUTRAL: {
                                 if (mCurView == DialogView.ABOUT) {
                                     mCurView = DialogView.CHANGELOG;
-                                    switchToChangelogView(dialog);
+                                    switchToChangelogView(dialog, false);
+                                    markChangelogAsRead();
                                 } else {
                                     mCurView = DialogView.ABOUT;
                                     switchToAboutView(dialog);
                                 }
                             }
                             return;
-                            case POSITIVE: {
-                                Bundle bundle = new Bundle();
-                                bundle.putString(FirebaseAnalytics.Param.CONTENT, "app");
-                                mAnalytics.logEvent(FirebaseAnalytics.Event.SHARE, bundle);
-
-                                try {
-                                    Intent i = new Intent(Intent.ACTION_SEND);
-                                    i.setType("text/plain");
-                                    i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-                                    i.putExtra(Intent.EXTRA_TEXT, "Horario is an open source app for " +
-                                            "managing your school or university life: " + PLAY_STORE_URL);
-                                    startActivity(Intent.createChooser(i, getString(R.string.dialog_share_horario)));
-                                } catch (Exception e) {
-                                    FirebaseCrash.report(new Exception("Failed to share application.", e));
-                                }
-                                break;
-                            }
                         }
                         dismiss();
+                    }
+                })
+                .showListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialog) {
+                        if (mCurView == DialogView.CHANGELOG) markChangelogAsRead();
                     }
                 })
                 .autoDismiss(false)
@@ -183,6 +173,16 @@ public class AboutDialog extends DialogFragment {
             }
 
         });
+
+        Bundle args = getArguments();
+        if (VIEW_CHANGELOG.equals(args.getString(EXTRA_VIEW))) {
+            mCurView = DialogView.CHANGELOG;
+            switchToChangelogView(md, true);
+        } else {
+            mCurView = DialogView.ABOUT;
+            switchToAboutView(md);
+        }
+
         return md;
     }
 
@@ -196,12 +196,32 @@ public class AboutDialog extends DialogFragment {
         dialog.getActionButton(DialogAction.NEUTRAL).setText(R.string.nav_changelog);
     }
 
-    private void switchToChangelogView(@NonNull MaterialDialog dialog) {
+    private void switchToChangelogView(@NonNull MaterialDialog dialog, boolean displayHint) {
         String src = RawReader.readText(getContext(), R.raw.changelog);
+        if (displayHint) {
+            src = RawReader.readText(getContext(), R.raw.changelog_hint) + src;
+        }
         CharSequence message = HtmlUtils.fromLegacyHtml(src);
         dialog.getTitleView().setText(R.string.dialog_changelog_title);
         dialog.getContentView().setText(message);
         dialog.getActionButton(DialogAction.NEUTRAL).setText(R.string.nav_about);
+    }
+
+    private void markChangelogAsRead() {
+        Context context = getContext();
+        PackageInfo pi;
+        try {
+            pi = context
+                    .getPackageManager()
+                    .getPackageInfo(PackageUtils.getName(context), 0);
+        } catch (PackageManager.NameNotFoundException ignored) {
+            return;
+        }
+
+        Config.getInstance()
+                .edit(context)
+                .put(Config.KEY_CHANGELOG_READ, pi.versionCode)
+                .commit();
     }
 
     @Override

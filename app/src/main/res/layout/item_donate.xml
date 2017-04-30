@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/donate_view_width"
+    android:layout_height="@dimen/donate_view_height"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/donate_icon_size"
+        android:layout_height="@dimen/donate_icon_size"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:alpha="0.6"
+        android:tint="?android:textColorPrimary"
+        app:srcCompat="@drawable/ic_mountain" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:alpha="0.8"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="1"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="?android:textColorPrimary"
+        tools:text="Journey" />
+
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:alpha="0.6"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:maxLines="2"
+        android:paddingEnd="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingStart="8dp"
+        tools:text="A bit of a great adventure" />
+
+    <Button
+        android:id="@+id/button"
+        style="?borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:maxLines="1"
+        android:textColor="?colorAccent"
+        tools:text="Test" />
+
+</LinearLayout>

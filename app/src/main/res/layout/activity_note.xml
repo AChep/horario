@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
+
+    <com.artemchep.horario.ui.widgets.SwipeBackLayout
+        android:id="@+id/swipe_back_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:colorBackground"
+            android:clipChildren="false"
+            android:orientation="vertical">
+
+            <!--
+                Fake shadow of the activity window
+                -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginTop="-16dp"
+                android:background="@drawable/bg_header_filter_dark" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:navigationIcon="?icon_close_grey" />
+
+            <com.artemchep.horario.ui.widgets.BoundedCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/note_margin_bottom"
+                android:layout_marginEnd="@dimen/note_margin_end"
+                android:layout_marginLeft="@dimen/note_margin_start"
+                android:layout_marginRight="@dimen/note_margin_end"
+                android:layout_marginStart="@dimen/note_margin_start"
+                android:layout_marginTop="@dimen/note_margin_top"
+                android:transitionName="card"
+                app:bounded_width="@dimen/container_max_width"
+                app:cardBackgroundColor="?bg_card">
+
+                <RelativeLayout
+                    android:id="@+id/card_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!--
+                        Format
+                        -->
+
+                    <ImageButton
+                        android:id="@+id/chevron"
+                        style="?actionButtonStyle"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:contentDescription="@string/format_numbers"
+                        android:src="@drawable/ic_chevron_right_grey600_24dp" />
+
+                    <android.support.v4.widget.NestedScrollView
+                        android:id="@+id/format"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/chevron"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="48dp"
+                            android:layout_height="wrap_content"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:orientation="vertical">
+
+                            <include
+                                layout="@layout/view_note_format"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </android.support.v4.widget.NestedScrollView>
+
+                    <!--
+                        Subjects
+                        -->
+
+                    <org.apmem.tools.layouts.FlowLayout
+                        android:id="@+id/subject_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="@dimen/activity_vertical_margin"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="8dp"
+                        android:layout_toLeftOf="@id/format"
+                        android:layout_toStartOf="@id/format">
+
+                        <TextView
+                            android:id="@+id/subject_add"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:background="@drawable/bg_item_note_subject"
+                            android:fontFamily="sans-serif-medium"
+                            android:gravity="center_horizontal"
+                            android:minWidth="48dp"
+                            android:padding="6dp"
+                            android:text="@string/action_add_subject"
+                            android:textSize="13sp" />
+
+                    </org.apmem.tools.layouts.FlowLayout>
+
+                    <!--
+                        Content
+                        -->
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:id="@+id/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_toLeftOf="@id/chevron"
+                        android:layout_toStartOf="@id/chevron"
+                        android:background="@null"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="@string/hint_title"
+                        android:inputType="textShortMessage"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:transitionName="title" />
+
+                    <TextView
+                        android:id="@+id/time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="8dp"
+                        android:layout_toLeftOf="@id/chevron"
+                        android:layout_toStartOf="@id/chevron"
+                        android:drawableLeft="?icon_clock_14dp"
+                        android:drawablePadding="4dp"
+                        android:drawableStart="?icon_clock_14dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:minWidth="48dp"
+                        android:textSize="13sp"
+                        tools:text="12:35" />
+
+                    <jp.wasabeef.richeditor.RichEditor
+                        android:id="@+id/editor"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@id/subject_group"
+                        android:layout_below="@id/time"
+                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                        android:layout_marginStart="@dimen/activity_horizontal_margin"
+                        android:layout_marginTop="8dp"
+                        android:layout_toLeftOf="@id/format"
+                        android:layout_toStartOf="@id/format" />
+
+                </RelativeLayout>
+
+            </com.artemchep.horario.ui.widgets.BoundedCardView>
+
+        </LinearLayout>
+
+    </com.artemchep.horario.ui.widgets.SwipeBackLayout>
+
+</FrameLayout>

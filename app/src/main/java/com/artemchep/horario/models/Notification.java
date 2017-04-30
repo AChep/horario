@@ -19,6 +19,7 @@
 package com.artemchep.horario.models;
 
 import android.os.Parcel;
+import android.support.annotation.NonNull;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -40,6 +41,10 @@ public class Notification extends Model {
         }
     };
 
+    public static final int PRIORITY_LOW = -1;
+    public static final int PRIORITY_MEDIUM = 0;
+    public static final int PRIORITY_HIGH = 1;
+
     /**
      * Title of the notification; shortly explains
      * the notification.
@@ -51,6 +56,7 @@ public class Notification extends Model {
      * person.
      */
     public String author;
+    public int priority;
     public long timestamp;
 
     public Notification() {
@@ -63,6 +69,7 @@ public class Notification extends Model {
         title = source.readString();
         summary = source.readString();
         author = source.readString();
+        priority = source.readInt();
         timestamp = source.readLong();
     }
 
@@ -76,6 +83,7 @@ public class Notification extends Model {
                 .append(title)
                 .append(summary)
                 .append(author)
+                .append(priority)
                 .append(timestamp)
                 .toHashCode();
     }
@@ -95,8 +103,14 @@ public class Notification extends Model {
                 .append(title, n.title)
                 .append(summary, n.summary)
                 .append(author, n.author)
+                .append(priority, n.priority)
                 .append(timestamp, n.timestamp)
                 .isEquals();
+    }
+
+    @NonNull
+    public Notification clone() {
+        return (Notification) super.clone();
     }
 
     @Override
@@ -110,6 +124,7 @@ public class Notification extends Model {
         dest.writeString(title);
         dest.writeString(summary);
         dest.writeString(author);
+        dest.writeInt(priority);
         dest.writeLong(timestamp);
     }
 

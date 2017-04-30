@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.artemchep.horario.ui.widgets.AccountHeaderView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/account_header"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/account_header_height"
+    android:background="@drawable/bg_header"
+    android:foreground="?selectableItemBackground"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/menu_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
+
+    <me.grantland.widget.AutofitTextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/menu_icon"
+        android:layout_toStartOf="@id/menu_icon"
+        android:gravity="bottom"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="КН-34г 3:2"
+        android:textColor="@android:color/white"
+        android:textSize="34sp"
+        app:minTextSize="16sp" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/title"
+        android:alpha="0.6"
+        android:text="Timetable:"
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
+
+</com.artemchep.horario.ui.widgets.AccountHeaderView>

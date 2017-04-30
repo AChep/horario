@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:activatedBackgroundIndicator"
+    android:foreground="?android:selectableItemBackground"
+    android:minHeight="72dp"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingStart="@dimen/activity_horizontal_margin">
+
+    <View
+        android:id="@+id/color"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="56dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="12dp"
+        android:gravity="bottom"
+        android:minHeight="24dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/datetime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginLeft="56dp"
+        android:layout_marginStart="56dp"
+        android:fontFamily="sans-serif-medium"
+        android:maxLines="1"
+        android:textColor="?android:textColorPrimary" />
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/datetime"
+        android:layout_marginLeft="56dp"
+        android:layout_marginStart="56dp"
+        android:maxLines="1" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="12dp"
+        android:layout_below="@id/subtitle" />
+
+</RelativeLayout>

@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="restart_app_to_apply_theme">Restart application to apply theme</string>
+
+    <string name="settings_category_ui">Interface</string>
+    <string name="settings_category_timetable">Timetable</string>
+
+    <!--
+        Interface
+        -->
+
+    <string name="settings_ui_default_screen_title">Default screen</string>
+    <string name="settings_ui_theme_title">Theme</string>
+
+</resources>

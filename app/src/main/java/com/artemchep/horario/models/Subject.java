@@ -19,6 +19,7 @@
 package com.artemchep.horario.models;
 
 import android.os.Parcel;
+import android.support.annotation.NonNull;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -93,6 +94,11 @@ public class Subject extends Model {
                 .append(abbreviation, subject.abbreviation)
                 .append(info, subject.info)
                 .isEquals();
+    }
+
+    @NonNull
+    public Subject clone() {
+        return (Subject) super.clone();
     }
 
     @Override

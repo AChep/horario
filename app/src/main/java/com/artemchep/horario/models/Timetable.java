@@ -19,6 +19,7 @@
 package com.artemchep.horario.models;
 
 import android.os.Parcel;
+import android.support.annotation.NonNull;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -43,6 +44,7 @@ public class Timetable extends Model {
     public String name;
     public String privateKey;
     public String publicAddress;
+    public boolean isCopy;
 
     public Timetable() {
         // Default constructor required for calls
@@ -54,6 +56,7 @@ public class Timetable extends Model {
         name = source.readString();
         privateKey = source.readString();
         publicAddress = source.readString();
+        isCopy = source.readInt() != 0;
     }
 
     /**
@@ -62,6 +65,7 @@ public class Timetable extends Model {
     @Override
     public int hashCode() {
         return new HashCodeBuilder(247, 11)
+                .append(isCopy)
                 .append(key)
                 .append(name)
                 .append(privateKey)
@@ -80,11 +84,17 @@ public class Timetable extends Model {
 
         Timetable subject = (Timetable) o;
         return new EqualsBuilder()
+                .append(isCopy, subject.isCopy)
                 .append(key, subject.key)
                 .append(name, subject.name)
                 .append(privateKey, subject.privateKey)
                 .append(publicAddress, subject.publicAddress)
                 .isEquals();
+    }
+
+    @NonNull
+    public Timetable clone() {
+        return (Timetable) super.clone();
     }
 
     @Override
@@ -98,6 +108,7 @@ public class Timetable extends Model {
         dest.writeString(name);
         dest.writeString(privateKey);
         dest.writeString(publicAddress);
+        dest.writeInt(isCopy ? 1 : 0);
     }
 
 }

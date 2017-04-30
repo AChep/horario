@@ -1,0 +1,42 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="n_mr1">
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_shortcut_note_add"
+        android:shortcutId="notes_add"
+        android:shortcutShortLabel="@string/shortcut_notes_add">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.artemchep.horario.ui.activities.NoteActivity"
+            android:targetPackage="com.artemchep.horario" />
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_shortcut_note"
+        android:shortcutId="notes"
+        android:shortcutShortLabel="@string/shortcut_notes">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.artemchep.horario.ui.activities.MainActivity"
+            android:targetPackage="com.artemchep.horario">
+            <categories android:name="com.artemchep.horario.NOTES" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_shortcut_week_view"
+        android:shortcutId="lessons_week_view"
+        android:shortcutShortLabel="@string/shortcut_lessons_week_view">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.artemchep.horario.ui.activities.MainActivity"
+            android:targetPackage="com.artemchep.horario">
+            <categories android:name="com.artemchep.horario.LESSON_WEEK_VIEW" />
+        </intent>
+    </shortcut>
+
+</shortcuts>

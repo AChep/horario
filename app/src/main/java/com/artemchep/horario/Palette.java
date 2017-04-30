@@ -26,24 +26,32 @@ import android.support.annotation.ColorInt;
  */
 public class Palette {
 
+    public static final int RED = 0xFFF44336;
+    public static final int PINK = 0xFFE91E63;
+    public static final int PURPLE = 0xFF9C27B0;
+    public static final int DEEP_PURPLE = 0xFF673AB7;
+    public static final int INDIGO = 0xFF3F51B5;
+    public static final int BLUE = 0xFF2196F3;
+    public static final int CYAN = 0xFF0097A7;
+    public static final int TEAL = 0xFF009688;
+    public static final int GREEN = 0xFF43A047;
+    public static final int LIGHT_GREEN = 0xFF8BC34A;
+    public static final int LIME = 0xFFCDDC39;
+    public static final int YELLOW = 0xFFFFEB3B;
+    public static final int AMBER = 0xFFFFC107;
+    public static final int ORANGE = 0xFFFF9800;
+    public static final int DEEP_ORANGE = 0xFFFF5722;
+    public static final int BROWN = 0xFF795548;
+    public static final int GREY = 0xFF9E9E9E;
+
     public static final int[] PALETTE = new int[]{
-            0xFFF44336, // red
-            0xFFE91E63, // pink
-            0xFF9C27B0, // purple
-            0xFF673AB7, // deep purple
-            0xFF3F51B5, // indigo
-            0xFF2196F3, // blue
-            0xFF0097A7, // cyan
-            0xFF009688, // teal
-            0xFF43A047, // green
-            0xFF8BC34A, // light green
-            0xFFCDDC39, // lime
-            0xFFFFEB3B, // yellow
-            0xFFFFC107, // amber
-            0xFFFF9800, // orange
-            0xFFFF5722, // deep orange
-            0xFF795548, // brown
-            0xFF9E9E9E, // grey
+            RED, PINK, PURPLE,
+            DEEP_PURPLE, INDIGO,
+            BLUE, CYAN, TEAL,
+            GREEN, LIGHT_GREEN,
+            LIME, YELLOW, AMBER,
+            ORANGE, DEEP_ORANGE,
+            BROWN, GREY,
     };
 
     /**

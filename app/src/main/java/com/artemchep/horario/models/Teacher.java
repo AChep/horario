@@ -19,6 +19,7 @@
 package com.artemchep.horario.models;
 
 import android.os.Parcel;
+import android.support.annotation.NonNull;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -44,6 +45,11 @@ public class Teacher extends Model {
     public String email;
     public String phone;
     public String info;
+    /**
+     * Should be one of those
+     * {@link com.artemchep.horario.Palette#PALETTE colors}.
+     */
+    public int color;
 
     public Teacher() {
         // Default constructor required for calls
@@ -56,6 +62,7 @@ public class Teacher extends Model {
         email = source.readString();
         phone = source.readString();
         info = source.readString();
+        color = source.readInt();
     }
 
     /**
@@ -69,6 +76,7 @@ public class Teacher extends Model {
                 .append(email)
                 .append(phone)
                 .append(info)
+                .append(color)
                 .toHashCode();
     }
 
@@ -83,12 +91,18 @@ public class Teacher extends Model {
 
         Teacher teacher = (Teacher) o;
         return new EqualsBuilder()
+                .append(color, teacher.color)
                 .append(key, teacher.key)
                 .append(name, teacher.name)
                 .append(email, teacher.email)
                 .append(phone, teacher.phone)
                 .append(info, teacher.info)
                 .isEquals();
+    }
+
+    @NonNull
+    public Teacher clone() {
+        return (Teacher) super.clone();
     }
 
     @Override
@@ -103,6 +117,7 @@ public class Teacher extends Model {
         dest.writeString(email);
         dest.writeString(phone);
         dest.writeString(info);
+        dest.writeInt(color);
     }
 
 }

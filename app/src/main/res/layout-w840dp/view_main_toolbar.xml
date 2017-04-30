@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/view_main_toolbar__appbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/view_main_toolbar__toolbar_general"
+        android:layout_width="match_parent"
+        app:layout_scrollFlags="scroll|enterAlways"
+        android:layout_height="?attr/actionBarSize"
+        app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <com.artemchep.horario.ui.widgets.BoundedFrameLayout
+            android:id="@+id/view_main_toolbar__frame_specific"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/container_horizontal_padding"
+            android:layout_marginRight="@dimen/container_horizontal_padding"
+            app:bounded_width="@dimen/container_max_width">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/view_main_toolbar__toolbar_specific"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+            <ViewStub
+                android:id="@+id/cab_stub"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize" />
+
+        </com.artemchep.horario.ui.widgets.BoundedFrameLayout>
+
+        <android.support.v4.widget.Space
+            android:id="@+id/view_main_toolbar__space_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</merge>

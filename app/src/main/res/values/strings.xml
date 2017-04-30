@@ -1,6 +1,110 @@
 <resources>
 
-    <string name="app_name">Horario</string>
+    <string name="app_name" translatable="false">Horario</string>
+    <string name="bitcoin" translatable="false">Bitcoin</string>
+    <string name="profile_add_timetable">Add timetable</string>
+
+    <string name="shortcut_lessons_week_view">Lessons</string>
+    <string name="shortcut_notes_add">Add note</string>
+    <string name="shortcut_notes">Notes</string>
+
+    <string name="action_save">Save</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_share">Share</string>
+    <string name="action_switch_week">Switch week</string>
+    <string name="action_edit_teacher">Edit teacher</string>
+    <string name="action_edit_subject">Edit subject</string>
+    <string name="action_add_note">Add note</string>
+    <string name="action_add_lesson">Add lesson</string>
+    <string name="action_add_subject">Add subject</string>
+    <string name="action_add_teacher">Add teacher</string>
+    <string name="action_add_exam">Add exam</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_palette">Change color</string>
+    <string name="action_view_stream">Stream view</string>
+    <string name="action_view_dashboard">Dashboard view</string>
+    <string name="action_create_new_subject">Add subject</string>
+    <string name="action_create_new_teacher">Add teacher</string>
+
+    <string name="main_tasks_empty">No tasks</string>
+    <string name="main_exams_empty">No exams</string>
+    <string name="main_notes_empty">No notes</string>
+    <string name="main_subjects_empty">No subjects</string>
+    <string name="main_teachers_empty">No teachers</string>
+    <string name="main_timetables_empty">No timetables</string>
+    <string name="main_groups_empty">No groups</string>
+    <string name="main_lessons_empty">No lessons</string>
+    <string name="main_notifications_empty">No notifications</string>
+
+    <string name="details_email_clipboard">Email \"%s\" copied to clipboard</string>
+    <string name="details_phone_clipboard">Phone number \"%s\" copied to clipboard</string>
+    <string name="details_link_clipboard">Link \"%s\" copied to clipboard</string>
+
+    <string name="details_empty">No additional information</string>
+    <string name="details_deleted">Entry deleted</string>
+
+    <string name="details_timetable_shareable_link">Get shareable link</string>
+
+    <string name="share">Share</string>
+    <string name="share_link_via">Share link via…</string>
+    <string name="share_horario_via">Share Horario via…</string>
+
+    <string name="snackbar_undo">Undo</string>
+    <string name="snackbar_note_removed">Note removed</string>
+    <string name="snackbar_note_removed_named">Note \"%1$s\" removed</string>
+    <string name="snackbar_note_removed_plural">Notes removed</string>
+    <string name="snackbar_note_archived">Note archived</string>
+    <string name="snackbar_note_archived_named">Note \"%1$s\" archived</string>
+    <string name="snackbar_note_archived_plural">Notes archived</string>
+    <string name="snackbar_note_restored">Note restored</string>
+    <string name="snackbar_note_restored_named">Note \"%1$s\" restored</string>
+    <string name="snackbar_note_restored_plural">Notes restored</string>
+    <string name="snackbar_teacher_removed_named">Teacher \"%1$s\" removed</string>
+    <string name="snackbar_teacher_removed_plural">Teachers removed</string>
+    <string name="snackbar_subject_removed_named">Subject \"%1$s\" removed</string>
+    <string name="snackbar_subject_removed_plural">Subjects removed</string>
+    <string name="snackbar_lesson_removed">Lesson removed</string>
+    <string name="snackbar_lesson_removed_named">Lesson \"%1$s\" removed</string>
+    <string name="snackbar_lesson_removed_plural">Lessons removed</string>
+    <string name="snackbar_notification_removed">Notification removed</string>
+    <string name="snackbar_notification_removed_named">Notification \"%1$s\" removed</string>
+    <string name="snackbar_notification_removed_plural">Notifications removed</string>
+    <string name="snackbar_exam_removed">Exam removed</string>
+    <string name="snackbar_exam_removed_named">Exam \"%1$s\" removed</string>
+    <string name="snackbar_exam_removed_plural">Exams removed</string>
+
+    <!--
+        Support Development
+        -->
+
+    <!-- First argument is currency, second is price -->
+    <string name="main_support_donation_price">%1$s %2$s</string>
+    <!-- Shown instead of the price if item is purchased already -->
+    <string name="main_support_donation_purchased">Purchased</string>
+    <!-- Shown as toast after purchasing one of the monetary items -->
+    <string name="main_support_donation_thanks">Thank you so much!</string>
+    <string name="main_support_0_title">Thank you!</string>
+    <string name="main_support_0_summary">If you like the application, consider making me a present. It will support this project and encourage me to make more similar in the near future.</string>
+    <string name="main_support_1_title">Is there a reason?</string>
+    <string name="main_support_1_summary">We all love free apps, but unfortunately developing and supporting app isn\'t free. If you like what I\'m doing and want to see more stuff like this, think about supporting my work to allow me to allocate more time on it. Any contribution makes an immense difference.</string>
+    <string name="main_support_2_title">Can\'t contribute monetary? No problem, you can still help a lot!</string>
+    <string name="main_support_2_summary">Every contribution - monetary or non-monetary is equal and make substantial difference for me. Hope you enjoy it and thanks again.</string>
+    <string name="main_support_item_rate_title">Rate</string>
+    <string name="main_support_item_rate_summary">Give a 5 star review and write some comments</string>
+    <string name="main_support_item_feedback_title">Feedback</string>
+    <string name="main_support_item_feedback_summary">It warms my heart to hear this app can help anybody</string>
+    <string name="main_support_item_dev_title">Develop</string>
+    <string name="main_support_item_dev_summary">Join app development directly</string>
+    <string name="main_support_item_translate_title">Translate</string>
+    <string name="main_support_item_translate_summary">Help translating into your native language</string>
+    <string name="main_support_item_share_title">Share</string>
+    <string name="main_support_item_share_summary">Share this application with friends</string>
+
+    <!--
+        Actions
+        -->
+
+    <string name="action_donate_btc">Donate Bitcoins</string>
 
     <!--
         Nav
@@ -11,12 +115,60 @@
     <string name="nav_feedback">Feedback</string>
     <string name="nav_changelog">Changelog</string>
     <string name="nav_settings">Settings</string>
+    <string name="nav_sign_out">Sign out</string>
+    <string name="nav_overview">Dashboard</string>
+    <string name="nav_lessons">Lessons</string>
+    <string name="nav_attendance">Attendance</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="nav_teachers">Teachers</string>
+    <string name="nav_groups">Groups</string>
+    <string name="nav_subjects">Subjects</string>
+    <string name="nav_exams">Exams</string>
+    <string name="nav_notes">Notes</string>
+    <string name="nav_donate">Support development</string>
+    <string name="nav_holidays_mode">Holidays mode</string>
+
+    <string name="nav_profile_empty">Not set</string>
+    <string name="nav_profile_manage_timetable">Manage timetables</string>
+    <string name="nav_profile_add_timetable">Add timetable</string>
+
+    <!--
+        Format
+        -->
+
+    <string name="format_bold">Bold</string>
+    <string name="format_italic">Italic</string>
+    <string name="format_underline">Underline</string>
+    <string name="format_strike">Strike</string>
+    <string name="format_link_insert">Insert link</string>
+    <string name="format_bullets">List bullets</string>
+    <string name="format_numbers">List numbers</string>
+    <string name="format_header_1">Header 1</string>
+    <string name="format_header_2">Header 2</string>
+    <string name="format_header_3">Header 3</string>
+    <string name="format_header_4">Header 4</string>
+    <string name="format_header_5">Header 5</string>
+    <string name="format_header_6">Header 6</string>
 
     <!--
         Hints
         -->
 
+    <string name="hint_name">Name</string>
+    <string name="hint_link">Link</string>
+    <string name="hint_abbr">Abbreviation</string>
+    <string name="hint_time">Time</string>
+    <string name="hint_info">Info</string>
+    <string name="hint_date">Date</string>
+    <string name="hint_type">Type</string>
     <string name="hint_email">Email</string>
+    <string name="hint_phone">Phone</string>
+    <string name="hint_place">Place</string>
+    <string name="hint_title">Title</string>
+    <string name="hint_content">Content</string>
+    <string name="hint_summary">Summary</string>
+    <string name="hint_subject">Subject</string>
+    <string name="hint_teacher">Teacher</string>
     <string name="hint_password">Password</string>
     <string name="hint_password_confirm">Confirm password</string>
 
@@ -24,6 +176,6 @@
         Constants
         -->
 
-    <string name="facebook_app_id">1373138249410557</string>
+    <string name="facebook_app_id" translatable="false">1373138249410557</string>
 
 </resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_edit"
+        android:icon="?icon_pencil_grey"
+        android:title="@string/action_edit"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_add_lesson"
+        android:title="@string/action_add_lesson"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_add_exam"
+        android:title="@string/action_add_exam"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_delete"
+        android:icon="?icon_pencil_grey"
+        android:title="@string/action_delete"
+        app:showAsAction="never" />
+
+</menu>

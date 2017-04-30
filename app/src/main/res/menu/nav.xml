@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/primary_nav"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_fake"
+            android:title=""
+            android:visible="false" />
+
+        <item
+            android:id="@+id/nav_overview"
+            android:icon="@drawable/ic_view_dashboard_grey600_24dp"
+            android:title="@string/nav_overview" />
+
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/ic_bell_grey600_24dp"
+            android:title="@string/nav_notifications" />
+
+        <item
+            android:id="@+id/nav_lessons"
+            android:icon="@drawable/ic_book_variant_grey600_24dp"
+            android:title="@string/nav_lessons" />
+
+        <item
+            android:id="@+id/nav_attendance"
+            android:icon="@drawable/ic_calendar_text_grey600_24dp"
+            android:title="@string/nav_attendance" />
+
+        <item
+            android:id="@+id/nav_subjects"
+            android:icon="@drawable/ic_label_grey600_24dp"
+            android:title="@string/nav_subjects" />
+
+        <item
+            android:id="@+id/nav_teachers"
+            android:icon="@drawable/ic_account_multiple_grey600_24dp"
+            android:title="@string/nav_teachers" />
+
+        <item
+            android:id="@+id/nav_notes"
+            android:icon="@drawable/ic_note_text_grey600_24dp"
+            android:title="@string/nav_notes" />
+
+        <item
+            android:id="@+id/nav_exams"
+            android:icon="@drawable/ic_feather_grey600_24dp"
+            android:title="@string/nav_exams" />
+
+    </group>
+
+    <group android:id="@+id/secondary_nav">
+
+        <item
+            android:id="@+id/nav_holidays_mode"
+            android:icon="@drawable/ic_pine_tree_grey600_24dp"
+            android:title="@string/nav_holidays_mode" />
+
+        <item
+            android:id="@+id/nav_donate"
+            android:checkable="true"
+            android:icon="@drawable/ic_heart_grey600_24dp"
+            android:title="@string/nav_donate" />
+
+        <item
+            android:id="@+id/nav_settings"
+            android:checkable="true"
+            android:icon="@drawable/ic_settings_grey600_24dp"
+            android:title="@string/nav_settings" />
+
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_email_grey600_24dp"
+            android:title="@string/nav_feedback" />
+
+        <item
+            android:id="@+id/nav_privacy_policy"
+            android:icon="@drawable/ic_shield_grey600_24dp"
+            android:title="@string/nav_privacy_policy" />
+
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_information_outline_grey600_24dp"
+            android:title="@string/nav_about" />
+
+    </group>
+
+</menu>

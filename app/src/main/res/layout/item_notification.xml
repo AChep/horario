@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:activatedBackgroundIndicator"
+    android:foreground="?android:selectableItemBackground"
+    android:minHeight="72dp"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingStart="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/color"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textSize="16sp"
+        tools:background="#f00"
+        tools:text="T" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@id/color"
+        android:layout_toRightOf="@id/color"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp"
+        tools:text="Title" />
+
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/title"
+        android:layout_alignStart="@id/title"
+        android:layout_below="@id/title"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="4dp"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat elit id orci auctor, sed aliquet sapien ultricies. Nunc consectetur ornare arcu, id mattis est dapibus ut." />
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/title"
+        android:layout_alignStart="@id/title"
+        android:layout_below="@id/summary"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="13sp"
+        tools:text="Artem Chepurnoy" />
+
+    <TextView
+        android:id="@+id/timestamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/summary"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="4dp"
+        android:layout_toEndOf="@id/author"
+        android:layout_toRightOf="@id/author"
+        android:alpha="0.6"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="13sp"
+        tools:text="10:54, Monday, 10 may" />
+
+</RelativeLayout>

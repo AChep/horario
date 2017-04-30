@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:foreground="?bg_holiday_filter"
+        android:src="?bg_holiday" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/md_titleFrame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/md_title_frame_margin_bottom"
+            android:paddingLeft="@dimen/md_dialog_frame_margin"
+            android:paddingRight="@dimen/md_dialog_frame_margin"
+            android:paddingTop="@dimen/md_dialog_frame_margin">
+
+            <ImageView
+                android:id="@+id/md_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/md_icon_margin"
+                android:layout_marginRight="@dimen/md_icon_margin"
+                android:scaleType="fitXY"
+                android:src="?icon_pine_tree"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/md_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dialog_holiday_mode_title"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="@dimen/md_title_textsize" />
+
+            <Switch
+                android:id="@+id/switchy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/md_content_padding_bottom"
+            android:paddingLeft="@dimen/md_dialog_frame_margin"
+            android:paddingRight="@dimen/md_dialog_frame_margin"
+            android:paddingTop="@dimen/md_content_padding_top"
+            android:text="@string/dialog_holiday_mode_message"
+            android:textSize="@dimen/md_content_textsize" />
+
+    </LinearLayout>
+
+</FrameLayout>

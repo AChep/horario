@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
+
+        <com.artemchep.horario.ui.widgets.CustomAppBar
+            android:id="@+id/activity_main__custom_appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:stateListAnimator="@animator/appbar_always_elevated" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.artemchep.horario.ui.widgets.BoundedCardView
+                android:id="@+id/bounded_card_view"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/container_horizontal_padding"
+                android:layout_marginRight="@dimen/container_horizontal_padding"
+                android:layout_weight="1"
+                app:bounded_width="@dimen/container_max_width"
+                app:cardBackgroundColor="?bg_card"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="3dp">
+
+                <FrameLayout
+                    android:id="@+id/activity_main__frame_master"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.artemchep.horario.ui.widgets.BoundedCardView>
+
+            <android.support.v4.widget.Space
+                android:id="@+id/activity_main__space_master"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal">
+
+            <com.artemchep.horario.ui.widgets.BoundedFrameLayout
+                android:id="@+id/bounded_card_view2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/container_horizontal_padding"
+                android:layout_marginRight="@dimen/container_horizontal_padding"
+                android:layout_weight="1"
+                app:bounded_width="@dimen/container_max_width">
+
+                <android.support.design.widget.CoordinatorLayout
+                    android:id="@+id/coordinator_layout_fab"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|right|end"
+                        android:layout_marginBottom="@dimen/fab_margin"
+                        android:layout_marginEnd="@dimen/fab_margin"
+                        android:layout_marginRight="@dimen/fab_margin"
+                        android:src="@drawable/ic_plus_white_24dp" />
+
+                </android.support.design.widget.CoordinatorLayout>
+
+            </com.artemchep.horario.ui.widgets.BoundedFrameLayout>
+
+            <android.support.v4.widget.Space
+                android:id="@+id/activity_main__space_master2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="48dp"
+        android:gravity="center_horizontal">
+
+        <android.support.v4.widget.Space
+            android:id="@+id/activity_main__space_details"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
+        <com.artemchep.horario.ui.widgets.BoundedCardView
+            android:id="@+id/activity_main__frame_details"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/container_horizontal_padding"
+            android:layout_marginRight="@dimen/container_horizontal_padding"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:bounded_width="@dimen/container_max_width"
+            app:cardBackgroundColor="?bg_card"
+            app:cardElevation="3dp" />
+
+    </LinearLayout>
+
+</FrameLayout>

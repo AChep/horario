@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_view_stream"
+        android:icon="?icon_view_stream_grey"
+        android:title="@string/action_view_stream"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_view_dashboard"
+        android:icon="?icon_view_dashboard_grey"
+        android:title="@string/action_view_dashboard"
+        app:showAsAction="ifRoom" />
+
+</menu>
