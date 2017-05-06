@@ -21,6 +21,8 @@ package com.artemchep.horario.database.models;
 import android.os.Parcel;
 import android.support.annotation.NonNull;
 
+import com.artemchep.horario.models.Model;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
