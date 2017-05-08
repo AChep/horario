@@ -25,7 +25,7 @@ import android.support.annotation.NonNull;
  *
  * @author Artem Chepurnoy
  */
-public final class Atomic {
+public class Atomic {
 
     private static final boolean START = true;
     private static final boolean STOP = false;

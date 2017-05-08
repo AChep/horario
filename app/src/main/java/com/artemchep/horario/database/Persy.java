@@ -53,6 +53,15 @@ public class Persy {
     // This is actually the core and the meaning of this class
     private static final long REMOVAL_DELAY_MS = 60 * 1000; // 60 s.
 
+    private static Persy sPersy;
+
+    public static Persy getInstance() {
+        if (sPersy == null) {
+            sPersy = new Persy();
+        }
+        return sPersy;
+    }
+
     @NonNull
     private final List<Watcher> mWatchers = new ArrayList<>();
 
@@ -73,13 +82,43 @@ public class Persy {
 
     };
 
+    @NonNull
+    private final Atomic mAtomic = new Atomic(new Atomic.Callback() {
+        @Override
+        public void onStart(Object... objects) {
+        }
+
+        @Override
+        public void onStop(Object... objects) {
+            Timber.tag(TAG).i("Clean-up!");
+            mHandler.removeCallbacksAndMessages(0);
+            mWatchers.clear();
+        }
+    }) {
+
+        private int mCount = 0;
+
+        @Override
+        public void start(Object... objects) {
+            if (mCount++ == 0) {
+                super.start(objects);
+            }
+        }
+
+        @Override
+        public void stop(Object... objects) {
+            if (--mCount == 0) {
+                super.stop(objects);
+            }
+        }
+    };
+
     public void start() {
+        mAtomic.start();
     }
 
     public void stop() {
-        Timber.tag(TAG).i("Clean-up!");
-        mHandler.removeCallbacksAndMessages(0);
-        mWatchers.clear();
+        mAtomic.stop();
     }
 
     @CheckResult
