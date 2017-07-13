@@ -250,21 +250,21 @@ public class Aggregator<T extends Model> implements IObservable<Aggregator.Obser
     }
 
     public void remove(T model) {
-        int i = indexOf(model);
+        remove(model.key);
+    }
+
+    public void remove(String key) {
+        int i = indexOf(mList, key);
         if (i >= 0) {
             T old = mList.get(i);
             mList.remove(i);
-            if (mObserverAll != null) mObserverAll.remove(model, i);
+            if (mObserverAll != null) mObserverAll.remove(old, i);
 
-            // update local list
-            boolean validNew = mFilter.isValid(model);
-            if (validNew) {
-                // remove old model from the list
-                int j = indexOf(mObject, old);
-                if (j >= 0) {
-                    mObject.remove(j);
-                    mObserver.remove(model, j);
-                } else throw new IllegalStateException();
+            // remove old model from the list
+            int j = indexOf(mObject, old.key);
+            if (j >= 0) {
+                mObject.remove(j);
+                mObserver.remove(old, j);
             }
         }
     }
@@ -323,9 +323,13 @@ public class Aggregator<T extends Model> implements IObservable<Aggregator.Obser
     }
 
     public int indexOf(List<T> list, T model) {
+        return indexOf(list, model.key);
+    }
+
+    public int indexOf(List<T> list, String key) {
         final int size = list.size();
         for (int i = 0; i < size; i++) {
-            if (TextUtils.equals(list.get(i).key, model.key)) {
+            if (TextUtils.equals(list.get(i).key, key)) {
                 return i;
             }
         }

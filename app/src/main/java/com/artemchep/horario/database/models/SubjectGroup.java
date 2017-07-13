@@ -26,6 +26,9 @@ import com.artemchep.horario.models.Model;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Artem Chepurnoy
  */
@@ -44,6 +47,7 @@ public class SubjectGroup extends Model {
     };
 
     public String name;
+    public List<String> users;
 
     public SubjectGroup() {
         // Default constructor required for calls
@@ -53,6 +57,8 @@ public class SubjectGroup extends Model {
     public SubjectGroup(Parcel source) {
         key = source.readString();
         name = source.readString();
+        users = new ArrayList<>();
+        source.readStringList(users);
     }
 
     /**
@@ -63,6 +69,7 @@ public class SubjectGroup extends Model {
         return new HashCodeBuilder(247, 11)
                 .append(key)
                 .append(name)
+                .append(users)
                 .toHashCode();
     }
 
@@ -79,12 +86,19 @@ public class SubjectGroup extends Model {
         return new EqualsBuilder()
                 .append(key, subject.key)
                 .append(name, subject.name)
+                .append(users, subject.users)
                 .isEquals();
     }
 
     @NonNull
     public SubjectGroup clone() {
-        return (SubjectGroup) super.clone();
+        SubjectGroup group = (SubjectGroup) super.clone();
+        // Clone collection manually
+        if (users != null) {
+            group.users = new ArrayList<>();
+            group.users.addAll(users);
+        }
+        return group;
     }
 
     @Override
@@ -96,6 +110,7 @@ public class SubjectGroup extends Model {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(key);
         dest.writeString(name);
+        dest.writeStringList(users);
     }
 
 }

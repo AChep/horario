@@ -19,6 +19,7 @@
 package com.artemchep.horario.ui.fragments.details;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -32,14 +33,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.artemchep.horario.Palette;
 import com.artemchep.horario.R;
-import com.artemchep.horario.models.SubjectTask;
+import com.artemchep.horario.database.models.SubjectGroup;
+import com.artemchep.horario.database.models.SubjectTask;
 import com.artemchep.horario.ui.DialogHelper;
+import com.artemchep.horario.ui.activities.TimetableActivity;
+import com.artemchep.horario.ui.adapters.SubjectsGroupsAdapter;
 import com.artemchep.horario.ui.adapters.SubjectsTasksAdapter;
 import com.artemchep.horario.ui.fragments.master.ModelFragment;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
+import com.google.firebase.database.FirebaseDatabase;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
@@ -50,7 +57,7 @@ import java.util.List;
 /**
  * @author Artem Chepurnoy
  */
-public class SubjectFragment extends DetailsFragment implements ViewPager.OnPageChangeListener {
+public class SubjectFragment extends DetailsFragment implements ViewPager.OnPageChangeListener, ViewPager.PageTransformer {
 
     private static final String TAG = "SubjectFragment";
 
@@ -98,6 +105,14 @@ public class SubjectFragment extends DetailsFragment implements ViewPager.OnPage
         mHelper.setTitle("Testing subjects");
 
         mFab = (FloatingActionButton) view.findViewById(R.id.fab);
+        mFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogHelper.showSubjectGroupDialog(getMainActivity(),
+                        "user/YhTvBZ5eMTPeuhTKZAh9SeCiVGt1/timetable_public/-KguZ6-bx-bkMGjutdkJ/subjects/-KbyZXLDGApiHnpxiHKW",
+                        null);
+            }
+        });
         mFabStream = (FloatingActionMenu) view.findViewById(R.id.fab_menu);
         mFabStream.findViewById(R.id.fab_menu_announcement).setOnClickListener(mTaskOnClickListener);
         mFabStream.findViewById(R.id.fab_menu_assignment).setOnClickListener(mTaskOnClickListener);
@@ -106,12 +121,14 @@ public class SubjectFragment extends DetailsFragment implements ViewPager.OnPage
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getChildFragmentManager(), FragmentPagerItems.with(getContext())
                 .add("Stream", StreamFragment.class)
+                .add("Students", StudentsFragment.class)
                 .add("Materials", PageFragment.class)
                 .add("About", AboutFragment.class)
                 .create());
 
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
         viewPager.setAdapter(adapter);
+        viewPager.setPageTransformer(false, this);
         viewPager.addOnPageChangeListener(this);
 
         SmartTabLayout viewPagerTab = (SmartTabLayout) view.findViewById(R.id.viewpagertab);
@@ -141,6 +158,11 @@ public class SubjectFragment extends DetailsFragment implements ViewPager.OnPage
 
     @Override
     public void onPageScrollStateChanged(int state) {
+    }
+
+    @Override
+    public void transformPage(View page, float position) {
+        page.setAlpha(position);
     }
 
     /**
@@ -194,6 +216,11 @@ public class SubjectFragment extends DetailsFragment implements ViewPager.OnPage
             super.onViewCreated(view, savedState);
             RecyclerView rv = (RecyclerView) view.findViewById(R.id.recycler);
             rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+        }
+
+        @Override
+        public void onItemClick(@NonNull View view, @NonNull SubjectTask item) {
+            super.onItemClick(view, item);
         }
 
         @NonNull
@@ -256,7 +283,8 @@ public class SubjectFragment extends DetailsFragment implements ViewPager.OnPage
     /**
      * @author Artem Chepurnoy
      */
-    public static class StudentsFragment extends ModelFragment<SubjectTask> {
+    public static class StudentsFragment extends ModelFragment<SubjectGroup> implements
+            SubjectsGroupsAdapter.OnActionButtonClickListener {
 
         @Override
         public void onAttach(final Context context) {
@@ -268,11 +296,12 @@ public class SubjectFragment extends DetailsFragment implements ViewPager.OnPage
 
         @NonNull
         @Override
-        protected Comparator<SubjectTask> onCreateComparator() {
-            return new Comparator<SubjectTask>() {
+        protected Comparator<SubjectGroup> onCreateComparator() {
+            return new Comparator<SubjectGroup>() {
                 @Override
-                public int compare(SubjectTask o1, SubjectTask o2) {
-                    return o1.key.compareTo(o2.key);
+                public int compare(SubjectGroup o1, SubjectGroup o2) {
+                    int i = o1.name.compareToIgnoreCase(o2.name);
+                    return i != 0 ? i : o1.key.compareTo(o2.key);
                 }
             };
         }
@@ -282,7 +311,7 @@ public class SubjectFragment extends DetailsFragment implements ViewPager.OnPage
         public View onCreateView(
                 LayoutInflater inflater, @Nullable ViewGroup container,
                 @Nullable Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_details_subject_stream, container, false);
+            return inflater.inflate(R.layout.fragment_details_subject_groups, container, false);
         }
 
         @Override
@@ -294,26 +323,69 @@ public class SubjectFragment extends DetailsFragment implements ViewPager.OnPage
 
         @NonNull
         @Override
-        protected String getSnackBarRemoveMessage(List<SubjectTask> list) {
+        protected String getSnackBarRemoveMessage(List<SubjectGroup> list) {
             return "sdf";
         }
 
         @NonNull
         @Override
-        protected BaseAdapter<SubjectTask> onCreateAdapter() {
-            return new SubjectsTasksAdapter(this, mAggregator.getModels());
+        protected BaseAdapter<SubjectGroup> onCreateAdapter() {
+            List<SubjectGroup> source = mAggregator.getModels();
+            SubjectsGroupsAdapter adapter = new SubjectsGroupsAdapter(this, source);
+            adapter.setOnActionButtonClickListener(this);
+            return adapter;
+        }
+
+        @Override
+        public void onClick(
+                @NonNull View view, @NonNull SubjectGroup group,
+                @NonNull SubjectsGroupsAdapter.ActionButton button) {
+            switch (button) {
+                case DELETE: {
+                    final String key = group.key;
+                    new MaterialDialog.Builder(getContext())
+                            .title(group.name)
+                            .content("Remove group?")
+                            .negativeText(android.R.string.cancel)
+                            .positiveText(R.string.dialog_remove)
+                            .onPositive(new MaterialDialog.SingleButtonCallback() {
+                                @Override
+                                public void onClick(
+                                        @NonNull MaterialDialog dialog,
+                                        @NonNull DialogAction which) {
+                                    String path = getPath();
+                                    FirebaseDatabase.getInstance()
+                                            .getReference(path)
+                                            .child(key)
+                                            .setValue(null);
+                                }
+                            })
+                            .show();
+                    break;
+                }
+                case EDIT:
+                    DialogHelper.showSubjectGroupDialog(getMainActivity(),
+                            "user/YhTvBZ5eMTPeuhTKZAh9SeCiVGt1/timetable_public/-KguZ6-bx-bkMGjutdkJ/subjects/-KbyZXLDGApiHnpxiHKW",
+                            group);
+                    break;
+                case TIMETABLE: {
+                    Intent intent = new Intent(getContext(), TimetableActivity.class);
+                    startActivity(intent);
+                    break;
+                }
+            }
         }
 
         @NonNull
         @Override
-        protected Class<SubjectTask> getType() {
-            return SubjectTask.class;
+        protected Class<SubjectGroup> getType() {
+            return SubjectGroup.class;
         }
 
         @NonNull
         @Override
         protected String getPath() {
-            return "user/YhTvBZ5eMTPeuhTKZAh9SeCiVGt1/timetable_public/-KguZ6-bx-bkMGjutdkJ/subjects/-KbyZXLDGApiHnpxiHKW/students";
+            return "user/YhTvBZ5eMTPeuhTKZAh9SeCiVGt1/timetable_public/-KguZ6-bx-bkMGjutdkJ/subjects/-KbyZXLDGApiHnpxiHKW/groups";
         }
 
         // --------------------------

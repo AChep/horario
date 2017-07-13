@@ -34,6 +34,31 @@ import java.util.List;
  */
 public class Filter<T extends Model> implements IObservable<Filter.OnFilterChangedListener> {
 
+    public static Filter sEmptyFilter = new Filter<Model>() {
+
+        @Override
+        public void add(@NonNull Validator validator) {
+            throw new RuntimeException();
+        }
+
+        @Override
+        public void remove(@NonNull Validator validator) {
+            throw new RuntimeException();
+        }
+
+        @Nullable
+        @Override
+        public Parcelable onSaveInstanceState() {
+            return null;
+        }
+
+        @Override
+        public boolean isValid(@NonNull Model model) {
+            return true;
+        }
+
+    };
+
     private static final String BUNDLE_VALIDATORS = "validators";
 
     private ArrayList<Validator> mValidators = new ArrayList<>();

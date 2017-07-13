@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
+
+    <com.artemchep.horario.ui.widgets.SwipeBackLayout
+        android:id="@+id/swipe_back_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?android:colorBackground"
+            android:clipChildren="false"
+            android:orientation="vertical">
+
+            <!--
+                Fake shadow of the activity window
+                -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginTop="-16dp"
+                android:background="@drawable/bg_header_filter_dark" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                app:navigationIcon="?icon_close_grey" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.artemchep.horario.ui.views.WeekView
+                    android:id="@+id/week_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="?actionBarSize" />
+
+                <LinearLayout
+                    android:id="@+id/empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:alpha="0.4"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingBottom="?actionBarSize">
+
+                    <ImageView
+                        android:layout_width="@dimen/empty_view_icon_size"
+                        android:layout_height="@dimen/empty_view_icon_size"
+                        android:tint="?android:textColorHint"
+                        app:srcCompat="@drawable/ic_book_variant" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:maxWidth="180dp"
+                        android:text="@string/main_lessons_empty"
+                        android:textColor="?android:textColorPrimary" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </com.artemchep.horario.ui.widgets.SwipeBackLayout>
+
+</FrameLayout>

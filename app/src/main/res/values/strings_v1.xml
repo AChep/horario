@@ -1,0 +1,32 @@
+<resources>
+
+    <string name="chat_toolbar_ctx_title">%1$d messages</string>
+
+    <string name="add_comment">Add comment</string>
+    <string name="send_comment">Send comment</string>
+    <string name="save_comment">Save comment</string>
+
+    <string name="clipboard_copied_text">Text copied to clipboard</string>
+
+    <string name="press_again_to_exit">Press again to exit</string>
+
+    <string name="subject_stream_comment_options">Comment options</string>
+    <string name="subject_stream_comment_reply">Reply</string>
+    <string name="subject_stream_comment_edit">Edit</string>
+    <string name="subject_stream_comment_delete">Delete</string>
+    <string name="subject_stream_comment_copy">Copy text</string>
+    <string name="subject_stream_context_reply">Reply to</string>
+    <string name="subject_stream_context_edit">Edit</string>
+    <string name="subject_stream_task_due">due %1$s %2$d</string>
+    <string name="subject_stream_task_due_year">due %1$s %2$d, %3$d</string>
+    <string name="subject_stream">Stream</string>
+    <string name="subject_groups">Groups</string>
+    <string name="subject_groups_students">Students</string>
+    <string name="subject_groups_student_add">Add student</string>
+    <string name="subject_groups_remove_question">Remove group?</string>
+    <string name="subject_materials">Materials</string>
+    <string name="subject_about">About</string>
+    <string name="subject_about_code_label">Shareable code: %1$s</string>
+    <string name="subject_about_code_copied">Shareable code copied to clipboard</string>
+
+</resources>

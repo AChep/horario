@@ -26,6 +26,26 @@
         </activity>
 
         <activity
+            android:name=".ui.activities.SubjectActivity"
+            android:theme="@style/AppThemeLight.NoActionBar" />
+
+        <activity
+            android:name=".ui.activities.ChildActivity"
+            android:theme="@style/AppThemeLight.NoActionBar" />
+
+        <activity
+            android:name="._new.activities.SubjectActivity"
+            android:theme="@style/AppThemeLight.NoActionBar" />
+
+        <activity
+            android:name="._new.activities.GalleryActivity"
+            android:theme="@style/GalleryTheme" />
+
+        <activity
+            android:name=".ui.activities.TimetableActivity"
+            android:theme="@style/AppThemeLight.NoActionBar.Translucent" />
+
+        <activity
             android:name=".ui.activities.NoteActivity"
             android:theme="@style/AppThemeLight.NoActionBar.Translucent"
             android:windowSoftInputMode="stateHidden|adjustResize" />

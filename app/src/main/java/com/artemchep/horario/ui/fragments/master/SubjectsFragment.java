@@ -18,11 +18,11 @@
  */
 package com.artemchep.horario.ui.fragments.master;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,14 +34,11 @@ import android.view.ViewGroup;
 import com.afollestad.materialcab.MaterialCab;
 import com.artemchep.basic.ui.activities.ActivityBase;
 import com.artemchep.horario.R;
+import com.artemchep.horario._new.activities.SubjectActivity;
 import com.artemchep.horario.database.Db;
 import com.artemchep.horario.models.Subject;
 import com.artemchep.horario.ui.DialogHelper;
-import com.artemchep.horario.ui.activities.MainActivity;
 import com.artemchep.horario.ui.adapters.SubjectsAdapter;
-import com.artemchep.horario.ui.fragments.details.MooDetailsFragment;
-import com.artemchep.horario.ui.fragments.details.SubjectDetailsFragment;
-import com.artemchep.horario.ui.fragments.details.SubjectFragment;
 import com.artemchep.horario.ui.widgets.CustomAppBar;
 
 import java.util.Comparator;
@@ -113,15 +110,21 @@ public class SubjectsFragment extends ModelFragment<Subject> {
     @Override
     public void onItemClick(@NonNull View view, @NonNull Subject item) {
         super.onItemClick(view, item);
+        /*
         Bundle args = new Bundle();
         args.putBoolean(ModelFragment.EXTRA_EDITABLE, mEditable);
-        args.putString(ModelFragment.EXTRA_TIMETABLE_PATH, mTimetablePath);
+        args.putString(ModelFragment.EXTRA_PATH, mTimetablePath);
         args.putParcelable(MooDetailsFragment.EXTRA_MODEL, item);
         Fragment fragment = new SubjectFragment();
         fragment.setArguments(args);
 
         MainActivity activity = (MainActivity) getActivity();
         activity.navigateDetailsFrame(fragment);
+        */
+        Intent intent = new Intent(getContext(), SubjectActivity.class);
+//        intent.putExtra(SubjectActivity.EXTRA_PATH, getPath());
+        intent.putExtra(SubjectActivity.EXTRA_SUBJECT, item);
+        startActivity(intent);
     }
 
     @NonNull

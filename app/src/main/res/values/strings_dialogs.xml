@@ -30,9 +30,11 @@
     <string name="dialog_announcement_new_title">Add announcement</string>
     <string name="dialog_assignment_new_title">Add assignment</string>
     <string name="dialog_question_new_title">Add question</string>
+    <string name="dialog_group_new_title">Add group</string>
     <string name="dialog_announcement_edit_title">Edit announcement</string>
     <string name="dialog_assignment_edit_title">Edit assignment</string>
     <string name="dialog_question_edit_title">Edit question</string>
+    <string name="dialog_group_edit_title">Edit group</string>
 
     <string name="dialog_exam_new_title">Add exam</string>
     <string name="dialog_exam_edit_title">Edit exam</string>

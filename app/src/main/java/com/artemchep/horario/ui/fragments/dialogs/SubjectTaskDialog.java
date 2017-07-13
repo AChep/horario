@@ -158,7 +158,7 @@ public class SubjectTaskDialog extends DialogFragment {
         mRichEditor.setHtml(mSubject.descriptionHtml);
         mPrioritySpinner = (AppCompatSpinner) view.findViewById(R.id.priority);
 
-        mFormatHelper = new FormatHelper();
+        mFormatHelper = null;//new FormatHelper();
         mFormatHelper.init(mRichEditor, view.findViewById(R.id.format));
 
         return md;

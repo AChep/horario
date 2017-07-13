@@ -20,6 +20,7 @@ package com.artemchep.basic.utils;
 
 import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.Html;
 import android.text.Spanned;
 
@@ -37,6 +38,10 @@ public class HtmlUtils {
         return Device.hasNougatApi()
                 ? Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)
                 : Html.fromHtml(html);
+    }
+
+    public static Spanned fromLegacyHtmlSafe(@Nullable String html) {
+        return html == null ? null : fromLegacyHtml(html);
     }
 
 }

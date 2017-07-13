@@ -26,22 +26,39 @@ import android.support.annotation.ColorInt;
  */
 public class Palette {
 
+    @ColorInt
     public static final int RED = 0xFFF44336;
+    @ColorInt
     public static final int PINK = 0xFFE91E63;
+    @ColorInt
     public static final int PURPLE = 0xFF9C27B0;
+    @ColorInt
     public static final int DEEP_PURPLE = 0xFF673AB7;
+    @ColorInt
     public static final int INDIGO = 0xFF3F51B5;
+    @ColorInt
     public static final int BLUE = 0xFF2196F3;
+    @ColorInt
     public static final int CYAN = 0xFF0097A7;
+    @ColorInt
     public static final int TEAL = 0xFF009688;
+    @ColorInt
     public static final int GREEN = 0xFF43A047;
+    @ColorInt
     public static final int LIGHT_GREEN = 0xFF8BC34A;
+    @ColorInt
     public static final int LIME = 0xFFCDDC39;
+    @ColorInt
     public static final int YELLOW = 0xFFFFEB3B;
+    @ColorInt
     public static final int AMBER = 0xFFFFC107;
+    @ColorInt
     public static final int ORANGE = 0xFFFF9800;
+    @ColorInt
     public static final int DEEP_ORANGE = 0xFFFF5722;
+    @ColorInt
     public static final int BROWN = 0xFF795548;
+    @ColorInt
     public static final int GREY = 0xFF9E9E9E;
 
     public static final int[] PALETTE = new int[]{

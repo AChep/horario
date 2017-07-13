@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <plurals name="subject_group_students_count">
+        <item quantity="zero">No students</item>
+        <item quantity="one">%1$d student</item>
+        <item quantity="two">%1$d students</item>
+        <item quantity="few">%1$d students</item>
+        <item quantity="many">%1$d students</item>
+        <item quantity="other">%1$d students</item>
+    </plurals>
+
+</resources>

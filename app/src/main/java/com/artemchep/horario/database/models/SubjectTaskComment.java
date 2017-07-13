@@ -18,8 +18,35 @@
  */
 package com.artemchep.horario.database.models;
 
+import android.os.Parcel;
+
+import com.artemchep.horario.models.Model;
+import com.google.firebase.database.Exclude;
+
+import java.util.Arrays;
+
 /**
  * @author Artem Chepurnoy
  */
-public class SubjectTaskComment {
+public class SubjectTaskComment extends Model {
+
+    public String author;
+    public String parent;
+    public String text;
+    public long timestamp;
+
+    @Override
+    public void update() {
+        super.update();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+    }
 }

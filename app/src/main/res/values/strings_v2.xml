@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="__subject_task_instructions">Instructions</string>
+    <string name="__subject_task_student_work">Student work</string>
+    <string name="__subject_tasks">Tasks</string>
+    <string name="__subject_stream">Stream</string>
+    <string name="__subject_students">Students</string>
+    <string name="__subject_materials">Materials</string>
+    <string name="__subject_about">About</string>
+
+</resources>

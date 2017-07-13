@@ -36,29 +36,37 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.artemchep.horario.Palette;
 import com.artemchep.horario.R;
-import com.artemchep.horario.database.Db;
+import com.artemchep.horario.database.models.SubjectInfo;
 import com.artemchep.horario.models.Subject;
 import com.artemchep.horario.ui.fragments.dialogs.base.DialogFragment;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.thebluealliance.spectrum.SpectrumPalette;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.artemchep.horario.Palette.PALETTE;
 
 /**
- * Dialog for adding/editing existing
- * {@link com.artemchep.horario.models.Subject subject}.
- * You should put {@link #EXTRA_TIMETABLE_PATH}.
+ * Dialog for adding/editing existing subjects; mainly its
+ * {@link com.artemchep.horario.database.models.SubjectInfo subject info}.
+ * You should put {@link #EXTRA_USER}.
  *
  * @author Artem Chepurnoy
  */
 public class SubjectDialog extends DialogFragment implements SpectrumPalette.OnColorSelectedListener {
 
-    public static final String EXTRA_TIMETABLE_PATH = "extra::timetable_path";
-    public static final String EXTRA_SUBJECT = "subject";
+    /**
+     * The id of current user.
+     */
+    public static final String EXTRA_USER = "extra::user";
+    public static final String EXTRA_TIMETABLE = "extra::timetable";
+    public static final String EXTRA_SUBJECT_INFO = "extra::subject_info";
 
-    private String mTimetablePath;
-    private Subject mSubject;
+    private String mUserId;
+    private String mTimetableId;
+    private SubjectInfo mSubject;
 
     private TextInputEditText mEditTextName;
     private TextInputEditText mEditTextAbbr;
@@ -72,18 +80,19 @@ public class SubjectDialog extends DialogFragment implements SpectrumPalette.OnC
         assert activity != null;
 
         Bundle args = getArguments();
-        mTimetablePath = args.getString(EXTRA_TIMETABLE_PATH);
+        mUserId = args.getString(EXTRA_USER);
+        mTimetableId = "-Klo-WlxzRWA1c6Zd-dU";//args.getString(EXTRA_TIMETABLE);
 
         // Load extras
         if (savedState != null) {
             // Subject must not be null here!
             //noinspection ConstantConditions
-            mSubject = savedState.getParcelable(EXTRA_SUBJECT);
+            mSubject = savedState.getParcelable(EXTRA_SUBJECT_INFO);
         } else {
-            Subject subject = args.getParcelable(EXTRA_SUBJECT);
+            SubjectInfo subject = args.getParcelable(EXTRA_SUBJECT_INFO);
             if (subject != null) {
-                mSubject = subject;
-            } else mSubject = new Subject();
+                mSubject = subject.clone();
+            } else mSubject = new SubjectInfo();
         }
 
         // Load icon
@@ -114,14 +123,30 @@ public class SubjectDialog extends DialogFragment implements SpectrumPalette.OnC
                                 updateCurrentSubject();
 
                                 DatabaseReference subjectsRef = FirebaseDatabase.getInstance()
-                                        .getReference(mTimetablePath)
-                                        .child(Db.SUBJECTS);
+                                        .getReference().child("_subjects_");
                                 if (TextUtils.isEmpty(mSubject.key)) {
                                     // Create new subject
                                     DatabaseReference ref = subjectsRef.push();
-                                    ref.setValue(mSubject);
+                                    ref.child("creator").setValue(mUserId);
                                     mSubject.key = ref.getKey();
-                                } else subjectsRef.child(mSubject.key).setValue(mSubject);
+
+                                    Map<String, Object> childUpdates = new HashMap<>();
+                                    // Add ourselves as a creator of this subject,
+                                    // then add the information about this subject,
+                                    childUpdates.put("info", mSubject);
+                                    // then add ourselves as an editor.
+                                    childUpdates.put("editors/" + mUserId, 1); // value doesn't matter
+                                    ref.updateChildren(childUpdates);
+
+                                    FirebaseDatabase.getInstance().getReference()
+                                            .child("_user_").child(mUserId)
+                                            .child("_timetables_").child(mTimetableId)
+                                            .child("subjects").child(mSubject.key).child("tmp")
+                                            .setValue(1);
+                                } else subjectsRef
+                                        .child(mSubject.key)
+                                        .child("info")
+                                        .setValue(mSubject);
                                 break;
                         }
                         dismiss();
@@ -182,7 +207,7 @@ public class SubjectDialog extends DialogFragment implements SpectrumPalette.OnC
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         updateCurrentSubject();
-        outState.putParcelable(EXTRA_SUBJECT, mSubject);
+        outState.putParcelable(EXTRA_SUBJECT_INFO, mSubject);
     }
 
     private void updateCurrentSubject() {

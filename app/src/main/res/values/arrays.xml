@@ -57,6 +57,13 @@
         <item>Lab</item>
     </string-array>
 
+    <!-- Task types -->
+    <string-array name="task_types">
+        <item>Question</item>
+        <item>Assignment</item>
+        <item>Announcement</item>
+    </string-array>
+
     <!-- Days -->
     <string-array name="days">
         <item>Monday</item>

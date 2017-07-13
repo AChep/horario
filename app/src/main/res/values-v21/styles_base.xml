@@ -3,19 +3,19 @@
     <style name="AppThemeLight.NoActionBar_Base" parent="AppThemeLight">
         <!-- Api dependent changes go here -->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar_Base" parent="AppTheme">
         <!-- Api dependent changes go here -->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="AppThemeBlack.NoActionBar_Base" parent="AppThemeBlack">
         <!-- Api dependent changes go here -->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
 </resources>

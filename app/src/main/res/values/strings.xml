@@ -8,9 +8,12 @@
     <string name="shortcut_notes_add">Add note</string>
     <string name="shortcut_notes">Notes</string>
 
+    <string name="action_due">Due</string>
     <string name="action_save">Save</string>
     <string name="action_edit">Edit</string>
     <string name="action_share">Share</string>
+    <string name="action_reply">Reply</string>
+    <string name="action_forward">Forward</string>
     <string name="action_switch_week">Switch week</string>
     <string name="action_edit_teacher">Edit teacher</string>
     <string name="action_edit_subject">Edit subject</string>
@@ -27,6 +30,7 @@
     <string name="action_create_new_teacher">Add teacher</string>
 
     <string name="main_tasks_empty">No tasks</string>
+    <string name="main_students_empty">No students</string>
     <string name="main_exams_empty">No exams</string>
     <string name="main_notes_empty">No notes</string>
     <string name="main_subjects_empty">No subjects</string>
@@ -121,6 +125,8 @@
     <string name="nav_attendance">Attendance</string>
     <string name="nav_notifications">Notifications</string>
     <string name="nav_teachers">Teachers</string>
+    <string name="nav_contacts">Contacts</string>
+    <string name="nav_messages">Messages</string>
     <string name="nav_groups">Groups</string>
     <string name="nav_subjects">Subjects</string>
     <string name="nav_exams">Exams</string>
@@ -136,11 +142,15 @@
         Format
         -->
 
+    <string name="format_undo">Undo</string>
+    <string name="format_redo">Redo</string>
     <string name="format_bold">Bold</string>
     <string name="format_italic">Italic</string>
     <string name="format_underline">Underline</string>
     <string name="format_strike">Strike</string>
     <string name="format_link_insert">Insert link</string>
+    <string name="format_color_text">Text color</string>
+    <string name="format_clear">Clear formatting</string>
     <string name="format_bullets">List bullets</string>
     <string name="format_numbers">List numbers</string>
     <string name="format_header_1">Header 1</string>
@@ -167,10 +177,14 @@
     <string name="hint_title">Title</string>
     <string name="hint_content">Content</string>
     <string name="hint_summary">Summary</string>
+    <string name="hint_comment">Comment</string>
     <string name="hint_subject">Subject</string>
     <string name="hint_teacher">Teacher</string>
+    <string name="hint_details">Details</string>
     <string name="hint_password">Password</string>
+    <string name="hint_student_id">Student id</string>
     <string name="hint_password_confirm">Confirm password</string>
+    <string name="hint_say_something">Say something…</string>
 
     <!--
         Constants

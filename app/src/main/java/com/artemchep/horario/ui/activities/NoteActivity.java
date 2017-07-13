@@ -245,7 +245,7 @@ public class NoteActivity extends ActivityBase implements
         mTimeTextView.setOnClickListener(this);
         mRichEditor = (RichEditor) findViewById(R.id.editor);
         mRichEditor.setPlaceholder(getString(R.string.hint_content));
-        mRichEditor.setEditorFontColor(isDarkTheme ? 0xFFeeeeee : 0xFF333333);
+        mRichEditor.setEditorFontColor(isDarkTheme ? 0xFFbbbbbb : 0xFF666666);
         mRichEditor.setEditorBackgroundColor(cardColor);
         mEditTextTitle = (AppCompatEditText) findViewById(R.id.title);
         mSubjectViewGroup = (ViewGroup) findViewById(R.id.subject_group);
@@ -265,12 +265,6 @@ public class NoteActivity extends ActivityBase implements
         mFormatPanel.findViewById(R.id.format_strike).setOnClickListener(this);
         mFormatPanel.findViewById(R.id.format_bullets).setOnClickListener(this);
         mFormatPanel.findViewById(R.id.format_numbers).setOnClickListener(this);
-        mFormatPanel.findViewById(R.id.format_header_1).setOnClickListener(this);
-        mFormatPanel.findViewById(R.id.format_header_2).setOnClickListener(this);
-        mFormatPanel.findViewById(R.id.format_header_3).setOnClickListener(this);
-        mFormatPanel.findViewById(R.id.format_header_4).setOnClickListener(this);
-        mFormatPanel.findViewById(R.id.format_header_5).setOnClickListener(this);
-        mFormatPanel.findViewById(R.id.format_header_6).setOnClickListener(this);
 
         // Load format panel state
         if (savedInstanceState != null) {
@@ -526,24 +520,6 @@ public class NoteActivity extends ActivityBase implements
                 break;
             case R.id.format_strike:
                 mRichEditor.setStrikeThrough();
-                break;
-            case R.id.format_header_1:
-                mRichEditor.setHeading(1);
-                break;
-            case R.id.format_header_2:
-                mRichEditor.setHeading(2);
-                break;
-            case R.id.format_header_3:
-                mRichEditor.setHeading(3);
-                break;
-            case R.id.format_header_4:
-                mRichEditor.setHeading(4);
-                break;
-            case R.id.format_header_5:
-                mRichEditor.setHeading(5);
-                break;
-            case R.id.format_header_6:
-                mRichEditor.setHeading(6);
                 break;
             case R.id.format_bullets:
                 mRichEditor.setBullets();

@@ -58,7 +58,7 @@ public class SubjectTask extends Model {
     public String author;
     /**
      * Should be one of those: {@link #TYPE_QUESTION},
-     * {@link #TYPE_ASSIGNMENT}, {@link #PRIORITY_HIGH}.
+     * {@link #TYPE_ASSIGNMENT}, {@link #TYPE_ANNOUNCEMENT}.
      */
     public int type;
     /**

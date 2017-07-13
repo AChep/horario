@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:title="Artem Chepurnoy" />
+
+            <ViewStub
+                android:id="@+id/cab_stub"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize" />
+
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="64dp"
+            android:paddingTop="8dp"
+            app:reverseLayout="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:alpha="0.7"
+            android:background="@drawable/bg_message"
+            android:padding="8dp"
+            android:text="July 23"
+            android:textColor="#fff"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <!--
+        Bottom panel with comment field and
+        context stuff
+        -->
+
+    <com.artemchep.horario.ui.widgets.BoundedCardView
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:clickable="true"
+        app:bounded_width="600dp"
+        app:cardElevation="16dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.artemchep.horario.ui.widgets.ChatPanelView2
+                android:id="@+id/chat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/chat.header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/chat.header.title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginStart="16dp"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="?android:textColorPrimary"
+                        tools:text="Edit text" />
+
+                    <ImageButton
+                        android:id="@+id/chat.header.close"
+                        style="?borderlessButtonStyle"
+                        android:layout_width="?actionBarSize"
+                        android:layout_height="48dp"
+                        android:layout_gravity="right|end|center_vertical"
+                        android:background="?actionBarItemBackground"
+                        android:src="?icon_close_grey" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/chat.content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:id="@+id/chat.workspace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="?actionBarSize"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/chat.workspace.text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/hint_say_something"
+                        android:inputType="textMultiLine"
+                        android:minHeight="?actionBarSize"
+                        android:paddingBottom="4dp"
+                        android:paddingTop="4dp"
+                        android:textSize="14sp" />
+
+                    <ImageButton
+                        android:id="@+id/chat.workspace.action"
+                        style="?borderlessButtonStyle"
+                        android:layout_width="?actionBarSize"
+                        android:layout_height="match_parent"
+                        android:alpha="0.0"
+                        android:background="?actionBarItemBackground"
+                        android:clickable="false"
+                        android:scaleX="0.4"
+                        android:scaleY="0.4"
+                        tools:alpha="1.0"
+                        tools:scaleX="1.0"
+                        tools:scaleY="1.0"
+                        tools:src="@drawable/ic_send_grey600_24dp" />
+
+                </LinearLayout>
+
+            </com.artemchep.horario.ui.widgets.ChatPanelView2>
+
+        </ScrollView>
+
+    </com.artemchep.horario.ui.widgets.BoundedCardView>
+
+</android.support.design.widget.CoordinatorLayout>

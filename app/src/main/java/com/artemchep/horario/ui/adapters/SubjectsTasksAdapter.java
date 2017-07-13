@@ -19,20 +19,21 @@
 package com.artemchep.horario.ui.adapters;
 
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
+import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.artemchep.horario.Palette;
 import com.artemchep.horario.R;
-import com.artemchep.horario.models.SubjectTask;
+import com.artemchep.horario.database.models.SubjectTask;
 import com.artemchep.horario.ui.fragments.master.ModelFragment;
+import com.artemchep.horario.ui.widgets.UserView;
+import com.artemchep.horario.utils.DateUtilz;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -45,34 +46,47 @@ public class SubjectsTasksAdapter extends ModelFragment.BaseAdapter<SubjectTask>
      */
     private static class ViewHolder extends ModelFragment.BaseHolder<SubjectTask> {
 
-        final TextView authorTextView;
         final TextView statusTextView;
         final TextView titleTextView;
         final TextView decrTextView;
-        final TextView commentsTextView;
-        final ImageView iconView;
+        final UserView userView;
 
-        final ColorDrawable colorDrawable;
+        final View dueView;
+        final TextView dueTextView;
 
         ViewHolder(@NonNull View v, @NonNull ModelFragment<SubjectTask> fragment) {
             super(v, fragment);
-            colorDrawable = new ColorDrawable();
+            v.findViewById(R.id.more).setOnClickListener(this);
 
-            authorTextView = (TextView) v.findViewById(R.id.author);
+            userView = (UserView) v.findViewById(R.id.uss);
             statusTextView = (TextView) v.findViewById(R.id.status);
             titleTextView = (TextView) v.findViewById(R.id.title);
             decrTextView = (TextView) v.findViewById(R.id.description);
-            commentsTextView = (TextView) v.findViewById(R.id.comments);
-            iconView = (ImageView) v.findViewById(R.id.icon);
-            iconView.setBackground(colorDrawable);
+            dueView = v.findViewById(R.id.due);
+            dueTextView = (TextView) v.findViewById(R.id.due_text);
+        }
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.more:
+                    break;
+                default:
+                    super.onClick(v);
+            }
         }
 
     }
+
+    private final String[] mMonths;
+    private final int mCurrentYear;
 
     public SubjectsTasksAdapter(
             @NonNull ModelFragment<SubjectTask> fragment,
             @NonNull List<SubjectTask> list) {
         super(fragment, list);
+        mMonths = fragment.getResources().getStringArray(R.array.months);
+        mCurrentYear = Calendar.getInstance().get(Calendar.YEAR);
     }
 
     @Override
@@ -87,45 +101,50 @@ public class SubjectsTasksAdapter extends ModelFragment.BaseAdapter<SubjectTask>
         super.onBindViewHolder(holder, position);
         ViewHolder h = (ViewHolder) holder;
         SubjectTask subject = getItem(position);
+        Resources res = getFragment().getResources();
 
-        h.authorTextView.setText("Artem Chepurnoy");
-        h.statusTextView.setText("21 April, 10:24");
+        h.userView.setUser(subject.author);
         h.titleTextView.setText(subject.title);
 
+        String type;
+        switch (subject.type) {
+            case SubjectTask.TYPE_QUESTION:
+                type = "Question";
+                break;
+            case SubjectTask.TYPE_ASSIGNMENT:
+                type = "Assignment";
+                break;
+            case SubjectTask.TYPE_ANNOUNCEMENT:
+            default:
+                type = "Announcement";
+                break;
+        }
+        h.statusTextView.setText(type + "; April 20, 18:50");
+
+        // Bind description view
         if (!TextUtils.isEmpty(subject.description)) {
             h.decrTextView.setText(subject.description);
             h.decrTextView.setVisibility(View.VISIBLE);
         } else h.decrTextView.setVisibility(View.GONE);
 
-        int accentColor;
-        switch (subject.priority) {
-            case SubjectTask.PRIORITY_LOW:
-                accentColor = Palette.GREY;
-                break;
-            case SubjectTask.PRIORITY_HIGH:
-                accentColor = Palette.RED;
-                break;
-            default:
-                accentColor = Palette.BLUE;
-                break;
-        }
+        // Bind due-time view
+        if (subject.due > 0) {
+            int y, m, d;
+            // Select previously selected day
+            y = DateUtilz.getYear(subject.due);
+            m = DateUtilz.getMonth(subject.due);
+            d = DateUtilz.getDay(subject.due);
 
-        h.colorDrawable.setColor(accentColor);
+            if (y != mCurrentYear) {
+                h.dueTextView.setText(res.getString(
+                        R.string.subject_stream_task_due_year,
+                        mMonths[m], d, y));
+            } else h.dueTextView.setText(res.getString(
+                    R.string.subject_stream_task_due,
+                    mMonths[m], d));
 
-        switch (subject.type) {
-            case SubjectTask.TYPE_ANNOUNCEMENT:
-                h.iconView.setImageResource(R.drawable.ic_comment_alert_outline_white_24dp);
-                break;
-            case SubjectTask.TYPE_ASSIGNMENT:
-                h.iconView.setImageResource(R.drawable.ic_comment_text_outline_white_24dp);
-                break;
-            case SubjectTask.TYPE_QUESTION:
-                h.iconView.setImageResource(R.drawable.ic_comment_question_outline_white_24dp);
-                break;
-            default:
-                h.iconView.setImageDrawable(null);
-        }
-
+            h.dueView.setVisibility(View.VISIBLE);
+        } else h.dueView.setVisibility(View.GONE);
     }
 
 }

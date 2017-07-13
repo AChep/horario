@@ -26,6 +26,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import com.artemchep.horario.database.models.SubjectGroup;
 import com.artemchep.horario.models.Absence;
 import com.artemchep.horario.models.Exam;
 import com.artemchep.horario.models.Lesson;
@@ -44,6 +45,7 @@ import com.artemchep.horario.ui.fragments.dialogs.NotificationDialog;
 import com.artemchep.horario.ui.fragments.dialogs.PaletteDialog;
 import com.artemchep.horario.ui.fragments.dialogs.PrivacyPolicyDialog;
 import com.artemchep.horario.ui.fragments.dialogs.SubjectDialog;
+import com.artemchep.horario.ui.fragments.dialogs.SubjectGroupDialog;
 import com.artemchep.horario.ui.fragments.dialogs.SubjectTaskDialog;
 import com.artemchep.horario.ui.fragments.dialogs.TeacherDialog;
 import com.artemchep.horario.ui.fragments.dialogs.TimetableDialog;
@@ -62,6 +64,7 @@ public class DialogHelper {
     private static final String TAG_FRAGMENT_TIMETABLE = "dialog_timetable";
     private static final String TAG_FRAGMENT_SUBJECT = "dialog_subject";
     private static final String TAG_FRAGMENT_SUBJECT_TASK = "dialog_subject_task";
+    private static final String TAG_FRAGMENT_SUBJECT_GROUP = "dialog_subject_group";
     private static final String TAG_FRAGMENT_SUBJECT_COLOR = "dialog_subject_color";
     private static final String TAG_FRAGMENT_NOTIFICATION = "dialog_notification";
     private static final String TAG_FRAGMENT_TEACHER = "dialog_teacher";
@@ -96,8 +99,8 @@ public class DialogHelper {
             @NonNull String timetablePath,
             @Nullable Subject subject) {
         Bundle bundle = new Bundle();
-        bundle.putString(SubjectDialog.EXTRA_TIMETABLE_PATH, timetablePath);
-        bundle.putParcelable(SubjectDialog.EXTRA_SUBJECT, subject);
+        bundle.putString(SubjectDialog.EXTRA_USER, "YhTvBZ5eMTPeuhTKZAh9SeCiVGt1");
+        bundle.putParcelable(SubjectDialog.EXTRA_SUBJECT_INFO, null);
 
         SubjectDialog dialog = new SubjectDialog();
         dialog.setArguments(bundle);
@@ -117,6 +120,19 @@ public class DialogHelper {
         SubjectTaskDialog dialog = new SubjectTaskDialog();
         dialog.setArguments(bundle);
         showDialog(activity, dialog, TAG_FRAGMENT_SUBJECT_TASK);
+    }
+
+    public static void showSubjectGroupDialog(
+            @NonNull AppCompatActivity activity,
+            @NonNull String timetablePath,
+            @Nullable SubjectGroup group) {
+        Bundle bundle = new Bundle();
+        bundle.putString(SubjectGroupDialog.EXTRA_PATH, timetablePath);
+        bundle.putParcelable(SubjectGroupDialog.EXTRA_GROUP, group);
+
+        SubjectGroupDialog dialog = new SubjectGroupDialog();
+        dialog.setArguments(bundle);
+        showDialog(activity, dialog, TAG_FRAGMENT_SUBJECT_GROUP);
     }
 
     public static void showPaletteDialog(

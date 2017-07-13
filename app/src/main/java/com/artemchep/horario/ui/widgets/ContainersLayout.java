@@ -24,13 +24,11 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.transition.ChangeBounds;
 import android.support.transition.Fade;
 import android.support.transition.TransitionManager;
@@ -41,7 +39,6 @@ import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -78,24 +75,34 @@ public class ContainersLayout extends FrameLayout {
 
     public ContainersLayout(Context context) {
         super(context);
-        init();
+        init(null);
     }
 
     public ContainersLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(attrs);
     }
 
     public ContainersLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(attrs);
     }
 
-    private void init() {
+    private void init(@Nullable AttributeSet attrs) {
+        // Obtain layout resource
+        int layout = 0;
+        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ContainersLayout);
+        try {
+            layout = a.getResourceId(R.styleable.ContainersLayout_layout, 0);
+        } finally {
+            a.recycle();
+        }
+        if (layout == 0) {
+            layout = R.layout.view_main_containers;
+        }
+
         Context context = getContext();
-        LayoutInflater
-                .from(context)
-                .inflate(R.layout.view_main_containers, this, true);
+        LayoutInflater.from(context).inflate(layout, this, true);
 
         mTransition = new TransitionSet()
                 .setOrdering(TransitionSet.ORDERING_TOGETHER)

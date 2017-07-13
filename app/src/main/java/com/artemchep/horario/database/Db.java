@@ -29,6 +29,7 @@ public class Db {
     public static final String NOTIFICATIONS = "notifications";
     public static final String SUBJECTS = "subjects";
     public static final String TASKS = "subjects";
+    public static final String GROUPS = "groups";
     public static final String TEACHERS = "teachers";
     public static final String EXAMS = "exams";
     public static final String NOTES = "notes";
@@ -42,6 +43,12 @@ public class Db {
 
     public static DbUser user(@Nullable String key) {
         return new DbUser(key);
+    }
+
+    public static class Restriction {
+
+        public static final String REGEX_PATH_DISALLOWED = ".*(\\.|#|\\$|\\[|\\]).*";
+
     }
 
 }

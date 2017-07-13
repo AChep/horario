@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.artemchep.horario.ui.widgets.GroupUserEditableView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="72dp">
+
+    <include layout="@layout/item_group_user" />
+
+    <ImageButton
+        android:id="@+id/delete"
+        style="?borderlessButtonStyle"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="end|right|center_vertical"
+        android:background="?actionBarItemBackground"
+        android:src="?icon_delete_grey" />
+
+    <ImageButton
+        android:id="@+id/apply"
+        style="?borderlessButtonStyle"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="end|right|center_vertical"
+        android:background="?actionBarItemBackground"
+        android:src="?icon_check_grey" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_uid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="56dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginRight="56dp"
+        android:layout_marginStart="72dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/input_uid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_student_id"
+            android:inputType="textShortMessage"
+            android:textSize="16sp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+</com.artemchep.horario.ui.widgets.GroupUserEditableView>

@@ -38,7 +38,7 @@ import com.artemchep.horario.aggregator.Aggregator;
 import com.artemchep.horario.aggregator.Filter;
 import com.artemchep.horario.database.Persy;
 import com.artemchep.horario.models.Model;
-import com.artemchep.horario.ui.activities.MainActivity;
+import com.artemchep.horario.ui.activities.ActivityHorario;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -132,22 +132,19 @@ public abstract class ModelFragment<T extends Model> extends MasterFragment impl
 
         @Override
         public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-            T model = dataSnapshot.getValue(getType());
-            model.key = dataSnapshot.getKey();
+            T model = mWatcher.getModel();
             mAggregator.put(model);
         }
 
         @Override
         public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-            T model = dataSnapshot.getValue(getType());
-            model.key = dataSnapshot.getKey();
+            T model = mWatcher.getModel();
             mAggregator.put(model);
         }
 
         @Override
         public void onChildRemoved(DataSnapshot dataSnapshot) {
-            T old = dataSnapshot.getValue(getType());
-            old.key = dataSnapshot.getKey();
+            T old = mWatcher.getModel();
             mAggregator.remove(old);
             // we must remove it from actual filter after removing
             // it from manager.
@@ -201,7 +198,7 @@ public abstract class ModelFragment<T extends Model> extends MasterFragment impl
 
         // Get timetable data
         Bundle args = getArguments();
-        MainActivity activity = getMainActivity();
+        ActivityHorario activity = (ActivityHorario) getActivity();
         mTimetablePath = args.getString(EXTRA_TIMETABLE_PATH);
         mEditable = args.getBoolean(EXTRA_EDITABLE, true);
         String path = getPath();
@@ -447,7 +444,7 @@ public abstract class ModelFragment<T extends Model> extends MasterFragment impl
          * {@code null} if no one.
          */
         @Nullable
-        private T getItem() {
+        protected T getItem() {
             int i = getAdapterPosition();
             return i != RecyclerView.NO_POSITION
                     ? mFragment.mAdapter.getItem(i)

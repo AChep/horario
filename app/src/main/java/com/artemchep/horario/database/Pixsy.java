@@ -16,10 +16,15 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA  02110-1301, USA.
  */
-package com.artemchep.horario.database.models;
+package com.artemchep.horario.database;
 
 /**
  * @author Artem Chepurnoy
  */
-public class SubjectGroupStudent {
+public class Pixsy {
+
+    public void watchForUser() {
+
+    }
+
 }

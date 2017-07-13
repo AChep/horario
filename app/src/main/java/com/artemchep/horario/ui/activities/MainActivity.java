@@ -71,6 +71,7 @@ import com.artemchep.horario.ui.fragments.master.ModelFragment;
 import com.artemchep.horario.ui.fragments.master.NotesFragment;
 import com.artemchep.horario.ui.fragments.master.NotificationsFragment;
 import com.artemchep.horario.ui.fragments.master.SubjectsFragment;
+import com.artemchep.horario.ui.fragments.master.SubjectsFragment2;
 import com.artemchep.horario.ui.fragments.master.SupportFragment;
 import com.artemchep.horario.ui.fragments.master.TeachersFragment;
 import com.artemchep.horario.ui.fragments.master.TimetablesFragment;
@@ -96,7 +97,7 @@ import uk.co.samuelwall.materialtaptargetprompt.MaterialTapTargetPrompt;
 /**
  * @author Artem Chepurnoy
  */
-public class MainActivity extends ActivityBase implements
+public class MainActivity extends ActivityHorario implements
         FirebaseAuth.AuthStateListener,
         PreferenceStore.OnPreferenceStoreChangeListener,
         NavigationView.OnNavigationItemSelectedListener,
@@ -119,7 +120,6 @@ public class MainActivity extends ActivityBase implements
     }
 
     private Config mConfig = Config.getInstance();
-    private Persy mPersy = new Persy();
 
     private DrawerLayout mDrawer;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -352,7 +352,6 @@ public class MainActivity extends ActivityBase implements
 
     }
 
-
     public MaterialCab getContextualActionBar() {
         return mCab;
     }
@@ -388,7 +387,6 @@ public class MainActivity extends ActivityBase implements
 
         setContentView(R.layout.activity_main);
 
-        mPersy.start();
         mConfig.addListener(this,
                 Config.KEY_HOLIDAY_ON,
                 Config.KEY_ADDRESS);
@@ -644,7 +642,6 @@ public class MainActivity extends ActivityBase implements
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPersy.stop();
 
         mAuth.removeAuthStateListener(this);
         mConfig.removeListener(this,
@@ -789,7 +786,7 @@ public class MainActivity extends ActivityBase implements
                 break;
             case R.id.nav_subjects:
                 analytics.putString(AnalyticsParam.NAME, AnalyticsParam.Navigation.SUBJECTS);
-                fragment = new SubjectsFragment();
+                fragment = new SubjectsFragment2();
                 args.putString(ModelFragment.EXTRA_TIMETABLE_PATH, Db
                         .user(mAddress.publicUserKey)
                         .timetablePublic(mAddress.publicKey)
@@ -935,10 +932,6 @@ public class MainActivity extends ActivityBase implements
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .replace(R.id.activity_main__frame_details, fragment, TAG_FRAGMENT_DETAILS)
                 .commit();
-    }
-
-    public Persy getPersy() {
-        return mPersy;
     }
 
     @Override

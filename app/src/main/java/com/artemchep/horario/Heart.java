@@ -21,10 +21,12 @@ package com.artemchep.horario;
 import android.content.Context;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
+import android.support.multidex.MultiDex;
 
 import com.artemchep.basic.HeartBase;
 import com.artemchep.basic.timber.ReleaseTree;
 import com.artemchep.horario.content.PreferenceStore;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
@@ -83,6 +85,12 @@ public class Heart extends HeartBase {
     }
 
     @Override
+    public void attachBaseContext(Context base) {
+        MultiDex.install(base);
+        super.attachBaseContext(base);
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
         //noinspection ConstantConditions
@@ -103,6 +111,8 @@ public class Heart extends HeartBase {
         initLeakCanary();
         initFirebase();
         initConfig();
+
+        Fresco.initialize(this);
 
         // Setup log
         Timber.plant(new ReleaseTree());

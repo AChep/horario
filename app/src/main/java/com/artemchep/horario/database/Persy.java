@@ -23,6 +23,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.artemchep.basic.Atomic;
 import com.artemchep.horario.models.Model;
@@ -31,6 +32,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -124,6 +126,18 @@ public class Persy {
     @CheckResult
     @NonNull
     public <T extends Model> Watcher<T> watchFor(@NonNull Class<T> clazz, @NonNull String path) {
+        Watcher<T> watcher = checkFor(clazz, path);
+        if (watcher != null) return watcher;
+
+        // Create new watcher for this
+        // database reference.
+        Timber.tag(TAG).i("Creating watcher for path=" + path);
+        return new Watcher<>(this, clazz, path);
+    }
+
+    @CheckResult
+    @Nullable
+    public <T extends Model> Watcher<T> checkFor(@NonNull Class<T> clazz, @NonNull String path) {
         for (Watcher watcher : mWatchers) {
             if (watcher.mPath.equals(path) && watcher.getType() == clazz) {
                 Timber.tag(TAG).i("Re-using watcher with path=" + path);
@@ -131,10 +145,7 @@ public class Persy {
                 return watcher;
             }
         }
-        // Create new watcher for this
-        // database reference.
-        Timber.tag(TAG).i("Creating watcher for path=" + path);
-        return new Watcher<>(this, clazz, path);
+        return null;
     }
 
     private void requestAddWatcher(@NonNull Watcher watcher) {
@@ -158,25 +169,39 @@ public class Persy {
     /**
      * @author Artem Chepurnoy
      */
-    public static class Watcher<T extends Model> {
+    public static class Watcher<T extends Model> implements Atomic.Callback {
 
+        /**
+         * Main value event listener.
+         */
         @NonNull
-        private final List<ChildEventListener> mListeners = new ArrayList<>();
-        @NonNull
-        private final Atomic mAtomic = new Atomic(new Atomic.Callback() {
+        private final ValueEventListener mValueEventListener = new ValueEventListener() {
             @Override
-            public void onStart(Object... objects) {
-                mRef.addChildEventListener(mChildEventListener);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mMap.clear();
+
+                if (dataSnapshot.exists()) {
+                    mModel = dataSnapshot.getValue(getType());
+                    mModel.key = dataSnapshot.getKey();
+                    mMap.put(mModel.key, mModel);
+                }
+
+                // notify everyone
+                for (ValueEventListener listener : mValueListeners) {
+                    listener.onDataChange(dataSnapshot);
+                }
+
+                mModel = null;
             }
 
             @Override
-            public void onStop(Object... objects) {
-                mRef.removeEventListener(mChildEventListener);
+            public void onCancelled(DatabaseError databaseError) {
+                // notify everyone
+                for (ValueEventListener listener : mValueListeners) {
+                    listener.onCancelled(databaseError);
+                }
             }
-        });
-
-        @NonNull
-        private final Map<String, T> mMap = new HashMap<>();
+        };
 
         /**
          * Main child event listener.
@@ -190,7 +215,7 @@ public class Persy {
                 mMap.put(mModel.key, mModel);
 
                 // notify everyone
-                for (ChildEventListener listener : mListeners) {
+                for (ChildEventListener listener : mChildListeners) {
                     listener.onChildAdded(dataSnapshot, s);
                 }
 
@@ -204,7 +229,7 @@ public class Persy {
                 mMap.put(mModel.key, mModel);
 
                 // notify everyone
-                for (ChildEventListener listener : mListeners) {
+                for (ChildEventListener listener : mChildListeners) {
                     listener.onChildChanged(dataSnapshot, s);
                 }
 
@@ -213,12 +238,16 @@ public class Persy {
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-                mMap.remove(dataSnapshot.getKey());
+                mModel = dataSnapshot.getValue(getType());
+                mModel.key = dataSnapshot.getKey();
+                mMap.remove(mModel.key);
 
                 // notify everyone
-                for (ChildEventListener listener : mListeners) {
+                for (ChildEventListener listener : mChildListeners) {
                     listener.onChildRemoved(dataSnapshot);
                 }
+
+                mModel = null;
             }
 
             @Override
@@ -229,22 +258,52 @@ public class Persy {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // notify everyone
-                for (ChildEventListener listener : mListeners) {
+                for (ChildEventListener listener : mChildListeners) {
                     listener.onCancelled(databaseError);
                 }
             }
         };
 
-        private T mModel;
+        private final Atomic mAtomic = new Atomic(this);
+        private final Atomic mAtomicChild = new Atomic(new Atomic.Callback() {
+            @Override
+            public void onStart(Object... objects) {
+                mRef.addChildEventListener(mChildEventListener);
+            }
+
+            @Override
+            public void onStop(Object... objects) {
+                mRef.removeEventListener(mChildEventListener);
+            }
+        });
+        private final Atomic mAtomicValue = new Atomic(new Atomic.Callback() {
+            @Override
+            public void onStart(Object... objects) {
+                mRef.addValueEventListener(mValueEventListener);
+            }
+
+            @Override
+            public void onStop(Object... objects) {
+                mRef.removeEventListener(mValueEventListener);
+            }
+        });
 
         @NonNull
-        private final String mPath;
+        protected final Map<String, T> mMap = new HashMap<>();
+
+        protected T mModel;
+
         @NonNull
-        private final Persy mPersy;
+        protected final DatabaseReference mRef;
         @NonNull
-        private final Class<T> mClazz;
+        protected final Class<T> mClazz;
         @NonNull
-        private final DatabaseReference mRef;
+        protected final String mPath;
+        @NonNull
+        protected final Persy mPersy;
+
+        private final List<ChildEventListener> mChildListeners = new ArrayList<>();
+        private final List<ValueEventListener> mValueListeners = new ArrayList<>();
 
         public Watcher(@NonNull Persy persy, @NonNull Class<T> clazz, @NonNull String path) {
             mRef = FirebaseDatabase.getInstance().getReference(path);
@@ -258,6 +317,7 @@ public class Persy {
             return mRef;
         }
 
+        @Nullable
         public T getModel() {
             return mModel;
         }
@@ -277,18 +337,62 @@ public class Persy {
             return mMap;
         }
 
-        public void addListener(@NonNull ChildEventListener listener) {
+        /**
+         * Here we should add actual listener from
+         * Firebase database.
+         *
+         * @see #onStop(Object...)
+         */
+        @Override
+        public void onStart(Object... objects) {
             mPersy.requestAddWatcher(this);
+        }
 
-            mListeners.add(listener);
+        /**
+         * Here we should remove actual listener from
+         * Firebase database.
+         *
+         * @see #onStart(Object...)
+         */
+        @Override
+        public void onStop(Object... objects) {
+            mPersy.requestRemoveWatcher(this);
+        }
+
+        public void addListener(@NonNull ChildEventListener listener) {
+            mChildListeners.add(listener);
             mAtomic.start();
+            mAtomicChild.start();
+        }
+
+        public void addListener(@NonNull ValueEventListener listener) {
+            mValueListeners.add(listener);
+            mAtomic.start();
+            mAtomicValue.start();
         }
 
         public void removeListener(@NonNull ChildEventListener listener) {
-            mListeners.remove(listener);
-            mAtomic.command(!mListeners.isEmpty());
+            mChildListeners.remove(listener);
 
-            mPersy.requestRemoveWatcher(this);
+            if (mChildListeners.isEmpty()) {
+                mAtomicChild.stop();
+
+                if (mValueListeners.isEmpty()) {
+                    mAtomic.stop();
+                }
+            }
+        }
+
+        public void removeListener(@NonNull ValueEventListener listener) {
+            mValueListeners.remove(listener);
+
+            if (mValueListeners.isEmpty()) {
+                mAtomicValue.stop();
+
+                if (mChildListeners.isEmpty()) {
+                    mAtomic.stop();
+                }
+            }
         }
 
     }

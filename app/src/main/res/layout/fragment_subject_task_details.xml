@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways" />
+
+        <com.ogaclejapan.smarttablayout.SmartTabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:stl_dividerThickness="0dp"
+            app:stl_underlineThickness="0dp"
+            app:stl_indicatorColor="#FFF" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <!--
+        Bottom panel with comment field and
+        context stuff
+        -->
+
+    <com.artemchep.horario.ui.widgets.BoundedCardView
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:clickable="true"
+        app:bounded_width="600dp"
+        app:cardElevation="16dp">
+
+        <com.artemchep.horario.ui.widgets.CommentControllerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/footer.header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/footer.header.title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="?android:textColorPrimary"
+                    tools:text="Edit text" />
+
+                <ImageButton
+                    android:id="@+id/footer.header.close"
+                    style="?borderlessButtonStyle"
+                    android:layout_width="?actionBarSize"
+                    android:layout_height="48dp"
+                    android:layout_gravity="right|end|center_vertical"
+                    android:background="?actionBarItemBackground"
+                    android:src="?icon_close_grey" />
+
+            </FrameLayout>
+
+            <com.artemchep.horario.ui.widgets.UserView
+                android:id="@+id/footer.comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#08000000"
+                android:minHeight="72dp"
+                android:paddingEnd="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingStart="16dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <com.artemchep.horario.ui.widgets.PrettyTimeView
+                    android:id="@+id/footer.comment.time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="12sp"
+                    tools:text="5 days ago" />
+
+                <TextView
+                    android:id="@+id/user.name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="16dp"
+                    android:maxLines="1"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="Artem Chepurnoy" />
+
+                <TextView
+                    android:id="@+id/footer.comment.text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user.name"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="8dp"
+                    android:ellipsize="end"
+                    android:maxLines="4"
+                    android:textSize="14sp"
+                    tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
+
+            </com.artemchep.horario.ui.widgets.UserView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?actionBarSize"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/footer.field"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/add_comment"
+                    android:inputType="textMultiLine"
+                    android:minHeight="?actionBarSize"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/footer.action"
+                    style="?borderlessButtonStyle"
+                    android:layout_width="?actionBarSize"
+                    android:layout_height="match_parent"
+                    android:background="?actionBarItemBackground"
+                    android:enabled="false"
+                    android:src="@drawable/ic_send_grey600_24dp" />
+
+            </LinearLayout>
+
+        </com.artemchep.horario.ui.widgets.CommentControllerView>
+
+    </com.artemchep.horario.ui.widgets.BoundedCardView>
+
+</android.support.design.widget.CoordinatorLayout>

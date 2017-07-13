@@ -44,6 +44,8 @@ public class User extends Model {
     };
 
     public String name;
+    public String info;
+    public String email;
     public String avatarUrl;
 
     public User() {
@@ -53,7 +55,10 @@ public class User extends Model {
 
     public User(Parcel source) {
         key = source.readString();
+        info = source.readString();
         name = source.readString();
+        email = source.readString();
+        avatarUrl = source.readString();
     }
 
     /**
@@ -63,7 +68,10 @@ public class User extends Model {
     public int hashCode() {
         return new HashCodeBuilder(247, 11)
                 .append(key)
+                .append(info)
                 .append(name)
+                .append(email)
+                .append(avatarUrl)
                 .toHashCode();
     }
 
@@ -79,7 +87,10 @@ public class User extends Model {
         User user = (User) o;
         return new EqualsBuilder()
                 .append(key, user.key)
-                .append(name, user.key)
+                .append(info, user.info)
+                .append(name, user.name)
+                .append(email, user.email)
+                .append(avatarUrl, user.avatarUrl)
                 .isEquals();
     }
 
@@ -96,7 +107,10 @@ public class User extends Model {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(key);
+        dest.writeString(info);
         dest.writeString(name);
+        dest.writeString(email);
+        dest.writeString(avatarUrl);
     }
 
 }

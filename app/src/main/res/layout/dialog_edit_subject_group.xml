@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingEnd="@dimen/md_dialog_horizontal_margin"
+            android:paddingLeft="@dimen/md_dialog_horizontal_margin"
+            android:paddingRight="@dimen/md_dialog_horizontal_margin"
+            android:paddingStart="@dimen/md_dialog_horizontal_margin">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_name"
+                android:inputType="textShortMessage" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:paddingEnd="@dimen/md_dialog_horizontal_margin"
+            android:paddingLeft="@dimen/md_dialog_horizontal_margin"
+            android:paddingRight="@dimen/md_dialog_horizontal_margin"
+            android:paddingStart="@dimen/md_dialog_horizontal_margin"
+            android:text="@string/subject_groups_students"
+            android:textColor="?colorAccent"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <com.artemchep.horario.ui.widgets.GroupUserView
+            android:id="@+id/add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="?android:selectableItemBackground"
+            android:minHeight="72dp"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/md_dialog_horizontal_margin"
+            android:paddingLeft="@dimen/md_dialog_horizontal_margin"
+            android:paddingRight="@dimen/md_dialog_horizontal_margin"
+            android:paddingStart="@dimen/md_dialog_horizontal_margin">
+
+            <ImageView
+                android:id="@+id/avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:scaleType="center"
+                android:src="?icon_plus_grey"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/subject_groups_student_add"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="?android:textColorPrimary"
+                android:textSize="16sp" />
+
+        </com.artemchep.horario.ui.widgets.GroupUserView>
+
+    </LinearLayout>
+</ScrollView>

@@ -16,10 +16,14 @@
         <attr name="icon_delete" format="reference" />
         <attr name="icon_delete_grey" format="reference" />
         <attr name="icon_timetable" format="reference" />
+        <attr name="icon_timetable_grey" format="reference" />
         <attr name="icon_pine_tree" format="reference" />
         <attr name="icon_dashboard" format="reference" />
         <attr name="icon_notifications" format="reference" />
         <attr name="icon_bell" format="reference" />
+        <attr name="icon_send_grey" format="reference" />
+        <attr name="icon_reply_grey" format="reference" />
+        <attr name="icon_forward_grey" format="reference" />
         <attr name="icon_close" format="reference" />
         <attr name="icon_close_grey" format="reference" />
         <attr name="icon_save" format="reference" />
@@ -37,20 +41,28 @@
         <attr name="icon_share_variant_grey" format="reference" />
         <attr name="icon_attachment_grey" format="reference" />
         <attr name="icon_link_grey" format="reference" />
+        <attr name="icon_check_grey" format="reference" />
+        <attr name="icon_arrow_left_grey" format="reference" />
         <attr name="icon_chevron_right_grey" format="reference" />
         <attr name="icon_chevron_left_grey" format="reference" />
+        <attr name="icon_format_undo_grey" format="reference" />
+        <attr name="icon_format_redo_grey" format="reference" />
         <attr name="icon_format_bold_grey" format="reference" />
         <attr name="icon_format_italic_grey" format="reference" />
         <attr name="icon_format_strike_grey" format="reference" />
         <attr name="icon_format_underline_grey" format="reference" />
         <attr name="icon_format_list_bulleted_grey" format="reference" />
         <attr name="icon_format_list_numbers_grey" format="reference" />
+        <attr name="icon_format_clear_grey" format="reference" />
+        <attr name="icon_format_text_color_grey" format="reference" />
         <attr name="icon_format_header_1_grey" format="reference" />
         <attr name="icon_format_header_2_grey" format="reference" />
         <attr name="icon_format_header_3_grey" format="reference" />
         <attr name="icon_format_header_4_grey" format="reference" />
         <attr name="icon_format_header_5_grey" format="reference" />
         <attr name="icon_format_header_6_grey" format="reference" />
+        <attr name="icon_copy_grey" format="reference" />
+        <attr name="icon_dots_grey" format="reference" />
         <attr name="icon_pencil_grey" format="reference" />
         <attr name="icon_hexagon_grey" format="reference" />
         <attr name="icon_backburger_grey" format="reference" />
@@ -66,6 +78,7 @@
         <attr name="color_nav_profile_text" format="color|reference" />
         <attr name="color_nav_text" format="color|reference" />
         <attr name="color_nav_icon" format="color|reference" />
+        <attr name="color_text_primary_selectable" format="color|reference" />
         <attr name="bg_holiday" format="reference" />
         <attr name="bg_holiday_filter" format="reference" />
         <attr name="bg_splash_screen" format="reference" />
@@ -77,6 +90,10 @@
     <declare-styleable name="BoundedView">
         <attr name="bounded_width" format="dimension" />
         <attr name="bounded_height" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ContainersLayout">
+        <attr name="layout" format="reference" />
     </declare-styleable>
 
 </resources>

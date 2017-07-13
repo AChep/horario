@@ -21,6 +21,11 @@
             android:title="@string/nav_notifications" />
 
         <item
+            android:id="@+id/nav_messages"
+            android:icon="@drawable/ic_message_text_grey600_24dp"
+            android:title="@string/nav_messages" />
+
+        <item
             android:id="@+id/nav_lessons"
             android:icon="@drawable/ic_book_variant_grey600_24dp"
             android:title="@string/nav_lessons" />
@@ -36,9 +41,9 @@
             android:title="@string/nav_subjects" />
 
         <item
-            android:id="@+id/nav_teachers"
+            android:id="@+id/nav_contacts"
             android:icon="@drawable/ic_account_multiple_grey600_24dp"
-            android:title="@string/nav_teachers" />
+            android:title="@string/nav_contacts" />
 
         <item
             android:id="@+id/nav_notes"

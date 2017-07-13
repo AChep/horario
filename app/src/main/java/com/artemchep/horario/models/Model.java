@@ -44,4 +44,7 @@ public abstract class Model implements Parcelable, Cloneable {
         }
     }
 
+    public void update() {
+    }
+
 }
