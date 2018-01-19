@@ -58,9 +58,11 @@ class UserView : ModelView<IUser> {
         } else {
             // Set avatar
             if (model.avatarUrl != null) {
-                Glide.with(context)
-                        .load(model.avatarUrl)
-                        .into(avatarView)
+                if (avatarView != null) {
+                    Glide.with(context)
+                            .load(model.avatarUrl)
+                            .into(avatarView!!)
+                }
             } else avatarView?.setImageDrawable(null)
 
             // Set bio & name
