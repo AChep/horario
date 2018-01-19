@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <ViewStub
+        android:id="@+id/progress_stub"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout="@layout/___component_fragment_loading" />
+
+    <LinearLayout
+        android:id="@+id/error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:src="@drawable/ic_error_outline_white_48dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="196dp"
+            android:text="Something went wrong" />
+
+        <Button
+            android:id="@+id/error.recover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Try again" />
+
+    </LinearLayout>
+
+</FrameLayout>

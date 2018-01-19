@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_refresh"
+        android:title="@string/action_refresh"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_edit"
+        android:icon="?icon_pencil_grey"
+        android:title="@string/action_edit"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_moderate"
+        android:title="Moderate class"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_leave"
+        android:title="Leave class"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_configure"
+        android:title="Settings"
+        app:showAsAction="never" />
+
+</menu>

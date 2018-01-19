@@ -1,0 +1,53 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        debug {
+        }
+        release {
+            consumerProguardFile 'proguard-support-v7-appcompat.pro'
+            consumerProguardFile 'proguard-support-design.pro'
+            consumerProguardFile 'proguard-checkout.pro'
+            consumerProguardFile 'proguard-app.pro'
+        }
+        beta {
+            initWith release
+        }
+    }
+}
+
+ext {
+    supportLibVersion = "26.1.0"
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        // use version of jsr305 provided by Checkout
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    })
+    compile 'org.solovyev.android:checkout:1.0.1'
+    compile 'com.jakewharton.timber:timber:4.5.1'
+    compile "com.android.support:appcompat-v7:${supportLibVersion}"
+    compile "com.android.support:design:${supportLibVersion}"
+    testCompile 'junit:junit:4.12'
+}

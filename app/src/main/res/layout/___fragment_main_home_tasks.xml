@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card.tasks"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false">
+
+    <TextView
+        android:id="@+id/card.tasks.category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Upcoming tasks"
+        android:textColor="?colorAccent"
+        android:textStyle="bold" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler.tasks"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:layout_below="@id/card.tasks.category"
+        android:layout_marginBottom="16dp"
+        android:clipToPadding="false"
+        android:paddingEnd="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        tools:listitem="@layout/___item_class_task" />
+
+</RelativeLayout>

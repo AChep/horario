@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.artemchep.horario.ui.widgets.UserView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:background="?android:activatedBackgroundIndicator"
+    android:foreground="?android:selectableItemBackground"
+    android:orientation="horizontal"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingStart="@dimen/activity_horizontal_margin">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user.avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/bg_btn_accent"
+        android:minWidth="0dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:text="Cancel"
+        android:textColor="?colorAccent"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/user.name"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:layout_toEndOf="@id/user.avatar"
+        android:layout_toLeftOf="@id/btn"
+        android:layout_toRightOf="@id/user.avatar"
+        android:layout_toStartOf="@id/btn"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp"
+        tools:text="Artem Chepurnoy" />
+
+</com.artemchep.horario.ui.widgets.UserView>

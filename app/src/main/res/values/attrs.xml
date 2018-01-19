@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="Theme">
+        <attr name="icon_shield" format="reference" />
+        <attr name="icon_lock_reset" format="reference" />
+        <attr name="icon_logout_grey" format="reference" />
+        <attr name="icon_account_plus" format="reference" />
+        <attr name="icon_account_edit" format="reference" />
+        <attr name="icon_account_grey" format="reference" />
+        <attr name="icon_information_outline" format="reference" />
+        <attr name="icon_information_outline_grey" format="reference" />
+        <attr name="icon_email" format="reference" />
+        <attr name="icon_email_grey" format="reference" />
+        <attr name="icon_star_grey" format="reference" />
+        <attr name="icon_phone_grey" format="reference" />
+        <attr name="icon_delete" format="reference" />
+        <attr name="icon_delete_grey" format="reference" />
+        <attr name="icon_timetable" format="reference" />
+        <attr name="icon_timetable_grey" format="reference" />
+        <attr name="icon_pine_tree" format="reference" />
+        <attr name="icon_dashboard" format="reference" />
+        <attr name="icon_notifications" format="reference" />
+        <attr name="icon_bell" format="reference" />
+        <attr name="icon_send_grey" format="reference" />
+        <attr name="icon_reply_grey" format="reference" />
+        <attr name="icon_forward_grey" format="reference" />
+        <attr name="icon_close" format="reference" />
+        <attr name="icon_close_grey" format="reference" />
+        <attr name="icon_save" format="reference" />
+        <attr name="icon_save_grey" format="reference" />
+        <attr name="icon_label" format="reference" />
+        <attr name="icon_label_grey" format="reference" />
+        <attr name="icon_plus" format="reference" />
+        <attr name="icon_plus_grey" format="reference" />
+        <attr name="icon_plus_circle_grey" format="reference" />
+        <attr name="icon_minus_circle_grey" format="reference" />
+        <attr name="icon_palette" format="reference" />
+        <attr name="icon_palette_grey" format="reference" />
+        <attr name="icon_feather" format="reference" />
+        <attr name="icon_clock_14dp" format="reference" />
+        <attr name="icon_clock_grey" format="reference" />
+        <attr name="icon_share_grey" format="reference" />
+        <attr name="icon_share_variant_grey" format="reference" />
+        <attr name="icon_attachment_grey" format="reference" />
+        <attr name="icon_link_grey" format="reference" />
+        <attr name="icon_check_grey" format="reference" />
+        <attr name="icon_arrow_left_grey" format="reference" />
+        <attr name="icon_chevron_right_grey" format="reference" />
+        <attr name="icon_chevron_left_grey" format="reference" />
+        <attr name="icon_format_undo_grey" format="reference" />
+        <attr name="icon_format_redo_grey" format="reference" />
+        <attr name="icon_format_bold_grey" format="reference" />
+        <attr name="icon_format_italic_grey" format="reference" />
+        <attr name="icon_format_strike_grey" format="reference" />
+        <attr name="icon_format_underline_grey" format="reference" />
+        <attr name="icon_format_list_bulleted_grey" format="reference" />
+        <attr name="icon_format_list_numbers_grey" format="reference" />
+        <attr name="icon_format_clear_grey" format="reference" />
+        <attr name="icon_format_text_color_grey" format="reference" />
+        <attr name="icon_format_header_1_grey" format="reference" />
+        <attr name="icon_format_header_2_grey" format="reference" />
+        <attr name="icon_format_header_3_grey" format="reference" />
+        <attr name="icon_format_header_4_grey" format="reference" />
+        <attr name="icon_format_header_5_grey" format="reference" />
+        <attr name="icon_format_header_6_grey" format="reference" />
+        <attr name="icon_copy_grey" format="reference" />
+        <attr name="icon_dots_grey" format="reference" />
+        <attr name="icon_pencil_grey" format="reference" />
+        <attr name="icon_hexagon_grey" format="reference" />
+        <attr name="icon_backburger_grey" format="reference" />
+        <attr name="icon_view_stream_grey" format="reference" />
+        <attr name="icon_view_dashboard_grey" format="reference" />
+        <attr name="icon_calendar_today_grey" format="reference" />
+        <attr name="icon_calendar_empty_grey" format="reference" />
+        <attr name="icon_map_marker_grey" format="reference" />
+        <attr name="icon_source_fork_grey" format="reference" />
+        <attr name="icon_book_variant" format="reference" />
+        <attr name="icon_translate_grey" format="reference" />
+        <attr name="icon_currency_btc_grey" format="reference" />
+        <attr name="color_nav_profile_text" format="color|reference" />
+        <attr name="color_nav_text" format="color|reference" />
+        <attr name="color_nav_icon" format="color|reference" />
+        <attr name="color_text_primary_selectable" format="color|reference" />
+        <attr name="bg_holiday" format="reference" />
+        <attr name="bg_holiday_filter" format="reference" />
+        <attr name="bg_splash_screen" format="reference" />
+        <attr name="bg_card" format="reference|color" />
+        <attr name="bg_card_color" format="color" />
+        <attr name="bg_card_color_transparent" format="color" />
+        <attr name="is_dark_theme" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="BoundedView">
+        <attr name="bounded_width" format="dimension" />
+        <attr name="bounded_height" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ContainersLayout">
+        <attr name="layout" format="reference" />
+    </declare-styleable>
+
+</resources>

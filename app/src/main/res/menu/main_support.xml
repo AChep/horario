@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_donate_btc"
+        android:checkable="true"
+        android:icon="?icon_currency_btc_grey"
+        android:title="@string/action_donate_btc"
+        app:showAsAction="always" />
+
+</menu>

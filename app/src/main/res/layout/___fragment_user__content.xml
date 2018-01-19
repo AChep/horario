@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/___fragment_user">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user.avatar"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:civ_border_color="#44888888"
+        app:civ_border_width="6dp" />
+
+    <TextView
+        android:id="@+id/user.name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:maxWidth="220dp"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textSize="24sp"
+        tools:text="Artem Chepurnoy" />
+
+    <TextView
+        android:id="@+id/user.details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+        android:gravity="center_horizontal"
+        android:maxWidth="220dp"
+        android:textSize="12sp"
+        tools:text="Born in a family of mathematicians and teachers." />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/info.email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:drawableLeft="?icon_email_grey"
+                android:drawablePadding="32dp"
+                android:drawableStart="?icon_email_grey"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:minHeight="72dp"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:textAppearance="@style/DetailsItemText"
+                tools:text="support@artemchep.com" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="@dimen/fab_size_normal"
+        android:layout_marginBottom="@dimen/fab_margin" />
+
+</merge>

@@ -1,0 +1,44 @@
+<resources>
+
+    <dimen name="elevation_toolbar">4dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_header">20sp</dimen>
+    <dimen name="empty_view_icon_size">80dp</dimen>
+    <!-- NavigationDrawer -->
+    <dimen name="nav_drawer_width">304dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="nav_side_header_height">142dp</dimen>
+    <dimen name="account_header_height">142dp</dimen>
+    <!-- Container Sheet -->
+    <dimen name="container_max_width">600dp</dimen>
+    <dimen name="container_horizontal_padding">0dp</dimen>
+    <!-- Donate -->
+    <dimen name="donate_icon_size">80dp</dimen>
+    <dimen name="donate_view_width">128dp</dimen>
+    <dimen name="donate_view_height">260dp</dimen>
+
+    <dimen name="toolbar_size_expanded">290dp</dimen>
+
+    <!--
+           Note
+           -->
+
+    <dimen name="note_margin_start">8dp</dimen>
+    <dimen name="note_margin_end">8dp</dimen>
+    <dimen name="note_margin_top">8dp</dimen>
+    <dimen name="note_margin_bottom">8dp</dimen>
+    <dimen name="note_content_font_size">16sp</dimen>
+
+    <!--
+        Settings
+        -->
+
+    <!-- Preference fragment padding, bottom -->
+    <dimen name="preference_fragment_padding_bottom">0dp</dimen>
+    <!-- Preference fragment padding, sides -->
+    <dimen name="preference_fragment_padding_side">0dp</dimen>
+
+</resources>

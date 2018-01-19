@@ -1,0 +1,56 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="n_mr1">
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_access_time"
+        android:shortcutId="category_schedule"
+        android:shortcutShortLabel="@string/shortcut_schedule">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.artemchep.horario._new.activities.MainActivity"
+            android:targetPackage="com.artemchep.horario">
+            <categories android:name="category_schedule" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_chat"
+        android:shortcutId="category_chats"
+        android:shortcutShortLabel="@string/shortcut_chats">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.artemchep.horario._new.activities.MainActivity"
+            android:targetPackage="com.artemchep.horario">
+            <categories android:name="category_chats" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_note"
+        android:shortcutId="category_notes"
+        android:shortcutShortLabel="@string/shortcut_notes">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.artemchep.horario._new.activities.MainActivity"
+            android:targetPackage="com.artemchep.horario">
+            <categories android:name="category_notes" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_note_add"
+        android:shortcutId="category_notes_add"
+        android:shortcutShortLabel="@string/shortcut_notes_add">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.artemchep.horario._new.activities.NoteActivity"
+            android:targetPackage="com.artemchep.horario">
+        </intent>
+    </shortcut>
+
+</shortcuts>

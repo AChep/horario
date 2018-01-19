@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_margin="8dp"
+        app:contentPadding="8dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Milestone" />
+
+    </android.support.v7.widget.CardView>
+
+    <com.artemchep.horario.ui.widgets.UserView
+        android:id="@+id/user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#08000000"
+        android:foreground="?android:selectableItemBackground"
+        android:minHeight="72dp"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/user.avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:src="@mipmap/ic_launcher" />
+
+        <com.artemchep.horario.ui.widgets.PrettyTimeView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="2 hours ago"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/user.name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_toEndOf="@+id/user.avatar"
+            android:layout_toRightOf="@+id/user.avatar"
+            android:maxLines="1"
+            android:text="Teacher"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user.name"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="8dp"
+            android:layout_toEndOf="@+id/user.avatar"
+            android:layout_toRightOf="@+id/user.avatar"
+            android:text="Hi,\nYour program does not compile! Checked it with FreePascal compiler."
+            android:textSize="14sp" />
+
+    </com.artemchep.horario.ui.widgets.UserView>
+
+    <com.artemchep.horario.ui.widgets.UserView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#08000000"
+        android:foreground="?android:selectableItemBackground"
+        android:minHeight="72dp"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin">
+
+        <ImageView
+            android:id="@+id/user.avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:src="@mipmap/ic_launcher" />
+
+        <com.artemchep.horario.ui.widgets.PrettyTimeView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="1 hour ago"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/user.name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:layout_toEndOf="@+id/user.avatar"
+            android:layout_toRightOf="@+id/user.avatar"
+            android:maxLines="1"
+            android:text="Student"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user.name"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="8dp"
+            android:layout_toEndOf="@+id/user.avatar"
+            android:layout_toRightOf="@+id/user.avatar"
+            android:text="Lol, it is Java"
+            android:textSize="14sp" />
+
+    </com.artemchep.horario.ui.widgets.UserView>
+
+</LinearLayout>

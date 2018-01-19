@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Task -->
+    <string-array name="priorities">
+        <item>Low</item>
+        <item>Normal</item>
+        <item>High</item>
+    </string-array>
+
+    <!-- Feedback -->
+    <string-array name="feedback_types">
+        <item>Issue</item>
+        <item>Suggestion</item>
+        <item>Other</item>
+    </string-array>
+
+    <!-- Repeat -->
+    <string-array name="repeat_types">
+        <item>Repeat daily</item>
+        <item>Repeat weekly</item>
+        <item>Repeat monthly</item>
+    </string-array>
+
+    <!-- Themes -->
+    <string-array name="theme">
+        <item>Light theme</item>
+        <item>Dark theme</item>
+        <item>Black theme</item>
+    </string-array>
+    <string-array name="theme_entries" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Default screen -->
+    <string-array name="default_screen">
+        <item>Last opened</item>
+        <item>Dashboard</item>
+        <item>Notifications</item>
+        <item>Lessons</item>
+        <item>Subjects</item>
+        <item>Teachers</item>
+        <item>Notes</item>
+        <item>Exams</item>
+    </string-array>
+    <string-array name="default_screen_entries" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <!-- Lesson types -->
+    <string-array name="lesson_types">
+        <item>Lecture</item>
+        <item>Practice</item>
+        <item>Seminar</item>
+        <item>Lab</item>
+    </string-array>
+
+    <!-- Post types -->
+    <string-array name="post_types">
+        <item>Post</item>
+        <item>Question</item>
+        <item>Announcement</item>
+    </string-array>
+
+    <!-- Task types -->
+    <string-array name="task_types">
+        <item>Question</item>
+        <item>Assignment</item>
+        <item>Announcement</item>
+    </string-array>
+
+    <!-- Days -->
+    <string-array name="days">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+
+    <!-- Days short -->
+    <string-array name="days_short">
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+        <item>Sun</item>
+    </string-array>
+
+    <!-- Months -->
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+</resources>

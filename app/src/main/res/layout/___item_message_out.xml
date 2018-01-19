@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.artemchep.horario.ui.widgets.UserView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:background="?android:activatedBackgroundIndicator"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingStart="@dimen/activity_horizontal_margin">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user.avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/user.name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@+id/user.avatar"
+        android:layout_toRightOf="@+id/user.avatar"
+        android:maxLines="1"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:text="Artem Chepurnoy" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/user.name"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_message2"
+        android:gravity="center_vertical"
+        android:minHeight="40dp"
+        android:padding="8dp"
+        android:textColor="#fff"
+        android:textSize="16sp"
+        tools:text="Lorem ipsum dolor sit amet" />
+
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_alignBottom="@id/text"
+        android:layout_alignEnd="@id/text"
+        android:layout_alignRight="@id/text"
+        android:layout_marginEnd="-12dp"
+        android:layout_marginRight="12dp"
+        android:src="@drawable/ic_check_circle_grey600_24dp" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@id/text"
+        android:layout_alignStart="@id/text"
+        android:layout_marginLeft="-40dp"
+        android:layout_marginStart="-40dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:text="22:34"
+        android:textColor="?android:textColorHint"
+        android:textSize="12sp"
+        tools:text="22:34" />
+
+</com.artemchep.horario.ui.widgets.UserView>

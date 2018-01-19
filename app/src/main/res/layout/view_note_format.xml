@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v4.widget.Space
+        android:layout_width="8dp"
+        android:layout_height="0dp" />
+
+    <ImageButton
+        android:id="@+id/format.undo"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_undo"
+        android:src="?icon_format_undo_grey" />
+
+    <ImageButton
+        android:id="@+id/format.redo"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_redo"
+        android:src="?icon_format_redo_grey" />
+
+    <ImageButton
+        android:id="@+id/format.clear"
+        style="?actionButtonStyle"
+        android:layout_width="?actionBarSize"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_link_insert"
+        android:src="?icon_format_clear_grey" />
+
+    <!--
+        Divider
+        -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:background="?dividerVertical" />
+
+    <ImageButton
+        android:id="@+id/format.bold"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_bold"
+        android:src="?icon_format_bold_grey" />
+
+    <ImageButton
+        android:id="@+id/format.italic"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_italic"
+        android:src="?icon_format_italic_grey" />
+
+    <ImageButton
+        android:id="@+id/format.underline"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_underline"
+        android:src="?icon_format_underline_grey" />
+
+    <ImageButton
+        android:id="@+id/format.color.text"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_color_text"
+        android:src="?icon_format_text_color_grey" />
+
+    <!--
+        Divider
+        -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:background="?dividerVertical" />
+
+    <ImageButton
+        android:id="@+id/format.link.insert"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_link_insert"
+        android:src="?icon_link_grey" />
+
+    <!--
+        Divider
+        -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:background="?dividerVertical" />
+
+    <ImageButton
+        android:id="@+id/format.bullets"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_bullets"
+        android:src="?icon_format_list_bulleted_grey" />
+
+    <ImageButton
+        android:id="@+id/format.numbers"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_numbers"
+        android:src="?icon_format_list_numbers_grey" />
+
+    <!--
+        Divider
+        -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+        android:background="?dividerVertical" />
+
+    <ImageButton
+        android:id="@+id/format.header.1"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_header_1"
+        android:src="?icon_format_header_1_grey" />
+
+    <ImageButton
+        android:id="@+id/format.header.2"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_header_2"
+        android:src="?icon_format_header_2_grey" />
+
+    <ImageButton
+        android:id="@+id/format.header.3"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_header_3"
+        android:src="?icon_format_header_3_grey" />
+
+    <ImageButton
+        android:id="@+id/format.header.4"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_header_4"
+        android:src="?icon_format_header_4_grey" />
+
+    <ImageButton
+        android:id="@+id/format.header.5"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_header_5"
+        android:src="?icon_format_header_5_grey" />
+
+    <ImageButton
+        android:id="@+id/format.header.6"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_header_6"
+        android:src="?icon_format_header_6_grey" />
+
+    <ImageButton
+        android:id="@+id/format.strike"
+        style="?actionButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="?actionBarSize"
+        android:contentDescription="@string/format_strike"
+        android:src="?icon_format_strike_grey"
+        android:visibility="gone" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="8dp"
+        android:layout_height="0dp" />
+
+</merge>

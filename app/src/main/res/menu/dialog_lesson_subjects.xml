@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/subjects" />
+
+    <item
+        android:id="@+id/action_create"
+        android:orderInCategory="1"
+        android:title="@string/action_create_new_subject" />
+
+</menu>

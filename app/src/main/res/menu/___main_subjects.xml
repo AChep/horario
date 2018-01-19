@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_add"
+        android:title="@string/action_add_subject"
+        android:icon="?icon_plus_grey"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_all"
+        android:title="All subjects"
+        app:showAsAction="never" />
+
+</menu>

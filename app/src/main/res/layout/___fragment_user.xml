@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:colorBackground"
+        android:fitsSystemWindows="true"
+        android:stateListAnimator="@null">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:navigationIcon="?icon_close_grey" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--
+                    Basic user information
+                    -->
+
+                <com.artemchep.horario.ui.widgets.UserView
+                    android:id="@+id/user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <FrameLayout
+                        android:id="@+id/user.avatar_frame"
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/activity_vertical_margin">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/user.avatar"
+                            android:layout_width="128dp"
+                            android:layout_height="128dp"
+                            app:civ_border_color="#0000"
+                            app:civ_border_width="4dp" />
+
+                        <com.jackandphantom.circularprogressbar.CircleProgressbar
+                            android:id="@+id/user.avatar_progress"
+                            android:layout_width="128dp"
+                            android:layout_height="128dp"
+                            app:cpb_backgroundProgressColor="#22888888"
+                            app:cpb_foregroundProgressColor="?colorAccent"
+                            app:cpb_roundedCorner="true" />
+
+                    </FrameLayout>
+
+                    <ImageView
+                        android:id="@+id/cancel"
+                        style="?actionButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@id/user.avatar_frame"
+                        android:layout_toEndOf="@id/user.avatar_frame"
+                        android:layout_toRightOf="@id/user.avatar_frame"
+                        android:src="?icon_close_grey"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/user.name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/user.avatar_frame"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:gravity="center_horizontal"
+                        android:maxWidth="240dp"
+                        android:textAppearance="?android:textAppearanceLarge"
+                        android:textSize="24sp"
+                        tools:text="Artem Chepurnoy" />
+
+                    <TextView
+                        android:id="@+id/user.biography"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/user.name"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp"
+                        android:breakStrategy="high_quality"
+                        android:gravity="center_horizontal"
+                        android:maxWidth="240dp"
+                        android:textSize="12sp"
+                        tools:text="Born in a family of mathematicians and teachers." />
+
+                </com.artemchep.horario.ui.widgets.UserView>
+
+                <!--
+                    Advanced user information
+                    -->
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/paper"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!--
+                            Email
+                            -->
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?selectableItemBackground"
+                            android:drawableLeft="?icon_email_grey"
+                            android:drawablePadding="32dp"
+                            android:drawableStart="?icon_email_grey"
+                            android:gravity="center_vertical"
+                            android:maxLines="1"
+                            android:minHeight="56dp"
+                            android:paddingEnd="@dimen/activity_horizontal_margin"
+                            android:paddingLeft="@dimen/activity_horizontal_margin"
+                            android:paddingRight="@dimen/activity_horizontal_margin"
+                            android:paddingStart="@dimen/activity_horizontal_margin"
+                            android:textAppearance="@style/DetailsItemText"
+                            tools:text="support@artemchep.com" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/fab_size_normal"
+                    android:layout_marginBottom="@dimen/fab_margin"
+                    android:layout_marginTop="@dimen/fab_margin" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <include layout="@layout/___component_fragment_loading" />
+
+    </FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_message_text_white_24dp" />
+
+</android.support.design.widget.CoordinatorLayout>

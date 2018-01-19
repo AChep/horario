@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="nav_about" type="id" />
+    <item name="nav_feedback" type="id" />
+    <item name="nav_privacy_policy" type="id" />
+    <item name="nav_settings" type="id" />
+    <item name="nav_overview" type="id" />
+    <item name="nav_lessons" type="id" />
+    <item name="nav_notifications" type="id" />
+    <item name="nav_subjects" type="id" />
+    <item name="nav_teachers" type="id" />
+    <item name="nav_notes" type="id" />
+    <item name="nav_exams" type="id" />
+    <item name="nav_sign_out" type="id" />
+    <item name="nav_holidays_mode" type="id" />
+
+    <item name="profile_add" type="id" />
+    <item name="profile_manage" type="id" />
+
+    <item name="tab_home" type="id" />
+    <item name="tab_schedule" type="id" />
+    <item name="tab_classes" type="id" />
+    <item name="tab_contacts" type="id" />
+    <item name="tab_chat" type="id" />
+
+</resources>

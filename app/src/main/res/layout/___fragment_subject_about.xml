@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <!--
+            Author
+            -->
+
+        <com.artemchep.horario.ui.widgets.UserView
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="?selectableItemBackground"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user.avatar"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="16dp"
+                tools:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/user.name"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_toEndOf="@id/user.avatar"
+                android:layout_toRightOf="@id/user.avatar"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/DetailsItemText"
+                tools:text="Artem Chepurnoy" />
+
+        </com.artemchep.horario.ui.widgets.UserView>
+
+        <!--
+            Info
+            -->
+
+        <LinearLayout
+            android:id="@+id/name_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin">
+
+            <View
+                android:id="@+id/color"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center_vertical|start"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/DetailsItemText"
+                tools:text="Computer Network" />
+
+            <Button
+                android:id="@+id/edit"
+                style="?borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:minWidth="0dp"
+                android:text="@string/action_edit" />
+
+        </LinearLayout>
+
+        <org.sufficientlysecure.htmltextview.HtmlTextView
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawableLeft="?icon_information_outline_grey"
+            android:drawablePadding="32dp"
+            android:drawableStart="?icon_information_outline_grey"
+            android:gravity="center_vertical|start"
+            android:minHeight="56dp"
+            android:paddingBottom="8dp"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingTop="8dp"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/DetailsItemText"
+            android:textIsSelectable="true"
+            tools:text="Detailed information" />
+
+        <!--
+            Share
+            -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                android:src="?icon_share_variant_grey" />
+
+            <TextView
+                android:id="@+id/share_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:text="Share subject link"
+                android:textAppearance="@style/DetailsItemText" />
+
+            <Button
+                android:id="@+id/share"
+                style="?borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:minWidth="0dp"
+                android:text="@string/share" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/link_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingStart="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="56dp"
+                android:layout_marginStart="56dp"
+                android:breakStrategy="high_quality"
+                android:ellipsize="none"
+                android:gravity="center_vertical"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:textAppearance="@style/DetailsItemText"
+                android:textColor="?android:textColorSecondary"
+                android:typeface="monospace"
+                tools:text="https://github.com/AChep/horario" />
+
+        </LinearLayout>
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="72dp" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

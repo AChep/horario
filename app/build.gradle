@@ -1,0 +1,187 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+import java.text.SimpleDateFormat
+
+repositories {
+    maven { url "https://jitpack.io" }
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    dataBinding.enabled true
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.artemchep.horario"
+        minSdkVersion 16
+        targetSdkVersion 27
+        vectorDrawables.useSupportLibrary = true
+        versionCode 10
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    def releaseProps = new Properties()
+    def releaseKeyFilename
+    def releasePropsFilename
+    if (file("release.properties").exists()) {
+        releaseKeyFilename = "release-key.keystore"
+        releasePropsFilename = "release.properties"
+    } else {
+        releaseKeyFilename = "dev-key.keystore"
+        releasePropsFilename = "dev.properties"
+    }
+    file(releasePropsFilename).withInputStream { releaseProps.load(it) }
+    String key = releaseProps['key_google_play_public']
+
+    Date date = Calendar.getInstance().getTime()
+    String time = new SimpleDateFormat("EEE MMMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH).format(date)
+    String timeYear = new SimpleDateFormat("yyyy", Locale.ENGLISH).format(date)
+
+    //-- SIGNING CONFIG -------------------------------------------------------
+
+    signingConfigs {
+        release {
+            storeFile file(releaseKeyFilename)
+            keyAlias releaseProps['key_alias']
+            keyPassword releaseProps['password_store']
+            storePassword releaseProps['password_key']
+        }
+    }
+
+    //-- BUILD TYPES ----------------------------------------------------------
+
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "MY_DEBUG", "true"
+            signingConfig signingConfigs.release
+        }
+        release {
+            // Proguard
+            zipAlignEnabled true
+            minifyEnabled true
+            proguardFile 'proguard-app.pro'
+            proguardFile 'proguard-facebook.pro'
+            proguardFile 'proguard-leakcanary.pro'
+            proguardFile 'proguard-recyclerviewpager.pro'
+            proguardFile 'proguard-google-play-services.pro'
+            proguardFile 'proguard-support-v7-cardview.pro'
+            proguardFile 'proguard-support-v7-appcompat.pro'
+            proguardFile 'proguard-support-design.pro'
+            proguardFile 'proguard-glide.pro'
+            proguardFile 'proguard-chart.pro'
+            proguardFile 'proguard-flowlayout.pro'
+            proguardFile 'proguard-firebase-db.pro'
+
+            // Sign
+            signingConfig signingConfigs.release
+
+            buildConfigField "boolean", "MY_DEBUG", "false"
+        }
+        beta {
+            versionNameSuffix '-beta'
+            initWith release
+        }
+
+        // Add config fields to each of build types.
+        buildTypes.each {
+            it.buildConfigField "String", "MY_TIME", "\"" + time + "\""
+            it.buildConfigField "String", "MY_TIME_YEAR", "\"" + timeYear + "\""
+            it.buildConfigField "String", "MY_GOOGLE_PLAY_PUBLIC_KEY", "\"" + key + "\""
+        }
+    }
+}
+
+dependencies {
+    kapt 'com.android.databinding:compiler:3.0.1'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        // use version of jsr305 provided by Checkout
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    })
+    testCompile 'junit:junit:4.12'
+    compile 'net.danlew:android.joda:2.9.9'
+    compile 'com.github.GrenderG:Toasty:1.2.5'
+    compile 'com.yarolegovich:discrete-scrollview:1.1.3'
+    compile "com.afollestad.material-dialogs:core:$md_lib_version"
+    compile "com.afollestad.material-dialogs:commons:$md_lib_version"
+    compile 'uk.co.samuelwall:material-tap-target-prompt:2.1.0'
+    compile 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.2@aar'
+    compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
+    compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+    compile 'net.opacapp:multiline-collapsingtoolbar:1.6.0'
+    compile 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
+    compile 'com.github.stfalcon:frescoimageviewer:0.5.0'
+    compile 'org.sufficientlysecure:html-textview:3.4'
+    compile 'jp.wasabeef:recyclerview-animators:2.2.5'
+    compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    compile 'com.github.bumptech.glide:glide:4.2.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
+    compile 'com.github.chrisbanes:PhotoView:2.1.2'
+    compile 'jp.wasabeef:richeditor-android:1.2.2'
+    compile 'org.apmem.tools:layouts:1.10@aar'
+    compile 'com.thebluealliance:spectrum:0.7.1'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.android.support:multidex:1.0.2'
+    compile 'com.github.alamkanak:android-week-view:1.2.6'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.facebook.fresco:fresco:1.3.0'
+    compile 'com.github.mthli:Knife:v1.1'
+    compile 'com.github.clans:fab:1.6.4'
+    compile 'com.roughike:bottom-bar:2.3.1'
+    compile 'com.shawnlin:number-picker:2.4.4'
+    compile 'com.github.jkwiecien:EasyImage:1.3.1'
+    compile 'com.github.tajchert:nammu:1.2.0'
+    compile 'com.jackandphantom.android:circularprogressbar:1.2.0'
+    compile 'com.daimajia.easing:library:2.0@aar'
+    compile 'com.daimajia.androidanimations:library:2.3@aar'
+    compile 'com.github.nitrico.fontbinder:fontbinder:1.0.5'
+    // Facebook
+    compile 'com.facebook.android:facebook-android-sdk:4.19.0'
+
+    // Support Library
+    compile "com.android.support:appcompat-v7:$support_lib_version"
+    compile "com.android.support:cardview-v7:$support_lib_version"
+    compile "com.android.support:design:$support_lib_version"
+    compile "com.android.support:support-v13:$support_lib_version"
+    compile "com.android.support:preference-v7:$support_lib_version"
+    compile "com.android.support:preference-v14:$support_lib_version"
+
+    // Leak Canary
+    debugCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_lib_version"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_lib_version"
+    testCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_lib_version"
+
+    // Room
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+
+    // Firebase
+    compile "com.google.firebase:firebase-core:$firebase_version"
+    compile "com.google.firebase:firebase-auth:$firebase_version"
+    compile "com.google.firebase:firebase-crash:$firebase_version"
+    compile "com.google.firebase:firebase-config:$firebase_version"
+    compile "com.google.firebase:firebase-storage:$firebase_version"
+    compile "com.google.firebase:firebase-database:$firebase_version"
+    compile "com.google.android.gms:play-services-auth:$firebase_version"
+    compile "com.google.firebase:firebase-firestore:$firebase_version"
+    compile "com.google.firebase:firebase-messaging:$firebase_version"
+
+    implementation project(":basic")
+}
+
+apply plugin: 'com.google.gms.google-services'

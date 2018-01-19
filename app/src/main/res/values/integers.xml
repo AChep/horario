@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        Notes
+        -->
+
+    <integer name="note_column_count">2</integer>
+
+    <!--
+        Settings
+        -->
+
+    <!-- outsideOverlay -->
+    <integer name="preference_fragment_scrollbarStyle">0x02000000</integer>
+
+</resources>

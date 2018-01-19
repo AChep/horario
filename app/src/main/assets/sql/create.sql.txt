@@ -1,0 +1,40 @@
+-- Create table for different type of
+-- ALARMS, such as notes and events
+CREATE
+	TABLE alarms
+	(
+		id INTEGER PRIMARY KEY,
+		id_firestore TEXT NOT NULL,
+		category TINYTEXT NOT NULL,
+		title TEXT,
+		text TEXT,
+		alarm INTEGER DEFAULT null
+	);
+
+CREATE
+	TABLE subjects
+	(
+		id TINYTEXT PRIMARY KEY,
+		name TEXT,
+		color INTEGER
+	);
+
+CREATE
+	TABLE events
+	(
+		id TINYTEXT PRIMARY KEY,
+		subjectId TINYTEXT,
+		scheduleId TINYTEXT,
+		title TINYTEXT,
+		place TINYTEXT,
+
+		repeatType INTEGER,
+		repeatEvery INTEGER,
+
+		dateStart INTEGER,
+		timeStart INTEGER,
+		dateEnd INTEGER,
+		timeEnd INTEGER
+	)
+-- NOTE:
+-- No semicolon at the end IS INTENTIONAL

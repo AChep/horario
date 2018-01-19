@@ -1,0 +1,71 @@
+<resources>
+
+    <string name="shortcut_schedule">Schedule</string>
+    <string name="shortcut_chats">Messages</string>
+    <string name="shortcut_notes">Notes</string>
+    <string name="shortcut_notes_add">Take a note</string>
+
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="lecture">Lecture</string>
+    <string name="practice">Practice</string>
+    <string name="seminar">Seminar</string>
+    <string name="lab">Lab</string>
+    <string name="post">Post</string>
+    <string name="question">Question</string>
+    <string name="announcement">Announcement</string>
+
+    <string name="subject_archive_q">Archive subject? Archived subjects a read-only</string>
+    <string name="post_remove_q">Remove post permanently?</string>
+    <string name="subject_remove_q">Remove subject permanently?</string>
+    <string name="schedule_remove_q">Remove schedule permanently?</string>
+    <string name="event_remove_q">Remove event permanently?</string>
+    <string name="note_remove_q">Remove note permanently?</string>
+
+    <string name="__subject_task_instructions">Instructions</string>
+    <string name="__subject_task_student_work">Student work</string>
+    <string name="__subject_tasks">Tasks</string>
+    <string name="__subject_schedule">Schedule</string>
+    <string name="__subject_task_new">New task</string>
+    <string name="__subject_task_edit">Edit task</string>
+    <string name="__subject_stream">Stream</string>
+    <string name="__subject_members">Members</string>
+    <string name="__subject_requests">Requests</string>
+    <string name="__subject_students">Members</string>
+    <string name="__subject_materials">Materials</string>
+    <string name="__subject_about">About</string>
+    <string name="__subject_about__join_text">Join \"%1$s\" %2$s</string>
+    <string name="__subject_about__join_subject">Subject</string>
+    <string name="__subject__edit_">About</string>
+
+    <string name="__subject_note_new">New note</string>
+    <string name="__subject_note_edit">Edit note</string>
+    <string name="__subject_post_new">New post</string>
+    <string name="__subject_post_edit">Edit post</string>
+    <string name="__subject_post_text">Content text</string>
+    <string name="__subject_schedule_new">New schedule</string>
+    <string name="__subject_schedule_edit">Edit schedule</string>
+    <string name="__subject_schedule_unsubscribe">Unsubscribe?</string>
+    <string name="__subject_schedule_unsubscribe_from">Unsubscribe from %1$s?</string>
+
+    <string name="__empty_requests">No requests</string>
+    <string name="__empty_members">No members</string>
+    <string name="__empty_posts">No posts</string>
+    <string name="__empty_tasks">No tasks</string>
+    <string name="__empty_classes">No classes</string>
+    <string name="__empty_events">No events</string>
+
+    <string name="event_repeat_off">Does not repeat</string>
+    <string name="event_repeat_on">Repeats every %1$d %2$s</string>
+
+    <string name="moderate_request_options">Options</string>
+    <string name="moderate_request_accept">Accept</string>
+    <string name="moderate_request_decline">Decline</string>
+    <string name="moderate_request_ban">Ban</string>
+
+    <string name="member_student">Student</string>
+    <string name="member_moderator">Moderator</string>
+    <string name="member_admin">Admin</string>
+
+</resources>

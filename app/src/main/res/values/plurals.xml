@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <plurals name="subject_group_students_count">
+        <item quantity="zero">No students</item>
+        <item quantity="one">%1$d student</item>
+        <item quantity="two">%1$d students</item>
+        <item quantity="few">%1$d students</item>
+        <item quantity="many">%1$d students</item>
+        <item quantity="other">%1$d students</item>
+    </plurals>
+
+    <plurals name="notes_counter">
+        <item quantity="zero">No notes</item>
+        <item quantity="one">%1$d note</item>
+        <item quantity="two">%1$d notes</item>
+        <item quantity="few">%1$d notes</item>
+        <item quantity="many">%1$d notes</item>
+        <item quantity="other">%1$d notes</item>
+    </plurals>
+
+    <plurals name="comments_counter">
+        <item quantity="zero">No comments</item>
+        <item quantity="one">%1$d comment</item>
+        <item quantity="two">%1$d comments</item>
+        <item quantity="few">%1$d comments</item>
+        <item quantity="many">%1$d comments</item>
+        <item quantity="other">%1$d comments</item>
+    </plurals>
+
+    <plurals name="days">
+        <item quantity="zero">days</item>
+        <item quantity="one">day</item>
+        <item quantity="two">days</item>
+        <item quantity="few">days</item>
+        <item quantity="many">days</item>
+        <item quantity="other">days</item>
+    </plurals>
+
+    <plurals name="weeks">
+        <item quantity="zero">weeks</item>
+        <item quantity="one">week</item>
+        <item quantity="two">weeks</item>
+        <item quantity="few">weeks</item>
+        <item quantity="many">weeks</item>
+        <item quantity="other">weeks</item>
+    </plurals>
+
+    <plurals name="months">
+        <item quantity="zero">months</item>
+        <item quantity="one">month</item>
+        <item quantity="two">months</item>
+        <item quantity="few">months</item>
+        <item quantity="many">months</item>
+        <item quantity="other">months</item>
+    </plurals>
+
+</resources>

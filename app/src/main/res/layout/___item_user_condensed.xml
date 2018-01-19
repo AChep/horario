@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.artemchep.horario.ui.widgets.UserView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="?android:activatedBackgroundIndicator"
+    android:foreground="?android:selectableItemBackground"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingStart="@dimen/activity_horizontal_margin">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user.avatar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/user.name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_toEndOf="@id/user.avatar"
+        android:layout_toRightOf="@id/user.avatar"
+        android:gravity="center_vertical"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="?android:textColorPrimary"
+        android:textSize="16sp"
+        tools:text="Artem Chepurnoy" />
+
+</com.artemchep.horario.ui.widgets.UserView>

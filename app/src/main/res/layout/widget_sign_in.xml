@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.artemchep.horario.ui.widgets.SignInLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sign_in_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/widget_sign_in_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</com.artemchep.horario.ui.widgets.SignInLayout>

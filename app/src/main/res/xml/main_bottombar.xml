@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        activeColor="#448AFF"
+        icon="@drawable/ic_home"
+        id="@+id/tab_home"
+        barColorWhenSelected="#5D4037"
+        title="Home" />
+
+    <tab
+        activeColor="#448AFF"
+        icon="@drawable/ic_schedule"
+        id="@+id/tab_schedule"
+        barColorWhenSelected="#5D4037"
+        title="Schedule" />
+
+    <tab
+        activeColor="#448AFF"
+        icon="@drawable/ic_class"
+        id="@+id/tab_classes"
+        barColorWhenSelected="#5D4037"
+        title="Classes" />
+
+    <tab
+        activeColor="#448AFF"
+        icon="@drawable/ic_note"
+        id="@+id/tab_contacts"
+        barColorWhenSelected="#5D4037"
+        title="Notes" />
+
+    <!--
+    <tab
+        activeColor="#448AFF"
+        icon="@drawable/ic_message"
+        id="@+id/tab_chat"
+        title="Messages" />
+        -->
+</tabs>

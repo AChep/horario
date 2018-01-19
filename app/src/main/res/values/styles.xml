@@ -1,0 +1,48 @@
+<resources>
+
+    <style name="SplashTheme" parent="AppThemeLight.NoActionBar">
+        <item name="android:windowBackground">?bg_splash_screen</item>
+    </style>
+
+    <style name="AuthTheme" parent="AppThemeLight.NoActionBar">
+        <item name="colorPrimary">@color/auth_background</item>
+        <item name="colorPrimaryDark">@color/auth_background_dark</item>
+        <item name="android:windowBackground">@color/auth_background</item>
+        <item name="android:colorBackground">@color/auth_background</item>
+    </style>
+
+    <style name="SettingsTheme" parent="AppThemeLight" />
+
+    <style name="ReceiverTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AuthSlaveTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="DetailsItemText">
+        <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextInputLayoutAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextInputLayoutAppearance.Black" parent="TextInputLayoutAppearance">
+        <item name="android:textColor">#8000</item>
+    </style>
+
+    <style name="TextInputLayoutAppearance.White" parent="TextInputLayoutAppearance">
+        <item name="android:textColor">#8FFF</item>
+    </style>
+
+    <style name="EmptyStyle">
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:maxWidth">180dp</item>
+        <item name="android:alpha">0.4</item>
+    </style>
+
+</resources>

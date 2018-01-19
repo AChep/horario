@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_add_editor"
+        android:icon="?icon_account_plus"
+        android:title="@string/action_add_editor"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_palette"
+        android:icon="?icon_palette"
+        android:title="@string/action_palette"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_remove_editor"
+        android:title="@string/action_remove_editor"
+        app:showAsAction="never" />
+
+</menu>

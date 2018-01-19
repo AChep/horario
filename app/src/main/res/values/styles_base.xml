@@ -1,0 +1,323 @@
+<resources>
+
+    <style name="AppPreferenceTheme" parent="@style/PreferenceThemeOverlay.v14.Material">
+        <item name="preferenceFragmentCompatStyle">@style/AppPreferenceFragmentCompatStyle</item>
+    </style>
+
+    <style name="AppPreferenceFragmentCompatStyle" parent="@style/PreferenceFragment.Material">
+        <item name="android:layout">@layout/___fragment_settings</item>
+    </style>
+
+    <!--
+        Light
+        -->
+    <!-- Base application theme. -->
+    <style name="AppThemeLight_Base" parent="Theme.AppCompat.Light">
+        <!-- Api dependent changes go here -->
+    </style>
+
+    <style name="AppThemeLight" parent="AppThemeLight_Base">
+        <item name="preferenceTheme">@style/AppPreferenceTheme</item>
+        <!-- Customize theme here -->
+        <item name="colorPrimary">@color/light_primary</item>
+        <item name="colorPrimaryDark">@color/light_primary_dark</item>
+        <item name="colorAccent">@color/light_accent</item>
+        <item name="colorControlActivated">@color/light_activated</item>
+        <item name="bg_card">@color/bg_card</item>
+        <item name="bg_card_color">@color/card_light</item>
+        <item name="bg_card_color_transparent">@color/card_light_transparent</item>
+        <!-- Icons -->
+        <item name="icon_shield">@drawable/ic_shield_black_24dp</item>
+        <item name="icon_lock_reset">@drawable/ic_lock_reset_black_24dp</item>
+        <item name="icon_logout_grey">@drawable/ic_logout_grey600_24dp</item>
+        <item name="icon_account_plus">@drawable/ic_account_plus_black_24dp</item>
+        <item name="icon_account_edit">@drawable/ic_account_edit_black_24dp</item>
+        <item name="icon_account_grey">@drawable/ic_account_grey600_24dp</item>
+        <item name="icon_information_outline">@drawable/ic_information_outline_black_24dp</item>
+        <item name="icon_information_outline_grey">@drawable/ic_information_outline_grey600_24dp</item>
+        <item name="icon_email">@drawable/ic_email_black_24dp</item>
+        <item name="icon_email_grey">@drawable/ic_email_grey600_24dp</item>
+        <item name="icon_star_grey">@drawable/ic_star_grey600_24dp</item>
+        <item name="icon_phone_grey">@drawable/ic_phone_grey600_24dp</item>
+        <item name="icon_timetable">@drawable/ic_timetable_black_24dp</item>
+        <item name="icon_timetable_grey">@drawable/ic_timetable_grey600_24dp</item>
+        <item name="icon_pine_tree">@drawable/ic_pine_tree_black_24dp</item>
+        <item name="icon_delete">@drawable/ic_delete_black_24dp</item>
+        <item name="icon_delete_grey">@drawable/ic_delete_grey600_24dp</item>
+        <item name="icon_bell">@drawable/ic_bell_black_24dp</item>
+        <item name="icon_send_grey">@drawable/ic_send_grey600_24dp</item>
+        <item name="icon_reply_grey">@drawable/ic_reply_grey600_24dp</item>
+        <item name="icon_forward_grey">@drawable/ic_forward_grey600_24dp</item>
+        <item name="icon_close">@drawable/ic_close_black_24dp</item>
+        <item name="icon_close_grey">@drawable/ic_close_grey600_24dp</item>
+        <item name="icon_save">@drawable/ic_content_save_black_24dp</item>
+        <item name="icon_save_grey">@drawable/ic_content_save_grey600_24dp</item>
+        <item name="icon_label">@drawable/ic_label_black_24dp</item>
+        <item name="icon_label_grey">@drawable/ic_label_grey600_24dp</item>
+        <item name="icon_plus">@drawable/ic_plus_black_24dp</item>
+        <item name="icon_plus_grey">@drawable/ic_plus_grey600_24dp</item>
+        <item name="icon_plus_circle_grey">@drawable/ic_plus_circle_outline_grey600_24dp</item>
+        <item name="icon_minus_circle_grey">@drawable/ic_minus_circle_outline_grey600_24dp</item>
+        <item name="icon_palette">@drawable/ic_palette_black_24dp</item>
+        <item name="icon_palette_grey">@drawable/ic_palette_grey600_24dp</item>
+        <item name="icon_feather">@drawable/ic_feather_black_24dp</item>
+        <item name="icon_clock_14dp">@drawable/ic_clock_black_14dp</item>
+        <item name="icon_clock_grey">@drawable/ic_clock_grey600_24dp</item>
+        <item name="icon_share_grey">@drawable/ic_share_grey600_24dp</item>
+        <item name="icon_share_variant_grey">@drawable/ic_share_variant_grey600_24dp</item>
+        <item name="icon_attachment_grey">@drawable/ic_attachment_grey600_24dp</item>
+        <item name="icon_copy_grey">@drawable/ic_content_copy_grey600_24dp</item>
+        <item name="icon_dots_grey">@drawable/ic_dots_vertical_grey600_24dp</item>
+        <item name="icon_pencil_grey">@drawable/ic_pencil_grey600_24dp</item>
+        <item name="icon_hexagon_grey">@drawable/ic_hexagon_grey600_24dp</item>
+        <item name="icon_backburger_grey">@drawable/ic_backburger_grey600_24dp</item>
+        <item name="icon_view_stream_grey">@drawable/ic_view_stream_grey600_24dp</item>
+        <item name="icon_view_dashboard_grey">@drawable/ic_view_dashboard_grey600_24dp</item>
+        <item name="icon_calendar_today_grey">@drawable/ic_calendar_today_grey600_24dp</item>
+        <item name="icon_calendar_empty_grey">@drawable/ic_calendar_empty_grey600_24dp</item>
+        <item name="icon_map_marker_grey">@drawable/ic_map_marker_grey600_24dp</item>
+        <item name="icon_source_fork_grey">@drawable/ic_source_fork_grey600_24dp</item>
+        <item name="icon_book_variant">@drawable/ic_book_variant_black_24dp</item>
+        <item name="icon_translate_grey">@drawable/ic_translate_grey600_24dp</item>
+        <item name="icon_currency_btc_grey">@drawable/ic_currency_btc_grey600_24dp</item>
+        <item name="icon_link_grey">@drawable/ic_link_grey600_24dp</item>
+        <item name="icon_check_grey">@drawable/ic_check_grey600_24dp</item>
+        <item name="icon_arrow_left_grey">@drawable/ic_arrow_left_grey600_24dp</item>
+        <item name="icon_chevron_right_grey">@drawable/ic_chevron_right_grey600_24dp</item>
+        <item name="icon_chevron_left_grey">@drawable/ic_chevron_left_grey600_24dp</item>
+        <item name="icon_format_undo_grey">@drawable/ic_undo_grey600_24dp</item>
+        <item name="icon_format_redo_grey">@drawable/ic_redo_grey600_24dp</item>
+        <item name="icon_format_bold_grey">@drawable/ic_format_bold_grey600_24dp</item>
+        <item name="icon_format_italic_grey">@drawable/ic_format_italic_grey600_24dp</item>
+        <item name="icon_format_strike_grey">@drawable/ic_format_strikethrough_variant_grey600_24dp</item>
+        <item name="icon_format_underline_grey">@drawable/ic_format_underline_grey600_24dp</item>
+        <item name="icon_format_list_bulleted_grey">@drawable/ic_format_list_bulleted_grey600_24dp</item>
+        <item name="icon_format_list_numbers_grey">@drawable/ic_format_list_numbers_grey600_24dp</item>
+        <item name="icon_format_clear_grey">@drawable/ic_format_clear_grey600_24dp</item>
+        <item name="icon_format_text_color_grey">@drawable/ic_format_color_text_grey600_24dp</item>
+        <item name="icon_format_header_1_grey">@drawable/ic_format_header_1_grey600_24dp</item>
+        <item name="icon_format_header_2_grey">@drawable/ic_format_header_2_grey600_24dp</item>
+        <item name="icon_format_header_3_grey">@drawable/ic_format_header_3_grey600_24dp</item>
+        <item name="icon_format_header_4_grey">@drawable/ic_format_header_4_grey600_24dp</item>
+        <item name="icon_format_header_5_grey">@drawable/ic_format_header_5_grey600_24dp</item>
+        <item name="icon_format_header_6_grey">@drawable/ic_format_header_6_grey600_24dp</item>
+        <item name="color_nav_profile_text">@color/nav_profile_text_selected_light</item>
+        <item name="color_nav_text">@color/nav_text_selected_light</item>
+        <item name="color_nav_icon">@color/nav_icon_selected_light</item>
+        <item name="color_text_primary_selectable">@color/text_primary_dark</item>
+        <item name="bg_holiday">@drawable/bg_holiday_light</item>
+        <item name="bg_holiday_filter">@drawable/bg_holiday_filter_light</item>
+        <item name="bg_splash_screen">@drawable/bg_splash_screen_light</item>
+        <item name="is_dark_theme">false</item>
+    </style>
+
+    <style name="AppThemeLight.NoActionBar_Base" parent="AppThemeLight">
+        <!-- Api dependent changes go here -->
+    </style>
+
+    <style name="AppThemeLight.NoActionBar" parent="AppThemeLight.NoActionBar_Base">
+        <!-- Customize theme here -->
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppThemeLight.NoActionBar.Translucent" parent="AppThemeLight.NoActionBar">
+        <!-- Customize theme here -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+    <style name="AppThemeLight.Dialog" parent="AppThemeLight.NoActionBar.Translucent">
+        <!-- Customize theme here -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
+
+    <!--
+        Dark
+        -->
+
+    <!-- Base application theme. -->
+    <style name="AppTheme_Base" parent="Theme.AppCompat">
+        <!-- Api dependent changes go here -->
+    </style>
+
+    <style name="AppTheme" parent="AppTheme_Base">
+        <item name="preferenceTheme">@style/AppPreferenceTheme</item>
+        <!-- Customize theme here -->
+        <item name="colorPrimary">@color/dark_primary</item>
+        <item name="colorPrimaryDark">@color/dark_primary_dark</item>
+        <item name="colorAccent">@color/dark_accent</item>
+        <item name="colorControlActivated">@color/dark_activated</item>
+        <item name="bg_card">@color/bg_card_dark</item>
+        <item name="bg_card_color">@color/card_dark</item>
+        <item name="bg_card_color_transparent">@color/card_dark_transparent</item>
+        <!-- Customize theme here -->
+        <item name="icon_shield">@drawable/ic_shield_white_24dp</item>
+        <item name="icon_lock_reset">@drawable/ic_lock_reset_white_24dp</item>
+        <item name="icon_logout_grey">@drawable/ic_logout_white_24dp</item>
+        <item name="icon_account_plus">@drawable/ic_account_plus_white_24dp</item>
+        <item name="icon_account_edit">@drawable/ic_account_edit_white_24dp</item>
+        <item name="icon_account_grey">@drawable/ic_account_white_24dp</item>
+        <item name="icon_information_outline">@drawable/ic_information_outline_white_24dp</item>
+        <item name="icon_information_outline_grey">@drawable/ic_information_outline_white_24dp</item>
+        <item name="icon_email">@drawable/ic_email_white_24dp</item>
+        <item name="icon_email_grey">@drawable/ic_email_white_24dp</item>
+        <item name="icon_star_grey">@drawable/ic_star_white_24dp</item>
+        <item name="icon_phone_grey">@drawable/ic_phone_white_24dp</item>
+        <item name="icon_timetable">@drawable/ic_timetable_white_24dp</item>
+        <item name="icon_timetable_grey">@drawable/ic_timetable_white_24dp</item>
+        <item name="icon_pine_tree">@drawable/ic_pine_tree_white_24dp</item>
+        <item name="icon_delete">@drawable/ic_delete_white_24dp</item>
+        <item name="icon_delete_grey">@drawable/ic_delete_white_24dp</item>
+        <item name="icon_bell">@drawable/ic_bell_white_24dp</item>
+        <item name="icon_send_grey">@drawable/ic_send_white_24dp</item>
+        <item name="icon_reply_grey">@drawable/ic_reply_white_24dp</item>
+        <item name="icon_forward_grey">@drawable/ic_forward_white_24dp</item>
+        <item name="icon_close">@drawable/ic_close_white_24dp</item>
+        <item name="icon_close_grey">@drawable/ic_close_white_24dp</item>
+        <item name="icon_save">@drawable/ic_content_save_white_24dp</item>
+        <item name="icon_save_grey">@drawable/ic_content_save_white_24dp</item>
+        <item name="icon_label">@drawable/ic_label_white_24dp</item>
+        <item name="icon_label_grey">@drawable/ic_label_white_24dp</item>
+        <item name="icon_plus">@drawable/ic_plus_white_24dp</item>
+        <item name="icon_plus_grey">@drawable/ic_plus_white_24dp</item>
+        <item name="icon_plus_circle_grey">@drawable/ic_plus_circle_outline_white_24dp</item>
+        <item name="icon_minus_circle_grey">@drawable/ic_minus_circle_outline_white_24dp</item>
+        <item name="icon_palette">@drawable/ic_palette_white_24dp</item>
+        <item name="icon_palette_grey">@drawable/ic_palette_white_24dp</item>
+        <item name="icon_feather">@drawable/ic_feather_white_24dp</item>
+        <item name="icon_clock_14dp">@drawable/ic_clock_white_14dp</item>
+        <item name="icon_clock_grey">@drawable/ic_clock_white_24dp</item>
+        <item name="icon_share_grey">@drawable/ic_share_white_24dp</item>
+        <item name="icon_share_variant_grey">@drawable/ic_share_variant_white_24dp</item>
+        <item name="icon_attachment_grey">@drawable/ic_attachment_white_24dp</item>
+        <item name="icon_copy_grey">@drawable/ic_content_copy_white_24dp</item>
+        <item name="icon_dots_grey">@drawable/ic_dots_vertical_white_24dp</item>
+        <item name="icon_pencil_grey">@drawable/ic_pencil_white_24dp</item>
+        <item name="icon_hexagon_grey">@drawable/ic_hexagon_white_24dp</item>
+        <item name="icon_backburger_grey">@drawable/ic_backburger_white_24dp</item>
+        <item name="icon_view_stream_grey">@drawable/ic_view_stream_white_24dp</item>
+        <item name="icon_view_dashboard_grey">@drawable/ic_view_dashboard_white_24dp</item>
+        <item name="icon_calendar_today_grey">@drawable/ic_calendar_today_white_24dp</item>
+        <item name="icon_calendar_empty_grey">@drawable/ic_calendar_empty_white_24dp</item>
+        <item name="icon_map_marker_grey">@drawable/ic_map_marker_white_24dp</item>
+        <item name="icon_source_fork_grey">@drawable/ic_source_fork_white_24dp</item>
+        <item name="icon_book_variant">@drawable/ic_book_variant_white_24dp</item>
+        <item name="icon_translate_grey">@drawable/ic_translate_white_24dp</item>
+        <item name="icon_currency_btc_grey">@drawable/ic_currency_btc_white_24dp</item>
+        <item name="icon_link_grey">@drawable/ic_link_white_24dp</item>
+        <item name="icon_check_grey">@drawable/ic_check_white_24dp</item>
+        <item name="icon_arrow_left_grey">@drawable/ic_arrow_left_white_24dp</item>
+        <item name="icon_chevron_right_grey">@drawable/ic_chevron_right_white_24dp</item>
+        <item name="icon_chevron_left_grey">@drawable/ic_chevron_left_white_24dp</item>
+        <item name="icon_format_undo_grey">@drawable/ic_undo_white_24dp</item>
+        <item name="icon_format_redo_grey">@drawable/ic_redo_white_24dp</item>
+        <item name="icon_format_bold_grey">@drawable/ic_format_bold_white_24dp</item>
+        <item name="icon_format_italic_grey">@drawable/ic_format_italic_white_24dp</item>
+        <item name="icon_format_strike_grey">@drawable/ic_format_strikethrough_variant_white_24dp</item>
+        <item name="icon_format_underline_grey">@drawable/ic_format_underline_white_24dp</item>
+        <item name="icon_format_list_bulleted_grey">@drawable/ic_format_list_bulleted_white_24dp</item>
+        <item name="icon_format_list_numbers_grey">@drawable/ic_format_list_numbers_white_24dp</item>
+        <item name="icon_format_clear_grey">@drawable/ic_format_clear_white_24dp</item>
+        <item name="icon_format_text_color_grey">@drawable/ic_format_color_text_white_24dp</item>
+        <item name="icon_format_header_1_grey">@drawable/ic_format_header_1_white_24dp</item>
+        <item name="icon_format_header_2_grey">@drawable/ic_format_header_2_white_24dp</item>
+        <item name="icon_format_header_3_grey">@drawable/ic_format_header_3_white_24dp</item>
+        <item name="icon_format_header_4_grey">@drawable/ic_format_header_4_white_24dp</item>
+        <item name="icon_format_header_5_grey">@drawable/ic_format_header_5_white_24dp</item>
+        <item name="icon_format_header_6_grey">@drawable/ic_format_header_6_white_24dp</item>
+        <item name="color_nav_profile_text">@color/nav_profile_text_selected_dark</item>
+        <item name="color_nav_text">@color/nav_text_selected_dark</item>
+        <item name="color_nav_icon">@color/nav_icon_selected_dark</item>
+        <item name="color_text_primary_selectable">@color/text_primary_light</item>
+        <item name="bg_holiday">@drawable/bg_holiday_dark</item>
+        <item name="bg_holiday_filter">@drawable/bg_holiday_filter_dark</item>
+        <item name="bg_splash_screen">@drawable/bg_splash_screen_dark</item>
+        <item name="is_dark_theme">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar_Base" parent="AppTheme">
+        <!-- Api dependent changes go here -->
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme.NoActionBar_Base">
+        <!-- Customize theme here -->
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar.Translucent" parent="AppTheme.NoActionBar">
+        <!-- Customize theme here -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+    <style name="AppTheme.Dialog" parent="AppTheme.NoActionBar.Translucent">
+        <!-- Customize theme here -->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
+
+    <!--
+        Black
+        -->
+
+    <style name="AppThemeBlack" parent="AppTheme">
+        <item name="preferenceTheme">@style/AppPreferenceTheme</item>
+        <!-- Customize theme here -->
+        <item name="colorPrimary">@color/black_primary</item>
+        <item name="colorPrimaryDark">@color/black_primary_dark</item>
+        <item name="colorAccent">@color/dark_accent</item>
+        <item name="colorControlActivated">@color/black_activated</item>
+        <item name="bg_card">@color/bg_card_black</item>
+        <item name="bg_card_color">@color/card_black</item>
+        <item name="android:windowBackground">@color/black_primary</item>
+        <item name="android:colorBackground">@color/black_primary</item>
+    </style>
+
+    <style name="AppThemeBlack.NoActionBar_Base" parent="AppThemeBlack">
+        <!-- Api dependent changes go here -->
+    </style>
+
+    <style name="AppThemeBlack.NoActionBar" parent="AppThemeBlack.NoActionBar_Base">
+        <!-- Customize theme here -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppThemeBlack.NoActionBar.Translucent" parent="AppThemeBlack.NoActionBar">
+        <!-- Customize theme here -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+    <style name="AppThemeBlack.Dialog" parent="AppThemeBlack.NoActionBar.Translucent">
+        <!-- Customize theme here -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>
