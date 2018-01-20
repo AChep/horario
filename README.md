@@ -1,23 +1,23 @@
 Horario
 ==========
-[![Build Status](https://travis-ci.org/XJSHQ/horario.svg?branch=master)](https://travis-ci.org/XJSHQ/horario) [![Crowdin](https://d322cqt584bo4o.cloudfront.net/horario/localized.svg)](https://crowdin.com/project/horario)
+[![Build Status](https://travis-ci.org/AChep/horario.svg?branch=master)](https://travis-ci.org/AChep/horario) [![Crowdin](https://d322cqt584bo4o.cloudfront.net/horario/localized.svg)](https://crowdin.com/project/horario)
 
 <img alt="Logo" align="right" height="220"
-   src="https://github.com/XJSHQ/horario/raw/master/extras/ic_launcher_web.png" />
+   src="https://github.com/AChep/horario/raw/master/extras/ic_launcher_web.png" />
 
 *Are you a student?*
 
 Horario app is a beautiful Material Design app, which helps you to manage your classes and exams in the most convenient way. Fill your timetable once and it will be with you wherever you go, because of sync across all your Android devices. Notifications won’t let you forget about your homework and exams.
 
  - **[Help us to translate it](https://crowdin.com/project/horario)** _(even a short look would be helpful)_
- - **[Contibution rules](https://github.com/XJSHQ/horario/blob/master/CONTRIBUTING.md)** _(in cause you are a software engineer)_
+ - **[Contibution rules](https://github.com/AChep/horario/blob/master/CONTRIBUTING.md)** _(in cause you are a software engineer)_
 
 <a href="https://blockr.io/address/info/1GYj49ZnMByKj2f6p7r4f92GQi5pR6BSMz">
   <img alt="Bitcoin wallet: 1GYj49ZnMByKj2f6p7r4f92GQi5pR6BSMz" vspace="28" hspace="20"
-       src="https://github.com/XJSHQ/horario/raw/master/extras/btn_bitcoin.png" />
+       src="https://github.com/AChep/horario/raw/master/extras/btn_bitcoin.png" />
 </a> <a href="http://goo.gl/UrecGo">
   <img alt="PayPal" vspace="28"
-       src="https://github.com/XJSHQ/horario/raw/master/extras/btn_paypal.png" />
+       src="https://github.com/AChep/horario/raw/master/extras/btn_paypal.png" />
 </a>
 
 Report a bug or request a feature
@@ -58,7 +58,7 @@ Build
 Clone the project and come in:
 
 ``` bash
-$ git clone git://github.com/XJSHQ/horario.git
+$ git clone git://github.com/AChep/horario.git
 $ cd horario/
 ```
 
@@ -84,7 +84,7 @@ password_key=****
 Generate one in [Google Developers console](https://console.developers.google.com)
 
 
-[1]: https://github.com/XJSHQ/horario/issues/new
-[2]: https://github.com/XJSHQ/horario/issues?state=open
-[3]: https://github.com/XJSHQ/horario/issues?state=closed
-[4]: https://github.com/XJSHQ/horario/blob/master/LICENSE
+[1]: https://github.com/AChep/horario/issues/new
+[2]: https://github.com/AChep/horario/issues?state=open
+[3]: https://github.com/AChep/horario/issues?state=closed
+[4]: https://github.com/AChep/horario/blob/master/LICENSE

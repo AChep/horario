@@ -1,7 +1,7 @@
 Contributing
 ============
 
-If you’re looking for ways to contribute, please [peruse open issues](https://github.com/XJSHQ/horario/issues?milestone=&q=is%3Aopen).
+If you’re looking for ways to contribute, please [peruse open issues](https://github.com/AChep/horario/issues?milestone=&q=is%3Aopen).
 
 Code Style
 ----------
@@ -21,4 +21,4 @@ Database Model
 --------------
 
 _Model is not finalized yet_
-![Database model](https://github.com/XJSHQ/horario/raw/master/extras/model.png)
+![Database model](https://github.com/AChep/horario/raw/master/extras/model.png)
