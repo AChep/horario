@@ -212,7 +212,7 @@ class UserFragment : FragmentDocument(), Toolbar.OnMenuItemClickListener, View.O
                 }
 
                 val host = activity as FragmentHost
-                host.fragmentShow(UserEditFragment::class.java, args, 0)
+                host.fragmentShow(UserEditFragment::class.java, args, FragmentHost.FLAG_AS_DIALOG)
             }
             else -> return false
         }
