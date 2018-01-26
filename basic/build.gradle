@@ -39,15 +39,15 @@ ext {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
         // use version of jsr305 provided by Checkout
         exclude group: 'com.google.code.findbugs', module: 'jsr305'
     })
-    compile 'org.solovyev.android:checkout:1.0.1'
-    compile 'com.jakewharton.timber:timber:4.5.1'
-    compile "com.android.support:appcompat-v7:${supportLibVersion}"
-    compile "com.android.support:design:${supportLibVersion}"
-    testCompile 'junit:junit:4.12'
+    implementation 'org.solovyev.android:checkout:1.0.1'
+    implementation 'com.jakewharton.timber:timber:4.5.1'
+    implementation "com.android.support:appcompat-v7:${supportLibVersion}"
+    implementation "com.android.support:design:${supportLibVersion}"
+    testImplementation 'junit:junit:4.12'
 }
