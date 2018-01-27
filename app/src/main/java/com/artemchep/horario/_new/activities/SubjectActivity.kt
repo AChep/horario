@@ -98,7 +98,7 @@ class SubjectActivity : MultiPaneActivity(),
                 appBar.setBackgroundColor(color)
                 toolbarCollapsing.setContentScrimColor(color)
                 UiHelper.updateToolbarBackIcon(toolbar, color)
-                UiHelper.updateToolbarMenuIcons(toolbar, color, R.id.action_edit)
+                UiHelper.updateToolbarMenuIcons(toolbar, color)
                 UiHelper.updateCollapsingToolbarTitle(toolbarCollapsing, color)
 
                 if (Device.hasLollipopApi()) {
