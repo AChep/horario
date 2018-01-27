@@ -8,12 +8,6 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_edit"
-        android:icon="?icon_pencil_grey"
-        android:title="@string/action_edit"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/action_moderate"
         android:title="Moderate class"
         app:showAsAction="never" />
