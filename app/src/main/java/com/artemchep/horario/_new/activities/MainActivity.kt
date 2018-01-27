@@ -15,7 +15,6 @@ import android.view.View
 import com.artemchep.horario.Config
 import com.artemchep.horario.R
 import com.artemchep.horario.interfaces.FragmentHost
-import com.artemchep.horario.services.SyncSubjectsService
 import com.artemchep.horario.ui.DialogHelper
 import com.artemchep.horario.ui.activities.AuthActivity
 import com.artemchep.horario.ui.fragments.*
@@ -203,10 +202,7 @@ class MainActivity : MultiPaneActivity(),
         } else if (id == R.id.nav_privacy_policy) {
             DialogHelper.showPrivacyDialog(this)
         } else if (id == R.id.nav_about) {
-
-            val intent = Intent(this, SyncSubjectsService::class.java)
-            startService(intent)
-            //DialogHelper.showAboutDialog(this)
+            DialogHelper.showAboutDialog(this)
         } else if (id == R.id.nav_holidays_mode) {
             DialogHelper.showHolidayModeDialog(this)
         }
