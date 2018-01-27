@@ -31,6 +31,9 @@ object Config : PreferenceStore() {
     const val KEY_PROMPT_SUBJECT_EDIT_PALETTE = "prompt_subject_edit_palette"
     // Interface
     const val KEY_UI_THEME = "ui_theme"
+    // Debug
+    const val KEY_DEBUG = "debug"
+    const val KEY_DEBUG_SYNC_SCHEDULES = "debug_sync_schedules"
     const val THEME_LIGHT = 0
     const val THEME_DARK = 1
     const val THEME_BLACK = 2

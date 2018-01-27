@@ -33,4 +33,14 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="debug"
+        android:title="Debug">
+
+        <Preference
+            android:key="debug_sync_schedules"
+            android:title="Sync schedules" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
