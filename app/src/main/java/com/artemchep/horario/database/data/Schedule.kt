@@ -16,6 +16,7 @@ data class Schedule(
         override var name: String? = null,
         override var author: String? = null,
         override var description: String? = null,
+        override var subject: String? = null,
         override var timestamp: Long = 0) : ISchedule {
 
     companion object {
@@ -67,6 +68,7 @@ data class Schedule(
             name = src.readString(),
             author = src.readString(),
             description = src.readString(),
+            subject = src.readString(),
             timestamp = src.readLong()
     )
 
@@ -80,6 +82,7 @@ data class Schedule(
             writeString(name)
             writeString(author)
             writeString(description)
+            writeString(subject)
             writeLong(timestamp)
         }
     }

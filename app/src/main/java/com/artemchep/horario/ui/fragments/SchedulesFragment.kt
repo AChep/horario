@@ -70,13 +70,12 @@ class SchedulesFragment : FragmentStore<ISchedule>(), AdapterBase.OnItemClickLis
         }
     }
 
-    /*
     override fun onItemClick(view: View, model: ISchedule) {
         super.onItemClick(view, model)
         val args = Bundle().apply {
             putInt(EXTRA_COLOR, Palette.GREY)
             putString(EXTRA_USER_ID, userId)
-            putString(EXTRA_SUBJECT_ID, model)
+            putString(EXTRA_SUBJECT_ID, model.subject!!)
             putString(EXTRA_SCHEDULE_ID, model.id!!)
             putParcelable(EXTRA_SCHEDULE, model)
         }
@@ -84,7 +83,6 @@ class SchedulesFragment : FragmentStore<ISchedule>(), AdapterBase.OnItemClickLis
         val host = activity as FragmentHost
         host.fragmentShow(SubjectScheduleFragment::class.java, args, FragmentHost.FLAG_AS_SECONDARY)
     }
-    */
 
     override fun onStop() {
         map.values.forEach { it.remove() }
@@ -99,9 +97,21 @@ class SchedulesFragment : FragmentStore<ISchedule>(), AdapterBase.OnItemClickLis
 
     override fun getQuery(): Query = schedulesQuery
 
-    override fun getModel(snapshot: DocumentSnapshot): ISchedule = Schedule(id = snapshot.id)
+    override fun getModel(snapshot: DocumentSnapshot): ISchedule {
+        // Document has `subject` and `schedule` keys
+        // at [users/$userId/schedules]
+        return Schedule(id = snapshot.id).apply {
+            subject = snapshot.getString("subject")
+        }
+    }
 
-    fun getModel(snapshot: DocumentSnapshot, schedule: ISchedule): ISchedule? = Schedule.from(snapshot)
+    fun getModel(snapshot: DocumentSnapshot, schedule: ISchedule): ISchedule? {
+        return Schedule(id = snapshot.id).apply {
+            inflateSchedule(snapshot)
+            // Copy extra params
+            subject = schedule.subject
+        }
+    }
 
     // --------------------------
     // --  DATABASE OVERRIDE ----
