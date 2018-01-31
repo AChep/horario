@@ -13,7 +13,7 @@ import android.support.v4.app.DialogFragment
 import android.text.Spanned
 import android.widget.Toast
 import com.afollestad.materialdialogs.MaterialDialog
-import com.artemchep.basic.utils.HtmlUtils
+import com.artemchep.horario.utils.HtmlUtils
 import com.artemchep.horario.Binfo
 import com.artemchep.horario.R
 import com.google.firebase.crash.FirebaseCrash

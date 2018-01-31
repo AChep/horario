@@ -1,9 +1,9 @@
 /*
- * Copyright (C) 2017 XJSHQ@github.com
+ * Copyright (C) 2017 Artem Chepurnoy <artemchep@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 3
+ * as published by the Free Software Foundation; either version 2
  * of the License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -16,21 +16,26 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA  02110-1301, USA.
  */
-package com.artemchep.horario.ui.activities;
+package com.artemchep.horario.interfaces;
 
-import android.os.Bundle;
-
-import com.artemchep.horario.R;
+import android.support.annotation.NonNull;
 
 /**
  * @author Artem Chepurnoy
  */
-public class AuthActivity extends ActivityBase {
+public interface IObservable<T> {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auth);
-    }
+    /**
+     * Register a listener to something. Don't forget to
+     * {@link #unregisterListener(Object) unregister} it later!
+     *
+     * @see #unregisterListener(Object)
+     */
+    void registerListener(@NonNull T listener);
+
+    /**
+     * @see #registerListener(Object)
+     */
+    void unregisterListener(@NonNull T listener);
 
 }

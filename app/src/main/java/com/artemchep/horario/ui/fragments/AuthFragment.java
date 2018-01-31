@@ -35,7 +35,7 @@ import android.widget.EditText;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.artemchep.basic.ui.activities.ActivityBase;
+import com.artemchep.horario.ui.activities.ActivityBase;
 import com.artemchep.horario.Binfo;
 import com.artemchep.horario.R;
 import com.artemchep.horario._new.activities.MainActivity;

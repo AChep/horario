@@ -23,7 +23,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
-import com.artemchep.basic.tests.Check;
+import com.artemchep.horario.tests.Check;
 
 import org.ocpsoft.prettytime.Duration;
 import org.ocpsoft.prettytime.PrettyTime;

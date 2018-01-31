@@ -2,10 +2,10 @@ package com.artemchep.horario._new.activities
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import com.artemchep.basic.utils.Operator
 import com.artemchep.horario.Binfo
 import com.artemchep.horario.Palette
 import com.artemchep.horario.R
+import com.artemchep.horario.extensions.contains
 import com.artemchep.horario.interfaces.FragmentHost
 import com.artemchep.horario.ui.activities.ActivityHorario
 import com.artemchep.horario.ui.activities.ChildActivity
@@ -32,7 +32,7 @@ open class MultiPaneActivity : ActivityHorario(), FragmentHost {
 
     override fun fragmentShow(clazz: Class<out Fragment>, args: Bundle?, flags: Int) {
         val isTablet = isTabletUi
-        if (isTablet && Operator.bitAnd(flags, FragmentHost.FLAG_AS_SECONDARY)) {
+        if (isTablet && flags contains FragmentHost.FLAG_AS_SECONDARY) {
             if (primaryColor != null) {
                 args?.putInt(EXTRA_COLOR_IMPORTANT, Palette.UNKNOWN)
             }
@@ -48,7 +48,7 @@ open class MultiPaneActivity : ActivityHorario(), FragmentHost {
             supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_details, fragment, TAG_FRAGMENT_2)
                     .commit()
-        } else if (isTablet && Operator.bitAnd(flags, FragmentHost.FLAG_AS_DIALOG)) {
+        } else if (isTablet && flags contains FragmentHost.FLAG_AS_DIALOG) {
             val intent = DialogActivity.makeFor(this, clazz, args)
             startActivity(intent)
         } else {

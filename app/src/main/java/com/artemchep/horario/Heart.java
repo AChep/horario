@@ -18,13 +18,13 @@
  */
 package com.artemchep.horario;
 
+import android.app.Application;
 import android.content.Context;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 
-import com.artemchep.basic.HeartBase;
-import com.artemchep.basic.timber.ReleaseTree;
+import com.artemchep.horario.timber.ReleaseTree;
 import com.artemchep.horario.content.PreferenceStore;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.firebase.database.FirebaseDatabase;
@@ -44,7 +44,7 @@ import timber.log.Timber;
 /**
  * @author Artem Chepurnoy
  */
-public class Heart extends HeartBase {
+public class Heart extends Application {
 
     private static final String TAG = "Heart";
     @NotNull
@@ -56,6 +56,12 @@ public class Heart extends HeartBase {
     public static RefWatcher getRefWatcher(@NonNull Context context) {
         Heart application = (Heart) context.getApplicationContext();
         return application.mRefWatcher;
+    }
+
+    @NonNull
+    public static Billing getBilling(@NonNull Context context) {
+        Heart application = (Heart) context.getApplicationContext();
+        return application.getBilling();
     }
 
     @NonNull
@@ -139,8 +145,7 @@ public class Heart extends HeartBase {
         db.setPersistenceEnabled(true);
     }
 
-    @Override
-    protected Billing getBilling() {
+    public Billing getBilling() {
         return mBilling;
     }
 

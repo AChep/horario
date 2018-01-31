@@ -12,6 +12,8 @@ fun Boolean.toInt(): Int = if (this) 1 else 0
  */
 fun Int.toBoolean(): Boolean = this != 0
 
+infix fun Int.contains(v: Int): Boolean = (this and v) == v
+
 fun Float.limit(from: Float, to: Float): Float = when {
     this > to -> to
     this < from -> from

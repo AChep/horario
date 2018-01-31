@@ -1,9 +1,9 @@
 /*
- * Copyright (C) 2017 XJSHQ@github.com
+ * Copyright (C) 2017 Artem Chepurnoy <artemchep@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 3
+ * as published by the Free Software Foundation; either version 2
  * of the License, or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -16,21 +16,23 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA  02110-1301, USA.
  */
-package com.artemchep.horario.ui.activities;
+package com.artemchep.horario.timber;
 
-import android.os.Bundle;
+import android.util.Log;
 
-import com.artemchep.horario.R;
+import timber.log.Timber;
 
 /**
  * @author Artem Chepurnoy
  */
-public class AuthActivity extends ActivityBase {
+public class ReleaseTree extends Timber.DebugTree {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auth);
+    public ReleaseTree() {
+        super();
     }
 
+    @Override
+    protected void log(int priority, String tag, String message, Throwable t) {
+        Log.println(priority, tag, message);
+    }
 }

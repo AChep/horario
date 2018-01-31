@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 
-import com.artemchep.basic.ui.activities.ActivityBase;
 import com.artemchep.horario.R;
 import com.artemchep.horario._new.widgets.ContextualToolbar;
 

@@ -22,8 +22,8 @@ import android.app.Dialog
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
 import com.afollestad.materialdialogs.MaterialDialog
-import com.artemchep.basic.utils.HtmlUtils
-import com.artemchep.basic.utils.RawReader
+import com.artemchep.horario.utils.HtmlUtils
+import com.artemchep.horario.utils.RawReader
 import com.artemchep.horario.R
 
 /**

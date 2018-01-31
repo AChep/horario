@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.artemchep.basic.Device
+import com.artemchep.horario.Device
 import com.artemchep.horario.Palette
 import com.artemchep.horario.R
 import com.artemchep.horario.database.createParcel

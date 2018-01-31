@@ -1,7 +1,7 @@
 package com.artemchep.horario.utils.io
 
 import android.content.Context
-import com.artemchep.basic.utils.IOUtils
+import com.artemchep.horario.utils.IOUtils
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader

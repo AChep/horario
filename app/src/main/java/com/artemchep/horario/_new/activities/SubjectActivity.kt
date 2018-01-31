@@ -17,7 +17,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
-import com.artemchep.basic.Device
+import com.artemchep.horario.Device
 import com.artemchep.horario.Config
 import com.artemchep.horario.Palette
 import com.artemchep.horario.R

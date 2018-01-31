@@ -40,8 +40,8 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.artemchep.basic.Device;
-import com.artemchep.basic.utils.PackageUtils;
+import com.artemchep.horario.Device;
+import com.artemchep.horario.utils.PackageUtils;
 import com.artemchep.horario.Binfo;
 import com.artemchep.horario.R;
 import com.google.firebase.auth.FirebaseAuth;

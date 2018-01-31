@@ -19,7 +19,7 @@
 package com.artemchep.horario.aggregator
 
 import android.text.TextUtils
-import com.artemchep.basic.interfaces.IObservable
+import com.artemchep.horario.interfaces.IObservable
 import com.artemchep.horario.interfaces.Unique
 import java.util.*
 

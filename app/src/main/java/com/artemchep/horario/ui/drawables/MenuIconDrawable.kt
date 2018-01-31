@@ -18,8 +18,6 @@
  */
 package com.artemchep.horario.ui.drawables
 
-import com.artemchep.basic.ui.drawables.TransformationDrawable
-
 /**
  * Menu icon with an ability to animate between its states:
  * normal state (like `V`) and upside-down state (like `^`)
