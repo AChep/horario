@@ -22,11 +22,9 @@ import android.app.Application;
 import android.content.Context;
 import android.os.StrictMode;
 import android.support.annotation.NonNull;
-import android.support.multidex.MultiDex;
 
 import com.artemchep.horario.timber.ReleaseTree;
 import com.artemchep.horario.content.PreferenceStore;
-import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.leakcanary.LeakCanary;
@@ -95,12 +93,6 @@ public class Heart extends Application {
     }
 
     @Override
-    public void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
-    }
-
-    @Override
     public void onCreate() {
         super.onCreate();
         // Setup log
@@ -126,7 +118,6 @@ public class Heart extends Application {
         initConfig();
 
         JodaTimeAndroid.init(this);
-        Fresco.initialize(this);
         Nammu.init(this);
     }
 
