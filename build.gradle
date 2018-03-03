@@ -3,8 +3,8 @@
 buildscript {
     ext.kotlin_version = '1.2.20'
     ext.firebase_version = "11.8.0"
-    ext.support_lib_version = "27.0.2"
-    ext.leakcanary_lib_version = "1.5"
+    ext.support_lib_version = "27.1.0"
+    ext.leakcanary_lib_version = "1.5.1"
     ext.md_lib_version = "0.9.6.0"
 
     repositories {

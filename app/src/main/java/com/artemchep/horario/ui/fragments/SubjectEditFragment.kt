@@ -452,7 +452,7 @@ class SubjectEditFragment : FragmentBase(),
         }
 
         val view = toolBar.findMenuItemView(R.id.action_palette) ?: return
-        MaterialTapTargetPrompt.Builder(activity)
+        MaterialTapTargetPrompt.Builder(activity!!)
                 .setTarget(view)
                 .setFocalColour(Color.TRANSPARENT)
                 .setPrimaryText(getString(R.string.prompt_subject_edit_palette_title))
